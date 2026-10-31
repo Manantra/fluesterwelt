@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="19.5 -5.5 185.1 185.5">
+  <defs><path id="qilin-flame" d="M-16 0C-22-16-10-26-10-38C-10-44-14-47-19-49C-23-51-22-56-17-56C-2-56 9-46 10-32C11-20 18-12 16 0Z"/></defs>
+  <ellipse cx="98" cy="180" rx="56" ry="5" fill="#2b2b3a" opacity="0.22"/>
+  <g class="part-tail" style="transform-box: fill-box; transform-origin: 95% 85%">
+    <path d="M57 89C55 90 48 94 46 93C43 93 41 90 39 87C38 84 38 78 37 76A2 2 0 0 0 33 76C33 78 33 85 35 89C37 93 40 98 44 99C49 100 56 96 59 95Z" fill="#e8a83c"/>
+    <use href="#qilin-flame" fill="#d0703a" transform="translate(35 80) rotate(-12) scale(0.475)"/>
+    <use href="#qilin-flame" fill="#ff9f5a" transform="translate(36.4 78.4) rotate(-12) scale(0.275)"/>
+    <use href="#qilin-flame" fill="#ffd166" transform="translate(36.8 77.6) rotate(-12) scale(0.142)"/>
+  </g>
+  <use href="#qilin-flame" fill="#d0703a" transform="translate(104 170) rotate(-28) scale(0.275)"/>
+  <use href="#qilin-flame" fill="#d0703a" transform="translate(82 169) rotate(-28) scale(0.275)"/>
+  <path d="M109 111C108 115 109 129 108 135C107 141 106 144 105 149C104 153 103 158 103 162C102 166 102 170 102 172L110 172C111 171 111 167 111 164C112 160 114 156 115 151C116 147 119 143 120 137C121 130 123 117 123 113ZM69 107C71 110 78 119 79 124C80 130 76 135 77 142C77 148 80 157 81 163C81 168 81 171 82 172L90 172C90 170 90 166 89 161C89 157 87 148 87 142C88 136 92 131 93 124C93 117 91 105 91 101Z" fill="#e8a83c"/>
+  <path d="M101 169L111 169L112 178Q112 180 109 180L103 180Q100 180 100 178ZM81 169L91 169L92 178Q92 180 89 180L83 180Q80 180 80 178Z" fill="#5c4334"/>
+  <path d="M106 175L108 175L108 180L106 180ZM86 175L88 175L88 180L86 180Z" fill="#f4f1de" opacity="0.45"/>
+  <path d="M109 111C108 115 109 129 108 135C107 141 106 144 105 149C104 153 103 158 103 162C102 166 102 170 102 172L110 172C111 171 111 167 111 164C112 160 114 156 115 151C116 147 119 143 120 137C121 130 123 117 123 113ZM69 107C71 110 78 119 79 124C80 130 76 135 77 142C77 148 80 157 81 163C81 168 81 171 82 172L90 172C90 170 90 166 89 161C89 157 87 148 87 142C88 136 92 131 93 124C93 117 91 105 91 101ZM101 169L111 169L112 178Q112 180 109 180L103 180Q100 180 100 178ZM81 169L91 169L92 178Q92 180 89 180L83 180Q80 180 80 178Z" fill="#2b2b3a" opacity="0.25"/>
+  <use href="#qilin-flame" fill="#d0703a" transform="translate(136 170) rotate(-28) scale(0.275)"/>
+  <use href="#qilin-flame" fill="#d0703a" transform="translate(50 169) rotate(-28) scale(0.275)"/>
+  <path d="M123 113C123 117 126 131 127 137C128 143 130 147 131 151C132 156 134 160 135 164C135 167 135 171 136 172L144 172C144 170 144 166 143 162C143 158 142 153 141 149C140 144 140 141 139 135C138 129 138 115 137 111ZM52 101C52 105 52 117 51 124C50 130 47 135 47 141C46 148 48 157 49 162C49 168 49 171 50 172L58 172C58 170 58 166 57 162C57 157 56 148 57 143C59 137 62 134 65 128C68 122 74 111 76 107Z" fill="#e8a83c"/>
+  <path d="M135 169L145 169L146 178Q146 180 143 180L137 180Q134 180 134 178ZM49 169L59 169L60 178Q60 180 57 180L51 180Q48 180 48 178Z" fill="#5c4334"/>
+  <path d="M140 175L142 175L142 180L140 180ZM54 175L56 175L56 180L54 180Z" fill="#f4f1de" opacity="0.45"/>
+  <clipPath id="qilin-body"><path d="M52 94C52 80 70 74 94 74C116 74 134 78 142 90C149 100 148 116 141 124C132 132 114 131 98 128C78 126 60 123 55 114C51 108 52 100 52 94Z"/></clipPath>
+  <path d="M52 94C52 80 70 74 94 74C116 74 134 78 142 90C149 100 148 116 141 124C132 132 114 131 98 128C78 126 60 123 55 114C51 108 52 100 52 94Z" fill="#e8a83c"/>
+  <g clip-path="url(#qilin-body)">
+    <path d="M59 88a10 10 0 0 0 20 0h-4a6 6 0 0 1-12 0zM82 82a10 10 0 0 0 20 0h-4a6 6 0 0 1-12 0zM110 84a10 10 0 0 0 20 0h-4a6 6 0 0 1-12 0zM66 102a10 10 0 0 0 20 0h-4a6 6 0 0 1-12 0zM94 100a10 10 0 0 0 20 0h-4a6 6 0 0 1-12 0zM122 102a10 10 0 0 0 20 0h-4a6 6 0 0 1-12 0zM52 112a10 10 0 0 0 20 0h-4a6 6 0 0 1-12 0zM80 116a10 10 0 0 0 20 0h-4a6 6 0 0 1-12 0zM108 116a10 10 0 0 0 20 0h-4a6 6 0 0 1-12 0z" fill="#2e8b57"/>
+    <path d="M40 113C70 120 112 124 152 112L152 140L40 140Z" fill="#f4f1de"/>
+    <path d="M40 140L40 113C70 126 120 132 152 116L152 140Z" fill="#2b2b3a" opacity="0.14"/>
+  </g>
+  <g class="part-head" style="transform-box: fill-box; transform-origin: 29.3% 95%">
+    <path d="M112 90C112 89 114 86 115 84C116 82 117 80 118 78C120 76 121 74 123 72C124 70 126 68 127 66C129 64 131 62 133 60C135 58 138 55 139 54A4 4 0 0 0 134 49C133 50 130 53 128 55C126 57 124 59 122 61C120 63 118 65 117 67C115 70 114 72 112 74C111 76 109 78 108 80C107 82 105 85 105 86A4 4 0 0 0 112 90Z" fill="#d0703a"/>
+    <use href="#qilin-flame" fill="#d0703a" transform="translate(113 90) rotate(-38) scale(0.42)"/>
+    <use href="#qilin-flame" fill="#d0703a" transform="translate(119.4 78.6) rotate(-31) scale(0.375)"/>
+    <use href="#qilin-flame" fill="#d0703a" transform="translate(128.5 67.1) rotate(-24) scale(0.43)"/>
+    <use href="#qilin-flame" fill="#d0703a" transform="translate(140.1 55.3) rotate(-17) scale(0.4)"/>
+    <use href="#qilin-flame" fill="#ff9f5a" transform="translate(115.4 90) rotate(-38) scale(0.244)"/>
+    <use href="#qilin-flame" fill="#ff9f5a" transform="translate(121.8 78.6) rotate(-31) scale(0.217)"/>
+    <use href="#qilin-flame" fill="#ff9f5a" transform="translate(130.9 67.1) rotate(-24) scale(0.249)"/>
+    <use href="#qilin-flame" fill="#ff9f5a" transform="translate(142.5 55.3) rotate(-17) scale(0.232)"/>
+    <path d="M106 100C110 82 122 66 140 50L158 60C150 72 146 86 144 100Z" fill="#e8a83c"/>
+    <clipPath id="qilin-neck"><path d="M106 100C110 82 122 66 140 50L158 60C150 72 146 86 144 100Z"/></clipPath>
+    <path d="M114 84a10 10 0 0 0 20 0h-4a6 6 0 0 1-12 0zM123 70a10 10 0 0 0 20 0h-4a6 6 0 0 1-12 0zM132 59a10 10 0 0 0 20 0h-4a6 6 0 0 1-12 0z" fill="#2e8b57" clip-path="url(#qilin-neck)"/>
+    <path d="M158 60C150 72 146 86 144 100L139 100C141 87 146 74 158 60Z" fill="#f4f1de"/>
+    <g transform="translate(-8 10)">
+    <use href="#qilin-flame" fill="#d0703a" transform="translate(151 21) rotate(-52) scale(0.36)"/>
+    <use href="#qilin-flame" fill="#ff9f5a" transform="translate(153.4 21) rotate(-52) scale(0.209)"/>
+    <use href="#qilin-flame" fill="#d0703a" transform="translate(147 31) rotate(-68) scale(0.4)"/>
+    <use href="#qilin-flame" fill="#ff9f5a" transform="translate(149.4 31) rotate(-68) scale(0.232)"/>
+    <use href="#qilin-flame" fill="#d0703a" transform="translate(154 40) rotate(-84) scale(0.36)"/>
+    <use href="#qilin-flame" fill="#ff9f5a" transform="translate(156.4 40) rotate(-84) scale(0.209)"/>
+    <g transform="translate(150 23) scale(1.5) translate(-150 -23)"><path d="M142 24C138 17 134 12 128 9C125.5 7.8 126.5 4.6 129.4 5.4C133 6.6 135.5 9 137.5 11.5C138 7 136.5 3 134 0C132.6-2 135.4-3.6 137-1.8C141 3 143.5 10 148 22Z" fill="#f4f1de"/><path d="M142 24C138 17 134 12 128 9C125.5 7.8 126.5 4.6 129.4 5.4C133 6.6 135.5 9 137.5 11.5C138 7 136.5 3 134 0C132.6-2 135.4-3.6 137-1.8C141 3 143.5 10 148 22Z" fill="#2b2b3a" opacity="0.25"/></g>
+    <path d="M147 28C144 22 140 15 136 10.5C144 10.5 151 16.5 156.5 24Z" fill="#e8a83c"/>
+    <path d="M153 24C149 17 145 12 139 9C136.5 7.8 137.5 4.6 140.4 5.4C144 6.6 146.5 9 148.5 11.5C149 7 147.5 3 145 0C143.6-2 146.4-3.6 148-1.8C152 3 154.5 10 159 22Z" fill="#f4f1de" transform="translate(156 23) scale(1.5) translate(-156 -23)"/>
+    <clipPath id="qilin-head"><path d="M146 32C146 20 156 13 167 15C173 16 176 19 180 21L198 23C204 23.6 208 27 208.4 33C208.8 39 207 47 198 49C186 50 172 52 162 50C152 48 146 42 146 32Z"/></clipPath>
+    <path d="M146 32C146 20 156 13 167 15C173 16 176 19 180 21L198 23C204 23.6 208 27 208.4 33C208.8 39 207 47 198 49C186 50 172 52 162 50C152 48 146 42 146 32Z" fill="#e8a83c"/>
+    <g clip-path="url(#qilin-head)">
+    <path d="M140 44C160 50 180 51 214 42L214 60L140 60Z" fill="#2b2b3a" opacity="0.18"/>
+    <path d="M212 40.6C198 45 184 46 175 44C172 43.5 171 41.5 172 40C174 42 177 42.6 180 42.8C190 43.4 200 42.6 212 38.6Z" fill="#2b2b3a" opacity="0.55"/>
+    </g>
+    <circle cx="166" cy="29" r="4.6" fill="#2b2b3a"/>
+    <circle cx="164.7" cy="27.7" r="1.35" fill="#ffffff"/>
+    <ellipse cx="171" cy="40.5" rx="4.5" ry="2.7" fill="#ff7a8a" opacity="0.55"/>
+    <circle cx="200.5" cy="29.5" r="2.6" fill="#2b2b3a" opacity="0.6"/>
+    <path d="M200.5 39.7C201 41.4 202.5 46.7 203.7 49.8C204.9 52.9 207.2 55.7 207.8 58.4C208.4 61 208.2 64.1 207.3 65.9C206.3 67.7 203.6 69.1 202 69.1C200.4 69.2 198 67.4 197.6 66.5C197.2 65.5 198.8 63.6 199.6 63.4C200.4 63.1 201.9 64.9 202.4 65.2A1.3 1.3 0 0 0 203.6 62.8C202.7 62.5 199.9 59.9 198.4 60.6C196.9 61.4 193.8 65.5 194.4 67.5C195 69.6 199.3 72.8 202 72.9C204.7 72.9 209 70.6 210.7 68.1C212.4 65.5 212.6 61 212.2 57.6C211.8 54.3 209.4 51.4 208.3 48.2C207.1 44.9 206 39.9 205.5 38.3A2.6 2.6 0 0 0 200.5 39.7Z" fill="#d0703a"/>
+    </g>
+  </g>
+</svg>
