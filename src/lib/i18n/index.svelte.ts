@@ -8,8 +8,10 @@
 
 import { browser } from "$app/environment";
 import type { SceneId } from "$lib/scenes/types";
+import { deUi } from "./de-ui";
+import { deCreatures, deFacts, deScenes } from "./de-content";
 
-export type LanguageCode = "en" | "es" | "fr";
+export type LanguageCode = "en" | "es" | "fr" | "de";
 
 const en = {
   name: "English",
@@ -1835,7 +1837,17 @@ const fr = {
   },
 } satisfies Language;
 
+const de = {
+  name: "Deutsch",
+  locale: "de",
+  ui: deUi,
+  scenes: deScenes,
+  creatures: deCreatures,
+  facts: deFacts,
+} satisfies Language;
+
 const languages: Record<LanguageCode, Language> = {
+  de,
   en: { ...en, scenes: enScenes },
   es,
   fr,
@@ -1846,25 +1858,12 @@ export const languageOptions = (Object.keys(languages) as LanguageCode[]).map(
   (code) => ({ code, name: languages[code].name }),
 );
 
-export const language = $state<{ code: LanguageCode }>({ code: "en" });
+export const language = $state<{ code: LanguageCode }>({ code: "de" });
 let initialized = false;
 
-function browserCode(): LanguageCode | null {
-  const preferred = navigator.languages?.length
-    ? navigator.languages
-    : [navigator.language];
-  for (const tag of preferred) {
-    const code = String(tag ?? "")
-      .toLowerCase()
-      .split("-")[0];
-    if (code in languages) return code as LanguageCode;
-  }
-  return null;
-}
-
 /**
- * The page is prerendered in English; this picks the saved language, or the
- * browser's own, once it is running in a browser.
+ * New visitors start in German. A saved choice always takes precedence.
+ * Other languages remain available from the language picker.
  */
 export function initializeLanguage() {
   if (!browser || initialized) return;
@@ -1878,7 +1877,7 @@ export function initializeLanguage() {
   } catch {
     // Private browsing may refuse storage; the language still works this visit.
   }
-  language.code = browserCode() ?? "en";
+  language.code = "de";
 }
 
 export function setLanguage(code: string) {
