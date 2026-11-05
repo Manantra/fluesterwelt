@@ -1,0 +1,37 @@
+name: Build prüfen
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Quellcode auschecken
+        uses: actions/checkout@v4
+      - name: Node.js 22 einrichten
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: .node-version
+      - name: Abhängigkeiten installieren
+        run: npm install --no-audit --no-fund
+      - name: Typen und Svelte prüfen
+        run: npm run check
+      - name: Formatierung und Lint prüfen
+        run: npm run lint
+      - name: Produktions-Build erstellen
+        run: npm run build
+        env:
+          VITE_SITE_URL: https://fluesterwelt.familiemenges.de
+      - name: Erstellte Dateien prüfen
+        run: |
+          test -s build/index.html
+          test -s build/og-image.png
+          test -s build/favicon.svg
+          test -s build/privacy/index.html
+          test -s build/impressum/index.html
