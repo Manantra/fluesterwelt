@@ -1,31 +1,34 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="FlüsterWelt – Fuchs vor einer Weltkugel">
   <defs>
-    <clipPath id="shy-safari-logo-clip"><circle cx="64" cy="64" r="62"/></clipPath>
+    <linearGradient id="fw-globe" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#54d5c3"/>
+      <stop offset="1" stop-color="#087f81"/>
+    </linearGradient>
+    <linearGradient id="fw-fur" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffb35b"/>
+      <stop offset="1" stop-color="#ef7c35"/>
+    </linearGradient>
+    <clipPath id="fw-globe-clip"><circle cx="64" cy="61" r="56"/></clipPath>
   </defs>
-  <circle cx="64" cy="64" r="62" fill="#ffd166"/>
-  <g clip-path="url(#shy-safari-logo-clip)">
-    <g transform="rotate(-7 64 96)">
-      <path d="M28 104 C 30 92 36 83 42 78 L 86 78 C 98 80 108 90 112 104 Z" fill="#8e9bb0"/>
-      <path d="M44 38 C 26 26 9 38 11 61 C 13 84 30 94 46 84 Z" fill="#7f8ca3"/>
-      <path d="M42 45 C 29 36 18 45 19 61 C 20 77 31 83 42 77 Z" fill="#ff7a8a" opacity="0.5"/>
-      <path d="M84 38 C 102 26 119 38 117 61 C 115 84 98 94 82 84 Z" fill="#7f8ca3"/>
-      <path d="M86 45 C 99 36 110 45 109 61 C 108 77 97 83 86 77 Z" fill="#ff7a8a" opacity="0.5"/>
-      <ellipse cx="64" cy="96" rx="22" ry="14" fill="#8e9bb0"/>
-      <path d="M64 28 C 86 28 97 42 97 60 C 97 79 83 91 64 91 C 45 91 31 79 31 60 C 31 42 42 28 64 28 Z" fill="#8e9bb0"/>
-      <path d="M44 42 C 46.5 36.5 51 33.5 57 31.5 C 52 35.5 48.5 39.5 47 44 C 46 46.5 43.2 45.3 44 42 Z" fill="#ffffff" opacity="0.35"/>
-      <path d="M43.5 51.5 C 45 47.5 50 45.5 53.5 47 C 54.5 48 53.5 49.5 52.5 49.2 C 50 48.4 46.5 49.5 45.5 51.8 C 45 53 43 53 43.5 51.5 Z" fill="#2b2b3a" opacity="0.45"/>
-      <path d="M84.5 51.5 C 83 47.5 78 45.5 74.5 47 C 73.5 48 74.5 49.5 75.5 49.2 C 78 48.4 81.5 49.5 82.5 51.8 C 83 53 85 53 84.5 51.5 Z" fill="#2b2b3a" opacity="0.45"/>
-      <circle cx="50" cy="59" r="5.5" fill="#2b2b3a"/>
-      <circle cx="48.2" cy="57.2" r="1.8" fill="#ffffff"/>
-      <circle cx="78" cy="59" r="5.5" fill="#2b2b3a"/>
-      <circle cx="76.2" cy="57.2" r="1.8" fill="#ffffff"/>
-      <ellipse cx="42" cy="70" rx="5.5" ry="3.5" fill="#ff7a8a" opacity="0.7"/>
-      <ellipse cx="86" cy="70" rx="5.5" ry="3.5" fill="#ff7a8a" opacity="0.7"/>
-      <path d="M57.5 63 C 57.5 58 70.5 58 70.5 63 L 70 79 C 70 84 73 85 75 82 C 77 79 82 81 81 85 C 79 93 70 96 64 92 C 59 89 58 84 58 79 Z" fill="#68748a"/>
-      <path d="M60.5 65 C 61.2 64 62.3 64 62.8 65 L 62.5 81 C 62.5 82.5 60.5 82.5 60.5 81 Z" fill="#ffffff" opacity="0.3"/>
-    </g>
-    <path d="M8 100 C 9 92 12 72 14 64 C 15 74 23 92 24 100 Z M20 100 C 21 92 24 80 26 72 C 27 82 35 92 36 100 Z M92 100 C 93 92 101 78 103 70 C 104 80 107 92 108 100 Z M104 100 C 105 92 112 72 114 64 C 115 74 119 92 120 100 Z" fill="#2e8b57"/>
-    <path d="M0 128 L 0 88 C 16 84 34 84 46 86 C 54 88 58 93 64 93 C 70 93 74 88 82 86 C 94 84 112 84 128 88 L 128 128 Z" fill="#3fae6d"/>
-    <path d="M12 100 C 13 92 16 84 18 76 C 19 86 27 92 28 100 Z M32 100 C 33 92 35 80 37 72 C 38 82 47 92 48 100 Z M80 100 C 81 92 89 80 91 72 C 92 82 95 92 96 100 Z M100 100 C 101 92 109 84 111 76 C 112 86 115 92 116 100 Z" fill="#3fae6d"/>
+  <circle cx="64" cy="61" r="56" fill="url(#fw-globe)" stroke="#065460" stroke-width="3"/>
+  <g clip-path="url(#fw-globe-clip)" fill="#a8e5bd" opacity=".7">
+    <path d="M15 42q15-22 35-22l10 10-7 14-15 4-2 16-17-5z"/>
+    <path d="M76 9q22 2 34 25l-13 9-9-6-14 6-11-13z"/>
+    <path d="M96 67l22-11 10 22-17 29-11-10-13-2z"/>
+    <path d="M48 84l19-8 11 12-6 28-15 10-14-16z"/>
   </g>
+  <path d="M17 108c11-22 30-20 37-9M111 108c-9-22-27-19-34-9" stroke="#3e953f" stroke-width="8" stroke-linecap="round" fill="none"/>
+  <path d="M13 104q-2-18 10-24 5 17-10 24zm98 0q2-18-10-24-5 17 10 24z" fill="#8cc846"/>
+  <path d="M40 38 27 20q-4-8 4-10l19 12 14 8 15-8 20-12q8 1 4 10L91 39z" fill="url(#fw-fur)" stroke="#084d50" stroke-width="4" stroke-linejoin="round"/>
+  <path d="m39 29-5-11 16 12zm51 0 5-11-16 12z" fill="#fff0da"/>
+  <path d="M29 52q2-23 35-28 32 5 35 28 5 25-16 39-10 9-19 9-11 0-22-9Q22 76 29 52" fill="url(#fw-fur)" stroke="#084d50" stroke-width="4"/>
+  <path d="M33 70q8 0 18 5 9 5 13 4 9 1 17-4 9-5 15-5-1 24-32 29-30-5-31-29" fill="#fff4e2"/>
+  <path d="M44 57q5 8 12 0M73 57q6 8 12 0" fill="none" stroke="#094d51" stroke-width="4.4" stroke-linecap="round"/>
+  <path d="M59 74q4-4 10 0l-5 5z" fill="#073f46"/>
+  <path d="M63 79q0 5-5 6m5-6q0 5 5 6" fill="none" stroke="#073f46" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M34 92q-10 19 7 26 11 8 22-3 18 10 32-2 10-12-3-28-4 16-22 19-16 4-29-12" fill="url(#fw-fur)" stroke="#084d50" stroke-width="3.5" stroke-linejoin="round"/>
+  <path d="M67 109q10-13 23-10-3 13-23 17z" fill="#fff4e2"/>
+  <path d="M75 90q-5-8 2-15l1-13q0-5 5-5 6 0 6 6l-1 14q7 4 5 13-2 7-10 7z" fill="#ffa853" stroke="#084d50" stroke-width="3" stroke-linejoin="round"/>
+  <circle cx="85" cy="72" r="1.7" fill="#fff5dd"/>
+  <path d="m16 20 2 5 5 2-5 2-2 5-2-5-5-2 5-2zm98 20 2 5 5 2-5 2-2 5-2-5-5-2 5-2z" fill="#f8c75b"/>
 </svg>

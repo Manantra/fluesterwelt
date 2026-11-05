@@ -6,6 +6,31 @@ Die Benutzeroberfläche ist vollständig auf Deutsch übersetzt. Deutsch ist bei
 
 **Technik:** Svelte 5, SvelteKit, TypeScript. Für einen lokalen Start `npm install` und `npm run dev`, für einen statischen Produktionsbuild `npm run build`. Die erstellten Dateien liegen unter `build/` und benötigen für den Mikrofonzugriff beim Hosting HTTPS.
 
+## Vor dem öffentlichen Start
+
+- **Domain konfigurieren:** `VITE_SITE_URL=https://deine-domain.tld npm run build`
+  setzt kanonische Seitenlinks, Sitemap sowie die URL der Linkvorschau
+  auf die eigene HTTPS-Domain. Ohne Konfiguration wird **keine fremde
+  Website als kanonische Adresse ausgegeben**; die Bildvorschau greift
+  ersatzweise auf das eigene öffentliche GitHub-Repository zurück.
+- **Datenschutz und Impressum vervollständigen:** Betreiberangaben,
+  ladungsfähige Anschrift, E-Mail, Hostingunternehmen, Serverprotokolle,
+  Löschfristen, rechtliche Grundlagen und mögliche Auftragsverarbeiter
+  in den Dateien `src/routes/privacy/+page.svelte` und
+  `src/routes/impressum/+page.svelte` ergänzen.
+- Die Webseite über **HTTPS** bereitstellen, damit die Browser-Mikrofonfreigabe
+  zuverlässig verfügbar ist.
+- Die Endgerätespeicherung (insbesondere optionale Daten im Browser) auf
+  Einwilligungsbedürftigkeit nach § 25 TDDDG prüfen.
+- **Kein Tracking eingebaut:** Die ursprüngliche Cloudflare-Webanalyse
+  wurde für FlüsterWelt entfernt. Der Host kann unabhängig davon
+  technische Serverlogs verarbeiten.
+
+Die Linkvorschau stammt aus `static/og-image.svg` und wird als
+`static/og-image.png` (1200 × 630 Pixel) eingebunden; das Fuchslogo
+liegt unter `src/lib/brand/logo.svg`. Favicon und Apple-Touch-Icon
+nutzen dasselbe Motiv.
+
 **Lizenz und Dank:** Fork des Projekts von [teacher.dev](https://teacher.dev), veröffentlicht unter der Apache License 2.0. Die ursprüngliche Lizenzdatei `LICENSE.txt` bleibt erhalten. Siehe auch [NOTICE.md](NOTICE.md).
 
 ---
@@ -89,8 +114,8 @@ bun run lint     # prettier + eslint
 bun run build    # static production build into build/
 ```
 
-Cloudflare Web Analytics is added to the build only when `CF_BEACON_TOKEN` is
-set, which it is only in Vercel's production environment.
+Note for this FlüsterWelt fork: optional Cloudflare Web Analytics was removed
+from the application.
 
 ## How it is put together
 

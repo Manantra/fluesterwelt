@@ -4,12 +4,6 @@ import { sveltekit } from "@sveltejs/kit/vite";
 import { defineConfig } from "vite";
 
 export default defineConfig({
-  server: {
-    allowedHosts: ["class-noise-level.edtechathon.com"],
-  },
-  // Expose the Cloudflare Web Analytics token (set only in Vercel's
-  // production environment) to client code.
-  envPrefix: ["VITE_", "CF_BEACON_TOKEN"],
   plugins: [
     tailwindcss(),
     sveltekit({

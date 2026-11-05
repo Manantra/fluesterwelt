@@ -30,7 +30,7 @@
   import { mount, onMount, tick, unmount } from "svelte";
   import { settings } from "$lib/settings/settings.svelte";
   import logoUrl from "$lib/brand/logo.svg";
-  import { PREVIEW_IMAGE, absoluteUrl } from "$lib/site";
+  import { PREVIEW_IMAGE, SITE_URL, absoluteUrl } from "$lib/site";
 
   const app = new App();
 
@@ -64,10 +64,14 @@
     })),
   });
 
-  const jsonLd = $derived({
-    "@context": "https://schema.org",
-    "@graph": [webApplication, faqPage],
-  });
+  const jsonLd = $derived(
+    SITE_URL
+      ? {
+          "@context": "https://schema.org",
+          "@graph": [webApplication, faqPage],
+        }
+      : undefined,
+  );
 
   let settingsOpen = $state(false);
   let collectionOpen = $state(false);

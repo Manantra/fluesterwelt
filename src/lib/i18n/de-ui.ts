@@ -9,9 +9,10 @@ export const deUi = {
   "common.builtBy": "Basierend auf Shy Safari von teacher.dev",
   "common.about": "Über das Projekt",
   "common.privacy": "Datenschutz",
+  "common.imprint": "Impressum",
   "common.howItWorks": "So funktioniert's",
   "preview.alt":
-    "Eine ruhige Savanne mit Elefant, Zebras, Löwe, Giraffe und Erdmännchen sowie dem Schriftzug Shy Safari",
+    "FlüsterWelt: Ein freundlicher Fuchs vor einer Weltkugel und der Text Ruhige Klassen. Lebendige Welten.",
   "common.back": "← Zurück zu FlüsterWelt",
   "common.close": "Schließen",
   "common.cancel": "Abbrechen",

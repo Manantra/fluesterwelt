@@ -6,7 +6,7 @@
    * The page itself never scrolls (the Scene must not), so this frame does.
    */
 
-  import { asset, resolve } from "$app/paths";
+  import { resolve } from "$app/paths";
   import LanguagePicker from "$lib/components/LanguagePicker.svelte";
   import { t } from "$lib/i18n/index.svelte";
   import logoUrl from "$lib/brand/logo.svg";
@@ -59,7 +59,7 @@
       rel="noopener noreferrer"
       class="flex items-center gap-2 hover:text-slate-900"
     >
-      <img src={asset("/edtechathon-logo.svg")} alt="" class="size-6" />
+      <img src={logoUrl} alt="" class="size-6" />
       {t("common.builtBy")}
     </a>
     <a href={resolve("/#how-it-works")} class="hover:text-slate-900"
@@ -70,6 +70,9 @@
     >
     <a href={resolve("/privacy")} class="hover:text-slate-900"
       >{t("common.privacy")}</a
+    >
+    <a href={resolve("/impressum")} class="hover:text-slate-900"
+      >{t("common.imprint")}</a
     >
   </footer>
 </div>

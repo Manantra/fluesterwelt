@@ -8,7 +8,8 @@
    * privacy pages. How it works has its own button in the bottom corner.
    */
 
-  import { asset, resolve } from "$app/paths";
+  import { resolve } from "$app/paths";
+  import logoUrl from "$lib/brand/logo.svg";
   import { t } from "$lib/i18n/index.svelte";
 
   /** Pointing at it is enough on a desktop; nothing has to be clicked. */
@@ -47,7 +48,7 @@
     title={t("brand.title")}
     onclick={() => (pinned = !pinned)}
   >
-    <img src={asset("/edtechathon-logo.svg")} alt="" class="size-7" />
+    <img src={logoUrl} alt="" class="size-9" />
   </button>
 
   <!-- Always in the document, so the button keeps something to point its
@@ -63,11 +64,11 @@
       class="flex w-max flex-col items-start gap-1 rounded-2xl bg-white/95 px-4 py-2.5 shadow-lg"
     >
       <a
-        href="https://teacher.dev"
+        href="https://github.com/Manantra/fluesterwelt"
         target="_blank"
         rel="noopener noreferrer"
         class="text-sm font-semibold text-slate-900 hover:underline"
-        >{t("common.builtBy")}</a
+        >FlüsterWelt auf GitHub</a
       >
       <p class="flex items-center gap-2 text-xs font-medium text-slate-600">
         <a href={resolve("/about")} class="hover:text-slate-900 hover:underline"
@@ -77,6 +78,11 @@
         <a
           href={resolve("/privacy")}
           class="hover:text-slate-900 hover:underline">{t("common.privacy")}</a
+        >
+        <span aria-hidden="true" class="text-slate-300">·</span>
+        <a
+          href={resolve("/impressum")}
+          class="hover:text-slate-900 hover:underline">{t("common.imprint")}</a
         >
       </p>
     </div>
