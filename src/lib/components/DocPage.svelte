@@ -1,4 +1,5 @@
 <script lang="ts">
+  // FlüsterWelt adaptation: localized header title.
   /**
    * The frame the about and privacy pages share. Unlike the Scene these are
    * ordinary scrolling pages, so here a footer really can sit at the bottom.
