@@ -33,5 +33,5 @@ jobs:
           test -s build/index.html
           test -s build/og-image.png
           test -s build/favicon.svg
-          test -s build/privacy/index.html
-          test -s build/impressum/index.html
+          test -s build/privacy.html
+          test -s build/impressum.html
