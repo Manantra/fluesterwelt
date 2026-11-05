@@ -39,22 +39,18 @@
    */
   const webApplication = $derived({
     "@type": "WebApplication",
-    name: "Shy Safari",
+    name: "FlüsterWelt",
     url: absoluteUrl("/"),
     description: t("app.description"),
     image: PREVIEW_IMAGE,
     applicationCategory: "EducationalApplication",
     operatingSystem: "Any (web browser)",
-    browserRequirements: "Requires a microphone and a modern web browser",
-    inLanguage: ["en", "es", "fr"],
+    browserRequirements: "Benötigt ein Mikrofon und einen aktuellen Webbrowser",
+    inLanguage: ["de", "en", "es", "fr"],
     isAccessibleForFree: true,
     offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
     audience: { "@type": "EducationalAudience", educationalRole: "teacher" },
-    publisher: {
-      "@type": "Organization",
-      name: "teacher.dev",
-      url: "https://teacher.dev",
-    },
+    isBasedOn: "https://www.shysafari.com/",
   });
 
   const faqPage = $derived({
@@ -163,7 +159,7 @@
       // 4:3, the Scene's own shape, and small enough to sit beside a slide.
       pip = await controller.requestWindow({ width: 480, height: 360 });
       const page = pip.document;
-      page.title = "Shy Safari";
+      page.title = "FlüsterWelt";
       page.documentElement.lang = current().locale;
       // Scales the corner controls with the window: see layout.css.
       page.documentElement.classList.add("floating");
@@ -296,7 +292,7 @@
               class="mx-auto mb-3 size-24 short:mb-1 short:size-14"
             />
             <h1 class="text-2xl font-semibold text-slate-900 short:text-xl">
-              Shy Safari
+              FlüsterWelt
             </h1>
             <p
               class="mt-3 rounded-lg bg-amber-50 px-4 py-3 text-balance text-slate-800 short:mt-2 short:py-2 short:text-sm"
