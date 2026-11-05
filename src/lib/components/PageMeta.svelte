@@ -1,4 +1,5 @@
 <script lang="ts">
+  // FlüsterWelt adaptation: localized social metadata.
   /**
    * The head tags every page needs so search engines, link previews and AI
    * assistants describe it properly: title, description, the one canonical
