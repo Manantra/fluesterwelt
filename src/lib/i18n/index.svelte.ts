@@ -1,3 +1,4 @@
+/** FlüsterWelt adaptation: German translation, locale registration and default language. */
 /**
  * Every word the teacher or the class reads, in each language on offer.
  *
