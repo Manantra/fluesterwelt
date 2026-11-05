@@ -1,14 +1,17 @@
 /** German user-facing copy for FlüsterWelt. Every original UI key is translated. */
 export const deUi = {
   "language.change": "Sprache ändern",
-  "app.pageTitle": "FlüsterWelt – kostenlose Lautstärkeanzeige für das Klassenzimmer",
-  "app.description": "Eine kostenlose Lautstärkeanzeige für das Klassenzimmer. Je länger es ruhig bleibt, desto mehr Tiere zeigen sich in den verschiedenen Welten. Ohne Anmeldung und ohne Tonaufnahmen.",
+  "app.pageTitle":
+    "FlüsterWelt – kostenlose Lautstärkeanzeige für das Klassenzimmer",
+  "app.description":
+    "Eine kostenlose Lautstärkeanzeige für das Klassenzimmer. Je länger es ruhig bleibt, desto mehr Tiere zeigen sich in den verschiedenen Welten. Ohne Anmeldung und ohne Tonaufnahmen.",
   "brand.title": "Basierend auf Shy Safari von teacher.dev",
   "common.builtBy": "Basierend auf Shy Safari von teacher.dev",
   "common.about": "Über das Projekt",
   "common.privacy": "Datenschutz",
   "common.howItWorks": "So funktioniert's",
-  "preview.alt": "Eine ruhige Savanne mit Elefant, Zebras, Löwe, Giraffe und Erdmännchen sowie dem Schriftzug Shy Safari",
+  "preview.alt":
+    "Eine ruhige Savanne mit Elefant, Zebras, Löwe, Giraffe und Erdmännchen sowie dem Schriftzug Shy Safari",
   "common.back": "← Zurück zu FlüsterWelt",
   "common.close": "Schließen",
   "common.cancel": "Abbrechen",
@@ -16,15 +19,19 @@ export const deUi = {
   "fullScreen.enter": "Vollbild",
   "fullScreen.exit": "Vollbild verlassen",
   "float.open": "Über anderen Tabs anzeigen",
-  "float.openHint": "Die Szene in einem kleinen Fenster über Präsentationen oder anderen Tabs anzeigen",
+  "float.openHint":
+    "Die Szene in einem kleinen Fenster über Präsentationen oder anderen Tabs anzeigen",
   "float.failed": "Das schwebende Fenster konnte nicht geöffnet werden.",
   "floating.title": "FlüsterWelt ist in einem eigenen Fenster",
-  "floating.instructions": "Die Szene wird in einem eigenen Fenster über deinen anderen Tabs angezeigt und misst weiterhin die Lautstärke im Raum. Lass diesen Tab geöffnet. Über die Schaltfläche im Fenster kannst du hierher zurückkehren.",
+  "floating.instructions":
+    "Die Szene wird in einem eigenen Fenster über deinen anderen Tabs angezeigt und misst weiterhin die Lautstärke im Raum. Lass diesen Tab geöffnet. Über die Schaltfläche im Fenster kannst du hierher zurückkehren.",
   "floating.return": "FlüsterWelt hierher zurückholen",
   "start.shy": "Pssst … diese Tiere sind schüchtern!",
-  "start.explain": "Wenn es zu laut wird, bleiben sie versteckt. Sobald es wieder ruhig ist, kommen sie hervor.",
+  "start.explain":
+    "Wenn es zu laut wird, bleiben sie versteckt. Sobald es wieder ruhig ist, kommen sie hervor.",
   "start.button": "Starten",
-  "start.micNote": "Dein Browser fragt nach der Mikrofonfreigabe. Die Lautstärke wird nur auf diesem Gerät gemessen. Es wird nichts aufgenommen oder übertragen.",
+  "start.micNote":
+    "Dein Browser fragt nach der Mikrofonfreigabe. Die Lautstärke wird nur auf diesem Gerät gemessen. Es wird nichts aufgenommen oder übertragen.",
   "scene.label": "Welt",
   "scene.change": "Welt wechseln",
   "scene.new": "Neu",
@@ -74,8 +81,10 @@ export const deUi = {
   "timer.reset": "Zurücksetzen",
   "timer.done": "Die Zeit ist um!",
   "timer.close": "Timer schließen",
-  "timer.move": "Timer verschieben: am Rand ziehen oder die Pfeiltasten verwenden",
-  "timer.resize": "Timergröße ändern: an einer Ecke ziehen oder die Pfeiltasten verwenden",
+  "timer.move":
+    "Timer verschieben: am Rand ziehen oder die Pfeiltasten verwenden",
+  "timer.resize":
+    "Timergröße ändern: an einer Ecke ziehen oder die Pfeiltasten verwenden",
   "timer.style": "Zeitanzeige",
   "timer.style.digits": "Ziffern",
   "timer.style.circle": "Kreis",
@@ -99,14 +108,17 @@ export const deUi = {
   "notes.clear": "Zeichnung löschen",
   "notes.delete": "Löschen",
   "controls.pause": "Pausieren",
-  "controls.pauseHint": "Lautstärkemessung kurz anhalten, damit du mit der Klasse sprechen kannst",
+  "controls.pauseHint":
+    "Lautstärkemessung kurz anhalten, damit du mit der Klasse sprechen kannst",
   "controls.resume": "Fortsetzen",
   "paused.status": "Lautstärkemessung pausiert",
   "classes.change": "Klasse wechseln",
   "classes.unnamed": "Meine Klasse",
   "classes.edit": "Klassen verwalten",
-  "classes.hint": "Jede Klasse sammelt ihre eigenen Tiere und hat ein eigenes Sammelalbum.",
-  "classes.storage": "Deine Klassen werden nur in diesem Browser auf diesem Gerät gespeichert. Auf anderen Geräten oder in anderen Browsern sind sie nicht verfügbar. Wenn du die Browserdaten löschst, gehen sie verloren.",
+  "classes.hint":
+    "Jede Klasse sammelt ihre eigenen Tiere und hat ein eigenes Sammelalbum.",
+  "classes.storage":
+    "Deine Klassen werden nur in diesem Browser auf diesem Gerät gespeichert. Auf anderen Geräten oder in anderen Browsern sind sie nicht verfügbar. Wenn du die Browserdaten löschst, gehen sie verloren.",
   "classes.current": "Gerade angezeigt",
   "classes.rename": "Umbenennen",
   "classes.renameLabel": "Neuer Name für {name}",
@@ -117,18 +129,23 @@ export const deUi = {
   "classes.addPlaceholder": "z. B. Klasse 3a",
   "classes.add": "Klasse hinzufügen",
   "classes.deleteTitle": "Bist du sicher?",
-  "classes.deleteBody": "{name} löschen? Alle Tiere dieser Klasse in sämtlichen Welten und das gesamte Sammelalbum werden unwiderruflich entfernt.",
-  "classes.deleteOnly": "Das ist deine einzige Klasse. An ihrer Stelle wird eine neue, leere Klasse angelegt.",
+  "classes.deleteBody":
+    "{name} löschen? Alle Tiere dieser Klasse in sämtlichen Welten und das gesamte Sammelalbum werden unwiderruflich entfernt.",
+  "classes.deleteOnly":
+    "Das ist deine einzige Klasse. An ihrer Stelle wird eine neue, leere Klasse angelegt.",
   "classes.deleteYes": "Ja, löschen",
   "settings.title": "Einstellungen",
   "settings.microphone": "Mikrofon",
   "settings.meter": "Lautstärkeanzeige",
   "settings.showMeter": "Auf dem Bildschirm anzeigen",
-  "settings.showMeterHint": "Die Lautstärkeanzeige während der Arbeitsphase über der Welt einblenden",
-  "start.explainFlee": "Wenn es zu laut wird, laufen die Tiere weg! Bleibt es ruhig, kommen sie hervor und bleiben da.",
+  "settings.showMeterHint":
+    "Die Lautstärkeanzeige während der Arbeitsphase über der Welt einblenden",
+  "start.explainFlee":
+    "Wenn es zu laut wird, laufen die Tiere weg! Bleibt es ruhig, kommen sie hervor und bleiben da.",
   "settings.tooLoud": "Wenn es zu laut wird",
   "loud.flee.label": "Tiere laufen weg",
-  "loud.flee.hint": "Alle Tiere halten inne. Solange es laut bleibt, laufen alle 5 Sekunden weitere weg.",
+  "loud.flee.hint":
+    "Alle Tiere halten inne. Solange es laut bleibt, laufen alle 5 Sekunden weitere weg.",
   "loud.pause.label": "Welt pausieren",
   "loud.pause.hint": "Die Tiere bleiben stehen und es kommen keine neuen dazu.",
   "settings.arrival": "Wie oft neue Tiere erscheinen",
@@ -143,7 +160,8 @@ export const deUi = {
   "preview.title": "Halloween-Figuren",
   "preview.opening": "Von Anfang an dabei",
   "preview.unlocks": "Freischaltung am {date}",
-  "settings.savedNote": "Einstellungen werden nur auf diesem Gerät gespeichert. Der Mikrofonton verlässt das Gerät nicht.",
+  "settings.savedNote":
+    "Einstellungen werden nur auf diesem Gerät gespeichert. Der Mikrofonton verlässt das Gerät nicht.",
   "goal.silent.label": "Stillarbeit",
   "goal.silent.hint": "Gar nicht sprechen",
   "goal.independent.label": "Einzelarbeit",
@@ -161,7 +179,8 @@ export const deUi = {
   "meter.current": "Aktuelle Lautstärke",
   "meter.paused": "Pausiert – zu laut",
   "meter.arriving": "Neue Tiere erscheinen",
-  "meter.goal": "Tiere erscheinen, solange die Lautstärke links von der Linie bleibt ({goal} %).",
+  "meter.goal":
+    "Tiere erscheinen, solange die Lautstärke links von der Linie bleibt ({goal} %).",
   "calibration.title": "Kalibrierung",
   "calibration.needMic": "Bitte zuerst ein Mikrofon verbinden",
   "calibration.calibrated": "✓ Kalibriert",
@@ -174,18 +193,22 @@ export const deUi = {
   "calibration.stepTalking": "Normales Sprechen",
   "calibration.stepDone": "Fertig",
   "calibration.introLead": "Schritt 1:",
-  "calibration.intro": "Bitte die Klasse, ganz still zu sein. Sobald alle bereit sind, messen wir {seconds} Sekunden lang.",
+  "calibration.intro":
+    "Bitte die Klasse, ganz still zu sein. Sobald alle bereit sind, messen wir {seconds} Sekunden lang.",
   "calibration.quietButton": "Der Raum ist ruhig!",
   "calibration.listening": "Messung läuft:",
   "calibration.quietLeft": "noch {seconds} Sekunden ruhig bleiben …",
   "calibration.readyLead": "Schritt 2:",
-  "calibration.ready": "Bitte die Klasse, in normaler Arbeitslautstärke zu sprechen.",
+  "calibration.ready":
+    "Bitte die Klasse, in normaler Arbeitslautstärke zu sprechen.",
   "calibration.talkingButton": "Die Klasse spricht!",
   "calibration.talkingLeft": "noch {seconds} Sekunden normal weitersprechen …",
   "calibration.doneLead": "Kalibriert.",
-  "calibration.done": "Die Anzeige ist jetzt auf diesen Raum abgestimmt. Prüfe, ob die Zielmarkierung an der gewünschten Stelle liegt.",
+  "calibration.done":
+    "Die Anzeige ist jetzt auf diesen Raum abgestimmt. Prüfe, ob die Zielmarkierung an der gewünschten Stelle liegt.",
   "calibration.retryLead": "Versuchen wir es noch einmal.",
-  "calibration.retry": "Die beiden Messwerte lagen zu nah beieinander. Vielleicht war es nicht ruhig genug oder das Mikrofon erfasst die Klasse nicht richtig.",
+  "calibration.retry":
+    "Die beiden Messwerte lagen zu nah beieinander. Vielleicht war es nicht ruhig genug oder das Mikrofon erfasst die Klasse nicht richtig.",
   "calibration.startAgain": "Neu beginnen",
   "calibration.hears": "Das erfasst das Mikrofon",
   "collection.title": "Tiere",
@@ -202,66 +225,99 @@ export const deUi = {
   "chance.uncommon": "{percent} % der erscheinenden Tiere sind ungewöhnlich.",
   "chance.rare": "{percent} % der erscheinenden Tiere sind selten.",
   "blocked.title": "Die Tiere müssen den Raum hören können",
-  "blocked.denied": "Der Browser hat den Zugriff auf das Mikrofon blockiert. Klicke in der Adressleiste auf das Schloss- oder Kamerasymbol, erlaube den Mikrofonzugriff und versuche es erneut.",
-  "blocked.missing": "Dieses Mikrofon ist nicht mehr verfügbar. Wähle unten ein anderes Mikrofon aus und versuche es erneut.",
-  "blocked.unsupported": "Dieser Browser kann nicht auf ein Mikrofon zugreifen. Versuche es mit einer aktuellen Version von Chrome, Edge oder Safari.",
+  "blocked.denied":
+    "Der Browser hat den Zugriff auf das Mikrofon blockiert. Klicke in der Adressleiste auf das Schloss- oder Kamerasymbol, erlaube den Mikrofonzugriff und versuche es erneut.",
+  "blocked.missing":
+    "Dieses Mikrofon ist nicht mehr verfügbar. Wähle unten ein anderes Mikrofon aus und versuche es erneut.",
+  "blocked.unsupported":
+    "Dieser Browser kann nicht auf ein Mikrofon zugreifen. Versuche es mit einer aktuellen Version von Chrome, Edge oder Safari.",
   "blocked.tryAgain": "Erneut versuchen",
   "about.pageTitle": "Über FlüsterWelt",
-  "about.meta": "FlüsterWelt ist eine kostenlose Lautstärkeanzeige für den Unterricht und basiert auf dem Open-Source-Projekt Shy Safari von teacher.dev.",
+  "about.meta":
+    "FlüsterWelt ist eine kostenlose Lautstärkeanzeige für den Unterricht und basiert auf dem Open-Source-Projekt Shy Safari von teacher.dev.",
   "about.title": "Über das Projekt",
-  "about.lede": "Auf dem Beamer zeigen: Je ruhiger es im Raum ist, desto mehr Tiere kommen hervor.",
+  "about.lede":
+    "Auf dem Beamer zeigen: Je ruhiger es im Raum ist, desto mehr Tiere kommen hervor.",
   "about.originTitle": "Die Entstehung",
-  "about.origin.beforeEvent": "Das Originalprojekt Shy Safari entstand innerhalb von drei Tagen beim ",
-  "about.origin.afterEvent": ", einer Veranstaltung, bei der kostenlose digitale Werkzeuge für den Unterricht entstehen. Das Originalprojekt wird heute von ",
-  "about.origin.afterTeacher": " betreut. FlüsterWelt ist eine deutschsprachige Weiterentwicklung.",
+  "about.origin.beforeEvent":
+    "Das Originalprojekt Shy Safari entstand innerhalb von drei Tagen beim ",
+  "about.origin.afterEvent":
+    ", einer Veranstaltung, bei der kostenlose digitale Werkzeuge für den Unterricht entstehen. Das Originalprojekt wird heute von ",
+  "about.origin.afterTeacher":
+    " betreut. FlüsterWelt ist eine deutschsprachige Weiterentwicklung.",
   "about.photoAlt": "Teilnehmende des EdTech-a-thon 2026",
   "about.purposeTitle": "Das kann FlüsterWelt",
-  "about.purpose": "Zeige die Savanne, das Korallenriff, den Weltraum, die Urzeit, den Wald, den Dschungel oder die Arktis auf der Tafel und drücke auf Starten. Solange die Klasse leise genug ist, erscheint ein Tier nach dem anderen. Wird es zu laut, laufen Tiere weg. In den Einstellungen kannst du stattdessen festlegen, dass die Welt nur pausiert, bis es wieder ruhig ist. Einige Tiere sind häufig, andere selten. Im Sammelalbum sieht die Klasse, welche Tiere sie bereits entdeckt hat.",
+  "about.purpose":
+    "Zeige die Savanne, das Korallenriff, den Weltraum, die Urzeit, den Wald, den Dschungel oder die Arktis auf der Tafel und drücke auf Starten. Solange die Klasse leise genug ist, erscheint ein Tier nach dem anderen. Wird es zu laut, laufen Tiere weg. In den Einstellungen kannst du stattdessen festlegen, dass die Welt nur pausiert, bis es wieder ruhig ist. Einige Tiere sind häufig, andere selten. Im Sammelalbum sieht die Klasse, welche Tiere sie bereits entdeckt hat.",
   "about.promiseTitle": "Kostenlos und ohne Haken",
-  "about.promise": "Die Anwendung ist kostenlos. Es gibt weder eine kostenpflichtige Version noch Werbung. Die Lautstärkemessung erfolgt direkt auf deinem Gerät.",
+  "about.promise":
+    "Die Anwendung ist kostenlos. Es gibt weder eine kostenpflichtige Version noch Werbung. Die Lautstärkemessung erfolgt direkt auf deinem Gerät.",
   "about.feedbackTitle": "Kontakt zum Originalprojekt",
-  "about.feedback": "Für Rückmeldungen zum ursprünglichen Shy-Safari-Projekt kannst du dessen Entwicklerteam kontaktieren.",
+  "about.feedback":
+    "Für Rückmeldungen zum ursprünglichen Shy-Safari-Projekt kannst du dessen Entwicklerteam kontaktieren.",
   "about.email": "E-Mail an support@teacher.dev",
   "privacy.pageTitle": "Datenschutz – FlüsterWelt",
   "privacy.meta": "Welche Daten FlüsterWelt verarbeitet und welche nicht.",
   "privacy.title": "Datenschutz",
   "privacy.lede": "Welche Daten verarbeitet werden – und welche nicht.",
-  "privacy.microphone": "FlüsterWelt nutzt das Mikrofon ausschließlich, um die Lautstärke im Raum zu messen. Der Ton wird auf diesem Gerät fortlaufend in einen Lautstärkewert umgewandelt. Es werden keine Tonaufnahmen angefertigt, gespeichert oder übertragen.",
-  "privacy.local": "Es sind keine Benutzerkonten erforderlich. Einstellungen, Kalibrierung und entdeckte Tiere werden ausschließlich im lokalen Speicher dieses Browsers auf diesem Gerät gespeichert. Wenn du die Browserdaten löschst, werden auch diese Informationen gelöscht.",
-  "privacy.analytics.beforeLink": "Falls die optionale Cloudflare-Webanalyse aktiviert ist, werden Seitenaufrufe ohne Cookies gezählt. Cloudflare Web Analytics verwendet laut Anbieter kein Fingerprinting und keine seitenübergreifende Nachverfolgung. Weitere Informationen findest du in der ",
+  "privacy.microphone":
+    "FlüsterWelt nutzt das Mikrofon ausschließlich, um die Lautstärke im Raum zu messen. Der Ton wird auf diesem Gerät fortlaufend in einen Lautstärkewert umgewandelt. Es werden keine Tonaufnahmen angefertigt, gespeichert oder übertragen.",
+  "privacy.local":
+    "Es sind keine Benutzerkonten erforderlich. Einstellungen, Kalibrierung und entdeckte Tiere werden ausschließlich im lokalen Speicher dieses Browsers auf diesem Gerät gespeichert. Wenn du die Browserdaten löschst, werden auch diese Informationen gelöscht.",
+  "privacy.analytics.beforeLink":
+    "Falls die optionale Cloudflare-Webanalyse aktiviert ist, werden Seitenaufrufe ohne Cookies gezählt. Cloudflare Web Analytics verwendet laut Anbieter kein Fingerprinting und keine seitenübergreifende Nachverfolgung. Weitere Informationen findest du in der ",
   "privacy.analytics.link": "Datenschutzerklärung von Cloudflare",
-  "privacy.analytics.afterLink": ". Eine solche Analyse betrifft keine Mikrofonaufnahmen; diese werden grundsätzlich nicht übertragen.",
+  "privacy.analytics.afterLink":
+    ". Eine solche Analyse betrifft keine Mikrofonaufnahmen; diese werden grundsätzlich nicht übertragen.",
   "privacy.contact": "Fragen zum Originalprojekt? E-Mail an ",
   "guide.title": "So funktioniert FlüsterWelt",
-  "guide.lede": "Eine kostenlose Lautstärkeanzeige für den Unterricht, die Ruhe belohnt, statt Lärm zu bestrafen.",
+  "guide.lede":
+    "Eine kostenlose Lautstärkeanzeige für den Unterricht, die Ruhe belohnt, statt Lärm zu bestrafen.",
   "guide.whatTitle": "Was ist FlüsterWelt?",
-  "guide.what": "FlüsterWelt zeigt auf dem Beamer oder interaktiven Whiteboard eine ruhige Landschaft – zum Beispiel eine Savanne, ein Korallenriff, den Weltraum, eine urzeitliche Flusslandschaft, einen Wald, den Dschungel oder die Arktis. Über das Mikrofon misst die Anwendung die Lautstärke im Raum. Solange die Klasse unter dem festgelegten Zielwert bleibt, zeigen sich nach und nach scheue Tiere. Anders als bei einer klassischen Lautstärkeampel gibt es keine Punkte, keinen springenden Zeiger und kein rotes Warnlicht. So wird Ruhe belohnt, statt Lärm interessant zu machen.",
+  "guide.what":
+    "FlüsterWelt zeigt auf dem Beamer oder interaktiven Whiteboard eine ruhige Landschaft – zum Beispiel eine Savanne, ein Korallenriff, den Weltraum, eine urzeitliche Flusslandschaft, einen Wald, den Dschungel oder die Arktis. Über das Mikrofon misst die Anwendung die Lautstärke im Raum. Solange die Klasse unter dem festgelegten Zielwert bleibt, zeigen sich nach und nach scheue Tiere. Anders als bei einer klassischen Lautstärkeampel gibt es keine Punkte, keinen springenden Zeiger und kein rotes Warnlicht. So wird Ruhe belohnt, statt Lärm interessant zu machen.",
   "guide.useTitle": "Einsatz im Unterricht",
-  "guide.use.open": "Öffne FlüsterWelt auf dem mit Beamer oder Whiteboard verbundenen Rechner. Wähle Savanne, Korallenriff, Weltraum, Urzeit, Wald, Dschungel oder Arktis und klicke auf Starten. Der Browser bittet dich um die Mikrofonfreigabe.",
-  "guide.use.goal": "Wähle je nach Arbeitsphase Stillarbeit (kein Sprechen), Einzelarbeit (leises Flüstern) oder Partnerarbeit (Gesprächslautstärke). Du kannst die Zielmarkierung auch auf einen beliebigen Zwischenwert ziehen.",
-  "guide.use.rate": "Lass die Klasse arbeiten. Nach 10 bis 20 ruhigen Sekunden erscheint das erste Tier; danach kommt ungefähr alle fünf Minuten ruhiger Arbeit ein weiteres dazu. In den Einstellungen kannst du zwischen Gemütlich, Normal und Lebhaft wählen oder ein eigenes Minutenintervall eingeben.",
+  "guide.use.open":
+    "Öffne FlüsterWelt auf dem mit Beamer oder Whiteboard verbundenen Rechner. Wähle Savanne, Korallenriff, Weltraum, Urzeit, Wald, Dschungel oder Arktis und klicke auf Starten. Der Browser bittet dich um die Mikrofonfreigabe.",
+  "guide.use.goal":
+    "Wähle je nach Arbeitsphase Stillarbeit (kein Sprechen), Einzelarbeit (leises Flüstern) oder Partnerarbeit (Gesprächslautstärke). Du kannst die Zielmarkierung auch auf einen beliebigen Zwischenwert ziehen.",
+  "guide.use.rate":
+    "Lass die Klasse arbeiten. Nach 10 bis 20 ruhigen Sekunden erscheint das erste Tier; danach kommt ungefähr alle fünf Minuten ruhiger Arbeit ein weiteres dazu. In den Einstellungen kannst du zwischen Gemütlich, Normal und Lebhaft wählen oder ein eigenes Minutenintervall eingeben.",
   "guide.loudTitle": "Wann gilt es als zu laut?",
-  "guide.loud": "Kurze Geräusche, etwa ein Klopfen an der Tür oder ein heruntergefallenes Buch, zählen nicht sofort. Die Lautstärke muss eine Weile über dem Ziel liegen: knapp darüber etwa sechs Sekunden, deutlich darüber etwa eine Sekunde. Sobald es wieder ruhig ist, verschwindet die Trübung innerhalb von drei Sekunden.",
-  "guide.calibrate": "Die Kalibrierung ist freiwillig. Fünf Sekunden Stille und fünf Sekunden normales Sprechen helfen der Anwendung, Mikrofon und Raumlautstärke besser einzuschätzen.",
+  "guide.loud":
+    "Kurze Geräusche, etwa ein Klopfen an der Tür oder ein heruntergefallenes Buch, zählen nicht sofort. Die Lautstärke muss eine Weile über dem Ziel liegen: knapp darüber etwa sechs Sekunden, deutlich darüber etwa eine Sekunde. Sobald es wieder ruhig ist, verschwindet die Trübung innerhalb von drei Sekunden.",
+  "guide.calibrate":
+    "Die Kalibrierung ist freiwillig. Fünf Sekunden Stille und fünf Sekunden normales Sprechen helfen der Anwendung, Mikrofon und Raumlautstärke besser einzuschätzen.",
   "guide.tooLoudTitle": "Was passiert bei zu viel Lärm?",
-  "guide.tooLoud": "Die Welt trübt sich ein: Staub in der Savanne, trübes Wasser im Riff, Störungen im Weltraum, Nebel in der Urzeit und im Wald, Tropenregen im Dschungel oder Schneetreiben in der Arktis. Solange es zu laut ist, erscheinen keine neuen Tiere. Für das Verhalten der vorhandenen Tiere gibt es zwei Möglichkeiten:",
-  "guide.tooLoud.flee": "Tiere laufen weg (Standardeinstellung): Die Szene hält an. Solange es zu laut bleibt, verschwindet zunächst ein Tier, danach alle fünf Sekunden weitere. Im Weltraum lösen sich die Sichtungen stattdessen in Bildrauschen auf.",
-  "guide.tooLoud.pause": "Welt pausieren: Die Tiere bleiben stehen und nichts geht verloren. Der Fortschritt bis zum nächsten Tier wird fortgesetzt, sobald es wieder ruhig ist.",
+  "guide.tooLoud":
+    "Die Welt trübt sich ein: Staub in der Savanne, trübes Wasser im Riff, Störungen im Weltraum, Nebel in der Urzeit und im Wald, Tropenregen im Dschungel oder Schneetreiben in der Arktis. Solange es zu laut ist, erscheinen keine neuen Tiere. Für das Verhalten der vorhandenen Tiere gibt es zwei Möglichkeiten:",
+  "guide.tooLoud.flee":
+    "Tiere laufen weg (Standardeinstellung): Die Szene hält an. Solange es zu laut bleibt, verschwindet zunächst ein Tier, danach alle fünf Sekunden weitere. Im Weltraum lösen sich die Sichtungen stattdessen in Bildrauschen auf.",
+  "guide.tooLoud.pause":
+    "Welt pausieren: Die Tiere bleiben stehen und nichts geht verloren. Der Fortschritt bis zum nächsten Tier wird fortgesetzt, sobald es wieder ruhig ist.",
   "guide.animalsTitle": "Die Tiere und Entdeckungen",
-  "guide.animals": "In der Savanne gibt es 17 Tiere – von Erdmännchen und Zebras bis zu Giraffen, Flusspferden und Nashörnern. Löwen, Leoparden und Elefanten sind besonders selten. Im Korallenriff warten 18 Arten, darunter Clownfische, Seepferdchen, Meeresschildkröten, Kraken und die seltenen Hammerhaie, Mantarochen und Walhaie. Im Weltraum gibt es 17 Entdeckungen, von Satelliten und Asteroiden über Raumstationen und Kometen bis zu seltenen Galaxien, Schwarzen Löchern, Pulsaren und Nebeln. Die Urzeit zeigt 17 wissenschaftlich inspirierte Tiere aus der späten Dinosaurierzeit, etwa gefiederte Raptoren, Triceratops und Ankylosaurus sowie die seltenen Tyrannosaurus, Quetzalcoatlus und Alamosaurus. Im Wald gibt es 17 Tiere, darunter Eichhörnchen, Rotkehlchen, Igel, Waschbären, Füchse und Hirsche sowie seltene Wölfe, Schwarzbären und Elche. Im Dschungel leben 17 Tiere, darunter Pfeilgiftfrösche, Tukane, Kapuzineraffen, Faultiere und Orang-Utans; Jaguare, Gorillas und Tiger sind selten. In der Arktis warten 17 Tiere, vom Lemming und Papageitaucher bis zu Rentieren, Walrossen und Belugas; Eisbären, Narwale und Grönlandwale sind besonders selten. Jede Welt behält ihre Tiere, und das Sammelalbum merkt sich alle Entdeckungen der Klasse.",
+  "guide.animals":
+    "In der Savanne gibt es 17 Tiere – von Erdmännchen und Zebras bis zu Giraffen, Flusspferden und Nashörnern. Löwen, Leoparden und Elefanten sind besonders selten. Im Korallenriff warten 18 Arten, darunter Clownfische, Seepferdchen, Meeresschildkröten, Kraken und die seltenen Hammerhaie, Mantarochen und Walhaie. Im Weltraum gibt es 17 Entdeckungen, von Satelliten und Asteroiden über Raumstationen und Kometen bis zu seltenen Galaxien, Schwarzen Löchern, Pulsaren und Nebeln. Die Urzeit zeigt 17 wissenschaftlich inspirierte Tiere aus der späten Dinosaurierzeit, etwa gefiederte Raptoren, Triceratops und Ankylosaurus sowie die seltenen Tyrannosaurus, Quetzalcoatlus und Alamosaurus. Im Wald gibt es 17 Tiere, darunter Eichhörnchen, Wanderdrosseln, Igel, Waschbären, Füchse und Hirsche sowie seltene Wölfe, Schwarzbären und Elche. Im Dschungel leben 17 Tiere, darunter Pfeilgiftfrösche, Tukane, Kapuzineraffen, Faultiere und Orang-Utans; Jaguare, Gorillas und Tiger sind selten. In der Arktis warten 17 Tiere, vom Lemming und Papageitaucher bis zu Rentieren, Walrossen und Belugas; Eisbären, Narwale und Grönlandwale sind besonders selten. Jede Welt behält ihre Tiere, und das Sammelalbum merkt sich alle Entdeckungen der Klasse.",
   "guide.forTitle": "Für wen ist das gedacht?",
-  "guide.for": "Für Lehrkräfte aller Klassenstufen, die bei Stillarbeit, Lesezeiten, Lernstationen, Tests oder Gruppenarbeit eine ruhige, visuelle Orientierung für die Lautstärke möchten. Die ganze Klasse nutzt denselben Bildschirm; die Kinder brauchen keine eigenen Geräte.",
+  "guide.for":
+    "Für Lehrkräfte aller Klassenstufen, die bei Stillarbeit, Lesezeiten, Lernstationen, Tests oder Gruppenarbeit eine ruhige, visuelle Orientierung für die Lautstärke möchten. Die ganze Klasse nutzt denselben Bildschirm; die Kinder brauchen keine eigenen Geräte.",
   "guide.faqTitle": "Häufige Fragen",
   "guide.faq.free.q": "Ist FlüsterWelt kostenlos?",
-  "guide.faq.free.a": "Ja. Es gibt keine Bezahlschranke, keine Werbung und keine Premiumversion. FlüsterWelt basiert auf Shy Safari, einem beim EdTech-a-thon entstandenen kostenlosen Unterrichtsprojekt von teacher.dev.",
+  "guide.faq.free.a":
+    "Ja. Es gibt keine Bezahlschranke, keine Werbung und keine Premiumversion. FlüsterWelt basiert auf Shy Safari, einem beim EdTech-a-thon entstandenen kostenlosen Unterrichtsprojekt von teacher.dev.",
   "guide.faq.record.q": "Wird der Unterricht aufgenommen?",
-  "guide.faq.record.a": "Nein. Das Mikrofon misst lediglich die momentane Lautstärke als Zahlenwert auf deinem Gerät. Der Ton wird weder aufgenommen noch gespeichert oder übertragen.",
+  "guide.faq.record.a":
+    "Nein. Das Mikrofon misst lediglich die momentane Lautstärke als Zahlenwert auf deinem Gerät. Der Ton wird weder aufgenommen noch gespeichert oder übertragen.",
   "guide.faq.accounts.q": "Brauchen Lehrkräfte oder Kinder ein Konto?",
-  "guide.faq.accounts.a": "Nein. Es ist keine Anmeldung nötig und du musst nichts installieren. Einstellungen werden im Browser auf dem jeweiligen Gerät gespeichert.",
+  "guide.faq.accounts.a":
+    "Nein. Es ist keine Anmeldung nötig und du musst nichts installieren. Einstellungen werden im Browser auf dem jeweiligen Gerät gespeichert.",
   "guide.faq.devices.q": "Was brauche ich für FlüsterWelt?",
-  "guide.faq.devices.a": "Einen Computer mit Mikrofon und einen aktuellen Browser wie Chrome, Edge, Firefox oder Safari. Laptops, Chromebooks und interaktive Whiteboards funktionieren ebenso. FlüsterWelt ist für Beamer und große Bildschirme ausgelegt, läuft aber auch auf Tablets und Smartphones.",
+  "guide.faq.devices.a":
+    "Einen Computer mit Mikrofon und einen aktuellen Browser wie Chrome, Edge, Firefox oder Safari. Laptops, Chromebooks und interaktive Whiteboards funktionieren ebenso. FlüsterWelt ist für Beamer und große Bildschirme ausgelegt, läuft aber auch auf Tablets und Smartphones.",
   "guide.faq.languages.q": "Welche Sprachen gibt es?",
-  "guide.faq.languages.a": "Deutsch, Englisch, Spanisch und Französisch. Du kannst die Sprache jederzeit über das Menü oben ändern.",
+  "guide.faq.languages.a":
+    "Deutsch, Englisch, Spanisch und Französisch. Du kannst die Sprache jederzeit über das Menü oben ändern.",
   "guide.faq.meter.q": "Was ist anders als bei einer Lautstärkeampel?",
-  "guide.faq.meter.a": "Eine klassische Lautstärkeampel zeigt, wie laut die Klasse ist – das kann unbeabsichtigt zum Wettstreit werden. FlüsterWelt zeigt stattdessen eine friedliche Welt, die sich langsam mit Tieren füllt. Die Belohnung für ruhiges Arbeiten ist das gemeinsame Entdecken, nicht eine Punktzahl."
+  "guide.faq.meter.a":
+    "Eine klassische Lautstärkeampel zeigt, wie laut die Klasse ist – das kann unbeabsichtigt zum Wettstreit werden. FlüsterWelt zeigt stattdessen eine friedliche Welt, die sich langsam mit Tieren füllt. Die Belohnung für ruhiges Arbeiten ist das gemeinsame Entdecken, nicht eine Punktzahl.",
 } as const;
