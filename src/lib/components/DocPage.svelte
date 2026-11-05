@@ -30,7 +30,7 @@
         class="flex items-center gap-2 text-lg font-semibold tracking-tight hover:text-slate-600"
       >
         <img src={logoUrl} alt="" class="size-9" />
-        Shy Safari
+        FlüsterWelt
       </a>
       <div class="flex items-center gap-2">
         <a
