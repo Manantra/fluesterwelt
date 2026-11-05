@@ -1,4 +1,16 @@
-# Shy Safari
+# FlüsterWelt 🇩🇪
+
+**FlüsterWelt** ist die deutschsprachige Weiterentwicklung von [Shy Safari](https://github.com/teacherdotdev/shy-safari): einer interaktiven, kostenlosen Lautstärkeanzeige für das Klassenzimmer. In ruhigen Arbeitsphasen zeigen sich nach und nach Tiere und Entdeckungen in unterschiedlichen Welten.
+
+Die Benutzeroberfläche ist vollständig auf Deutsch übersetzt. Deutsch ist bei einem ersten Besuch voreingestellt; Englisch, Spanisch und Französisch bleiben auswählbar. Die Mikrofonlautstärke wird im Browser gemessen, ohne Tonaufnahmen zu speichern oder zu übertragen.
+
+**Technik:** Svelte 5, SvelteKit, TypeScript. Für einen lokalen Start `npm install` und `npm run dev`, für einen statischen Produktionsbuild `npm run build`. Die erstellten Dateien liegen unter `build/` und benötigen für den Mikrofonzugriff beim Hosting HTTPS.
+
+**Lizenz und Dank:** Fork des Projekts von [teacher.dev](https://teacher.dev), veröffentlicht unter der Apache License 2.0. Die ursprüngliche Lizenzdatei `LICENSE.txt` bleibt erhalten. Siehe auch [NOTICE.md](NOTICE.md).
+
+---
+
+## Originaldokumentation (Englisch)
 
 A calm scene on the classroom projector — a savanna, a coral reef, deep
 space, the age of dinosaurs, a woodland clearing, the jungle or the Arctic — where animals (or, in deep space, sightings
