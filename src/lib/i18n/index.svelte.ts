@@ -19,7 +19,7 @@ const en = {
   locale: "en",
   ui: {
     "language.change": "Change language",
-    "app.pageTitle": "Shy Safari — free classroom noise level monitor",
+    "app.pageTitle": "FlüsterWelt — free classroom noise level monitor",
     "app.description":
       "A free classroom noise monitor for the projector. Shy savanna and coral reef animals come out the longer the room stays quiet. No sign-up, nothing recorded.",
     "brand.title": "Built by teacher.dev",
@@ -30,7 +30,7 @@ const en = {
     "common.howItWorks": "how it works",
     "preview.alt":
       "FlüsterWelt: a friendly fox before a globe, with the words Calm classes. Lively worlds.",
-    "common.back": "← Back to Shy Safari",
+    "common.back": "← Back to FlüsterWelt",
     "common.close": "Close",
     "common.cancel": "Cancel",
     "common.done": "Done",
@@ -40,10 +40,10 @@ const en = {
     "float.openHint":
       "Float the scene in a small window over your slides or other tabs",
     "float.failed": "The floating window could not be opened.",
-    "floating.title": "Shy Safari is floating",
+    "floating.title": "FlüsterWelt is floating",
     "floating.instructions":
       "The scene is in its own window over your other tabs, and keeps listening to the room. Keep this tab open: the window's back-to-tab button brings it back here.",
-    "floating.return": "Bring Shy Safari back here",
+    "floating.return": "Bring FlüsterWelt back here",
     "start.shy": "Shh… these animals are shy!",
     "start.explain":
       "If it gets too loud, they stay hidden. When the room is calm again, they'll start coming out.",
@@ -247,7 +247,7 @@ const en = {
     "blocked.unsupported":
       "This browser cannot use a microphone. Chrome, Edge and Safari all work.",
     "blocked.tryAgain": "Try again",
-    "about.pageTitle": "About — Shy Safari",
+    "about.pageTitle": "About — FlüsterWelt",
     "about.meta":
       "Shy Safari is a free classroom noise tool made at the EdTech-a-thon and run by teacher.dev. No ads, no accounts.",
     "about.title": "About",
@@ -270,8 +270,8 @@ const en = {
     "about.feedback":
       "If something isn't working, or you have an idea for Shy Safari or for another tool you'd use in class, send us an email.",
     "about.email": "Email support@teacher.dev",
-    "privacy.pageTitle": "Privacy — Shy Safari",
-    "privacy.meta": "What Shy Safari collects, what it doesn't, and why.",
+    "privacy.pageTitle": "Privacy — FlüsterWelt",
+    "privacy.meta": "What FlüsterWelt collects, what it doesn't, and why.",
     "privacy.title": "Privacy",
     "privacy.lede": "What we collect, what we don't, and why.",
     "privacy.microphone":
@@ -284,15 +284,15 @@ const en = {
     "privacy.analytics.afterLink":
       " for details. We do not share, sell, or otherwise transfer any visitor data to third parties.",
     "privacy.contact": "Questions or concerns? Email ",
-    "guide.title": "How Shy Safari works",
+    "guide.title": "How FlüsterWelt works",
     "guide.lede":
       "A free classroom noise level monitor that rewards quiet instead of punishing noise.",
     "guide.whatTitle": "What it is",
     "guide.what":
-      "Shy Safari is a classroom noise monitor that runs in a web browser. Put it on the projector or interactive whiteboard and it shows a calm savanna, coral reef, night sky in deep space, Cretaceous floodplain, woodland clearing, rainforest jungle or Arctic sea ice. It listens to how loud the room is through the computer's microphone, and while the class stays under the volume goal, shy animals come out one at a time. It is the opposite of a bouncing noise meter: there is no score, no needle and no red warning light, so nothing makes being loud more interesting than being quiet.",
+      "FlüsterWelt is a classroom noise monitor that runs in a web browser. Put it on the projector or interactive whiteboard and it shows a calm savanna, coral reef, night sky in deep space, Cretaceous floodplain, woodland clearing, rainforest jungle or Arctic sea ice. It listens to how loud the room is through the computer's microphone, and while the class stays under the volume goal, shy animals come out one at a time. It is the opposite of a bouncing noise meter: there is no score, no needle and no red warning light, so nothing makes being loud more interesting than being quiet.",
     "guide.useTitle": "Using it in class",
     "guide.use.open":
-      "Open shysafari.com on the computer connected to your projector, pick the savanna, the coral reef, deep space, the prehistoric scene, the forest, the jungle or the Arctic, and press Start. The browser asks to use the microphone.",
+      "Open FlüsterWelt on the computer connected to your projector, pick the savanna, the coral reef, deep space, the prehistoric scene, the forest, the jungle or the Arctic, and press Start. The browser asks to use the microphone.",
     "guide.use.goal":
       "Set the volume goal for the activity: Silent, Independent (quiet whispers) or Partner work (conversation voices), or drag the line on the meter to anywhere in between.",
     "guide.use.rate":
@@ -316,7 +316,7 @@ const en = {
     "guide.for":
       "Teachers of any grade who want a calm, visual cue for voice levels during independent work, reading time, tests, centers or group work. The whole class shares one screen, and students need nothing at all.",
     "guide.faqTitle": "Questions teachers ask",
-    "guide.faq.free.q": "Is Shy Safari free?",
+    "guide.faq.free.q": "Is FlüsterWelt free?",
     "guide.faq.free.a":
       "Yes. There are no paywalls, no ads and no premium version. It came out of the EdTech-a-thon, a community of builders making free tools for classrooms, and is maintained by teacher.dev.",
     "guide.faq.record.q": "Does it record the classroom?",
@@ -333,7 +333,7 @@ const en = {
       "English, Spanish and French. It follows the browser's language, and you can change it from the menu at the top of the screen.",
     "guide.faq.meter.q": "How is it different from a noise meter?",
     "guide.faq.meter.a":
-      "A noise meter shows the class how loud they are, which can turn getting louder into a game. Shy Safari shows only a peaceful scene that slowly fills with animals, so the reward for quiet work is what the class sees, and there is no score to beat.",
+      "A noise meter shows the class how loud they are, which can turn getting louder into a game. FlüsterWelt shows only a peaceful scene that slowly fills with animals, so the reward for quiet work is what the class sees, and there is no score to beat.",
   },
   creatures: {
     meerkat: "Meerkat",
@@ -645,7 +645,7 @@ const es = {
   locale: "es",
   ui: {
     "language.change": "Cambiar idioma",
-    "app.pageTitle": "Shy Safari — medidor de ruido gratuito para el aula",
+    "app.pageTitle": "FlüsterWelt — medidor de ruido gratuito para el aula",
     "app.description":
       "Un medidor de ruido gratuito para el proyector del aula. Animales tímidos de la sabana y del arrecife aparecen mientras la clase está en silencio. Sin registro, sin grabaciones.",
     "brand.title": "Creado por teacher.dev",
@@ -656,7 +656,7 @@ const es = {
     "common.howItWorks": "cómo funciona",
     "preview.alt":
       "FlüsterWelt: un zorro simpático delante de un globo y el lema Aulas tranquilas. Mundos llenos de vida.",
-    "common.back": "← Volver a Shy Safari",
+    "common.back": "← Volver a FlüsterWelt",
     "common.close": "Cerrar",
     "common.cancel": "Cancelar",
     "common.done": "Listo",
@@ -666,10 +666,10 @@ const es = {
     "float.openHint":
       "Mostrar la escena en una ventana pequeña sobre tus diapositivas u otras pestañas",
     "float.failed": "No se pudo abrir la ventana flotante.",
-    "floating.title": "Shy Safari está flotando",
+    "floating.title": "FlüsterWelt está flotando",
     "floating.instructions":
       "La escena está en su propia ventana sobre tus otras pestañas y sigue escuchando el aula. Deja esta pestaña abierta: el botón de la ventana para volver a la pestaña la trae de vuelta aquí.",
-    "floating.return": "Traer Shy Safari de vuelta aquí",
+    "floating.return": "Traer FlüsterWelt de vuelta aquí",
     "start.shy": "Shh… ¡estos animales son tímidos!",
     "start.explain":
       "Si hay demasiado ruido, se quedan escondidos. Cuando el aula vuelva a estar tranquila, empezarán a salir.",
@@ -876,7 +876,7 @@ const es = {
     "blocked.unsupported":
       "Este navegador no puede usar un micrófono. Chrome, Edge y Safari funcionan.",
     "blocked.tryAgain": "Volver a intentarlo",
-    "about.pageTitle": "Acerca de — Shy Safari",
+    "about.pageTitle": "Acerca de — FlüsterWelt",
     "about.meta":
       "Shy Safari es una herramienta gratuita para el ruido en el aula, creada en el EdTech-a-thon y gestionada por teacher.dev. Sin anuncios ni cuentas.",
     "about.title": "Acerca de",
@@ -900,8 +900,8 @@ const es = {
     "about.feedback":
       "Si algo no funciona, o tienes una idea para Shy Safari o para otra herramienta que usarías en clase, mándanos un correo.",
     "about.email": "Escribir a support@teacher.dev",
-    "privacy.pageTitle": "Privacidad — Shy Safari",
-    "privacy.meta": "Qué recopila Shy Safari, qué no y por qué.",
+    "privacy.pageTitle": "Privacidad — FlüsterWelt",
+    "privacy.meta": "Qué recopila FlüsterWelt, qué no y por qué.",
     "privacy.title": "Privacidad",
     "privacy.lede": "Qué recopilamos, qué no y por qué.",
     "privacy.microphone":
@@ -914,15 +914,15 @@ const es = {
     "privacy.analytics.afterLink":
       " de Cloudflare para más detalles. No compartimos, vendemos ni transferimos de ningún otro modo los datos de los visitantes a terceros.",
     "privacy.contact": "¿Tienes preguntas o dudas? Escribe a ",
-    "guide.title": "Cómo funciona Shy Safari",
+    "guide.title": "Cómo funciona FlüsterWelt",
     "guide.lede":
       "Un medidor de ruido gratuito para el aula que premia el silencio en lugar de castigar el ruido.",
     "guide.whatTitle": "Qué es",
     "guide.what":
-      "Shy Safari es un medidor de ruido para el aula que funciona en el navegador. Ponlo en el proyector o en la pizarra digital y muestra una sabana, un arrecife de coral, un cielo del espacio profundo, una llanura del Cretácico, un claro del bosque, una selva tropical o el hielo ártico tranquilos. Escucha lo fuerte que suena la clase a través del micrófono del ordenador y, mientras la clase se mantiene por debajo del límite de volumen, van apareciendo animales tímidos uno a uno. Es lo contrario de un medidor de ruido que salta: no hay puntuación, ni aguja, ni luz roja de aviso, así que hacer ruido nunca resulta más interesante que estar en silencio.",
+      "FlüsterWelt es un medidor de ruido para el aula que funciona en el navegador. Ponlo en el proyector o en la pizarra digital y muestra una sabana, un arrecife de coral, un cielo del espacio profundo, una llanura del Cretácico, un claro del bosque, una selva tropical o el hielo ártico tranquilos. Escucha lo fuerte que suena la clase a través del micrófono del ordenador y, mientras la clase se mantiene por debajo del límite de volumen, van apareciendo animales tímidos uno a uno. Es lo contrario de un medidor de ruido que salta: no hay puntuación, ni aguja, ni luz roja de aviso, así que hacer ruido nunca resulta más interesante que estar en silencio.",
     "guide.useTitle": "Cómo usarlo en clase",
     "guide.use.open":
-      "Abre shysafari.com en el ordenador conectado al proyector, elige la sabana, el arrecife de coral, el espacio profundo, la prehistoria, el bosque, la selva o el Ártico y pulsa Empezar. El navegador pedirá permiso para usar el micrófono.",
+      "Abre FlüsterWelt en el ordenador conectado al proyector, elige la sabana, el arrecife de coral, el espacio profundo, la prehistoria, el bosque, la selva o el Ártico y pulsa Empezar. El navegador pedirá permiso para usar el micrófono.",
     "guide.use.goal":
       "Elige el límite de volumen para la actividad: Silencio, Individual (solo susurros) o En parejas (voz de conversación), o arrastra la línea del medidor a cualquier punto intermedio.",
     "guide.use.rate":
@@ -946,7 +946,7 @@ const es = {
     "guide.for":
       "Para docentes de cualquier etapa que quieren una señal visual y tranquila del nivel de voz durante el trabajo individual, la lectura, los exámenes, los rincones o el trabajo en grupo. Toda la clase comparte una pantalla y el alumnado no necesita nada.",
     "guide.faqTitle": "Preguntas frecuentes",
-    "guide.faq.free.q": "¿Shy Safari es gratis?",
+    "guide.faq.free.q": "¿FlüsterWelt es gratis?",
     "guide.faq.free.a":
       "Sí. No hay muros de pago, ni anuncios, ni versión premium. Nació en el EdTech-a-thon, una comunidad que crea herramientas gratuitas para las aulas, y lo mantiene teacher.dev.",
     "guide.faq.record.q": "¿Graba lo que pasa en el aula?",
@@ -963,7 +963,7 @@ const es = {
       "En inglés, español y francés. Sigue el idioma del navegador, y puedes cambiarlo desde el menú de la parte superior de la pantalla.",
     "guide.faq.meter.q": "¿En qué se diferencia de un medidor de ruido?",
     "guide.faq.meter.a":
-      "Un medidor de ruido le muestra a la clase lo fuerte que está hablando, y eso puede convertir el hacer ruido en un juego. Shy Safari solo muestra una escena tranquila que se va llenando de animales, así que lo que la clase ve es la recompensa por trabajar en silencio, y no hay ninguna puntuación que batir.",
+      "Un medidor de ruido le muestra a la clase lo fuerte que está hablando, y eso puede convertir el hacer ruido en un juego. FlüsterWelt solo muestra una escena tranquila que se va llenando de animales, así que lo que la clase ve es la recompensa por trabajar en silencio, y no hay ninguna puntuación que batir.",
   },
   scenes: {
     space: {
@@ -1243,7 +1243,7 @@ const fr = {
   locale: "fr",
   ui: {
     "language.change": "Changer de langue",
-    "app.pageTitle": "Shy Safari — sonomètre gratuit pour la classe",
+    "app.pageTitle": "FlüsterWelt — sonomètre gratuit pour la classe",
     "app.description":
       "Un sonomètre gratuit pour le vidéoprojecteur de la classe. Des animaux timides de la savane et du récif sortent tant que la classe reste calme. Sans inscription, sans enregistrement.",
     "brand.title": "Créé par teacher.dev",
@@ -1254,7 +1254,7 @@ const fr = {
     "common.howItWorks": "comment ça marche",
     "preview.alt":
       "FlüsterWelt : un renard sympathique devant un globe et le slogan Classes calmes. Mondes vivants.",
-    "common.back": "← Retour à Shy Safari",
+    "common.back": "← Retour à FlüsterWelt",
     "common.close": "Fermer",
     "common.cancel": "Annuler",
     "common.done": "Terminé",
@@ -1264,10 +1264,10 @@ const fr = {
     "float.openHint":
       "Afficher la scène dans une petite fenêtre au-dessus de vos diapositives ou d’autres onglets",
     "float.failed": "Impossible d’ouvrir la fenêtre flottante.",
-    "floating.title": "Shy Safari est dans une fenêtre flottante",
+    "floating.title": "FlüsterWelt est dans une fenêtre flottante",
     "floating.instructions":
       "La scène est dans sa propre fenêtre au-dessus de vos autres onglets et continue d’écouter la classe. Gardez cet onglet ouvert : le bouton de retour à l’onglet de la fenêtre la ramène ici.",
-    "floating.return": "Ramener Shy Safari ici",
+    "floating.return": "Ramener FlüsterWelt ici",
     "start.shy": "Chut… ces animaux sont timides !",
     "start.explain":
       "S’il y a trop de bruit, ils restent cachés. Quand la classe redevient calme, ils commencent à sortir.",
@@ -1475,7 +1475,7 @@ const fr = {
     "blocked.unsupported":
       "Ce navigateur ne peut pas utiliser de micro. Chrome, Edge et Safari fonctionnent tous.",
     "blocked.tryAgain": "Réessayer",
-    "about.pageTitle": "À propos — Shy Safari",
+    "about.pageTitle": "À propos — FlüsterWelt",
     "about.meta":
       "Shy Safari est un outil gratuit pour le bruit en classe, créé à l’EdTech-a-thon et géré par teacher.dev. Sans publicité ni compte.",
     "about.title": "À propos",
@@ -1498,9 +1498,9 @@ const fr = {
     "about.feedback":
       "Si quelque chose ne marche pas, ou si vous avez une idée pour Shy Safari ou pour un autre outil que vous utiliseriez en classe, envoyez-nous un e-mail.",
     "about.email": "Écrire à support@teacher.dev",
-    "privacy.pageTitle": "Confidentialité — Shy Safari",
+    "privacy.pageTitle": "Confidentialité — FlüsterWelt",
     "privacy.meta":
-      "Ce que Shy Safari collecte, ce qu’il ne collecte pas, et pourquoi.",
+      "Ce que FlüsterWelt collecte, ce qu’il ne collecte pas, et pourquoi.",
     "privacy.title": "Confidentialité",
     "privacy.lede":
       "Ce que nous collectons, ce que nous ne collectons pas, et pourquoi.",
@@ -1514,15 +1514,15 @@ const fr = {
     "privacy.analytics.afterLink":
       " de Cloudflare pour en savoir plus. Nous ne partageons, ne vendons ni ne transférons d’aucune autre manière les données des visiteurs à des tiers.",
     "privacy.contact": "Des questions ou des inquiétudes ? Écrivez à ",
-    "guide.title": "Comment fonctionne Shy Safari",
+    "guide.title": "Comment fonctionne FlüsterWelt",
     "guide.lede":
       "Un sonomètre gratuit pour la classe qui récompense le calme au lieu de punir le bruit.",
     "guide.whatTitle": "Ce que c'est",
     "guide.what":
-      "Shy Safari est un sonomètre pour la classe qui fonctionne dans le navigateur. Affichez-le au vidéoprojecteur ou sur le tableau interactif : il montre une savane, un récif de corail, un ciel de l'espace profond, une plaine du Crétacé, une clairière en forêt, une jungle tropicale ou une banquise arctique paisibles. Il écoute le niveau sonore de la salle grâce au micro de l'ordinateur et, tant que la classe reste sous l'objectif de volume, des animaux timides sortent un par un. C'est le contraire d'un sonomètre qui s'agite : pas de score, pas d'aiguille, pas de voyant rouge, donc rien ne rend le bruit plus intéressant que le calme.",
+      "FlüsterWelt est un sonomètre pour la classe qui fonctionne dans le navigateur. Affichez-le au vidéoprojecteur ou sur le tableau interactif : il montre une savane, un récif de corail, un ciel de l'espace profond, une plaine du Crétacé, une clairière en forêt, une jungle tropicale ou une banquise arctique paisibles. Il écoute le niveau sonore de la salle grâce au micro de l'ordinateur et, tant que la classe reste sous l'objectif de volume, des animaux timides sortent un par un. C'est le contraire d'un sonomètre qui s'agite : pas de score, pas d'aiguille, pas de voyant rouge, donc rien ne rend le bruit plus intéressant que le calme.",
     "guide.useTitle": "L'utiliser en classe",
     "guide.use.open":
-      "Ouvrez shysafari.com sur l'ordinateur relié au vidéoprojecteur, choisissez la savane, le récif de corail, l'espace profond, la préhistoire, la forêt, la jungle ou l'Arctique, puis appuyez sur Commencer. Le navigateur demande l'accès au micro.",
+      "Ouvrez FlüsterWelt sur l'ordinateur relié au vidéoprojecteur, choisissez la savane, le récif de corail, l'espace profond, la préhistoire, la forêt, la jungle ou l'Arctique, puis appuyez sur Commencer. Le navigateur demande l'accès au micro.",
     "guide.use.goal":
       "Réglez l'objectif de volume pour l'activité : Silence, Travail seul (chuchotements) ou En binôme (voix de conversation), ou faites glisser la ligne du sonomètre n'importe où entre les deux.",
     "guide.use.rate":
@@ -1546,7 +1546,7 @@ const fr = {
     "guide.for":
       "Pour les enseignants de tous niveaux qui veulent un repère visuel et apaisant du niveau de voix pendant le travail autonome, la lecture, les évaluations, les ateliers ou le travail de groupe. Toute la classe partage un seul écran et les élèves n'ont besoin de rien.",
     "guide.faqTitle": "Questions fréquentes",
-    "guide.faq.free.q": "Shy Safari est-il gratuit ?",
+    "guide.faq.free.q": "FlüsterWelt est-il gratuit ?",
     "guide.faq.free.a":
       "Oui. Pas de paiement, pas de publicité, pas de version premium. Il est né de l'EdTech-a-thon, une communauté qui crée des outils gratuits pour les classes, et il est maintenu par teacher.dev.",
     "guide.faq.record.q": "Est-ce qu'il enregistre la classe ?",
@@ -1563,7 +1563,7 @@ const fr = {
       "L'anglais, l'espagnol et le français. Il suit la langue du navigateur, et vous pouvez la changer depuis le menu en haut de l'écran.",
     "guide.faq.meter.q": "En quoi est-ce différent d'un sonomètre ?",
     "guide.faq.meter.a":
-      "Un sonomètre montre à la classe à quel point elle est bruyante, ce qui peut transformer le bruit en jeu. Shy Safari ne montre qu'une scène paisible qui se remplit peu à peu d'animaux : ce que la classe voit, c'est la récompense du travail silencieux, et il n'y a aucun score à battre.",
+      "Un sonomètre montre à la classe à quel point elle est bruyante, ce qui peut transformer le bruit en jeu. FlüsterWelt ne montre qu'une scène paisible qui se remplit peu à peu d'animaux : ce que la classe voit, c'est la récompense du travail silencieux, et il n'y a aucun score à battre.",
   },
   scenes: {
     space: {
