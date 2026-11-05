@@ -1,4 +1,5 @@
 <script lang="ts">
+  // FlüsterWelt adaptation: German-facing title and localized metadata.
   import { App } from "$lib/app.svelte";
   import { classes } from "$lib/classes/classes.svelte";
   import ClassesPanel from "$lib/components/ClassesPanel.svelte";
