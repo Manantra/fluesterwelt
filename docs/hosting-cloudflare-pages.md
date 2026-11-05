@@ -21,15 +21,15 @@ pauschal überschrieben oder gelöscht werden.
 4. Neues Projekt mit dem gewünschten Namen `fluesterwelt` erstellen.
 5. Folgende Werte eintragen:
 
-| Einstellung | Wert |
-|---|---|
-| GitHub-Repository | `Manantra/fluesterwelt` |
-| Production branch | `main` |
-| Root directory | `/` |
-| Build command | `npm run build` |
-| Build output directory | `build` |
-| Node.js | via `.node-version` gepinnt auf `22.23.4` |
-| Environment variable | `VITE_SITE_URL=https://fluesterwelt.familiemenges.de` |
+| Einstellung            | Wert                                                  |
+| ---------------------- | ----------------------------------------------------- |
+| GitHub-Repository      | `Manantra/fluesterwelt`                               |
+| Production branch      | `main`                                                |
+| Root directory         | `/`                                                   |
+| Build command          | `npm run build`                                       |
+| Build output directory | `build`                                               |
+| Node.js                | via `.node-version` gepinnt auf `22.23.4`             |
+| Environment variable   | `VITE_SITE_URL=https://fluesterwelt.familiemenges.de` |
 
 `build` ist korrekt, da dieses Projekt den SvelteKit-Adapter `adapter-static`
 benutzt – nicht die dynamische Cloudflare-Adapter-Ausgabe.
