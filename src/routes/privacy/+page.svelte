@@ -22,11 +22,13 @@
   <aside
     class="mb-6 rounded-xl border border-amber-400 bg-amber-100 p-4 text-amber-950"
   >
-    <strong>Diese Erklärung ist noch nicht abschließend.</strong>
-    Die Betreiber- und Kontaktangaben sind ergänzt. Vor der öffentlichen Freigabe
-    müssen die Cloudflare-Vertragsbedingungen, Datenübermittlungen und Aufbewahrungsfristen
-    noch geprüft und ergänzt werden. Bitte die noch offenen Angaben nicht durch Vermutungen
-    ersetzen.
+    <strong>Diese Erklärung wird noch abschließend geprüft.</strong>
+    Die Angaben zum privaten Betreiber und die öffentlich dokumentierte
+    Cloudflare-Datenverarbeitung sind eingearbeitet. Offen sind noch der
+    konkrete Vertragsstatus der Cloudflare-Auftragsverarbeitung sowie
+    gegebenenfalls zusätzliche Sicherheitsfunktionen im Betreiberkonto.
+    Produktabhängige Speicherfristen dürfen nicht mit einer pauschalen
+    Löschfrist für alle Zugriffe verwechselt werden.
   </aside>
 
   <section class={card}>
@@ -66,33 +68,86 @@
         bereitstellenden Infrastruktur.
       </p>
       <p>
-        <strong>Hostingdienst:</strong> Cloudflare Pages, angeboten durch Cloudflare,
-        Inc. und gegebenenfalls verbundene Gesellschaften. Welcher Vertragspartner
-        für das Betreiberkonto gilt, muss anhand der Vertragsunterlagen geprüft werden.
+        <strong>Hostingdienst:</strong> Cloudflare Pages, ein Dienst von
+        Cloudflare. Nach dem veröffentlichten
+        <a
+          class={link}
+          href="https://www.cloudflare.com/cloudflare-customer-dpa/"
+          target="_blank"
+          rel="noopener noreferrer">Cloudflare Data Processing Addendum (DPA)</a
+        >
+        ist Cloudflare, Inc., 101 Townsend Street, San Francisco, CA 94107,
+        USA, die dort bezeichnete Auftragsverarbeiterin. An der
+        Leistungserbringung können weitere Gesellschaften und Unterauftragnehmer
+        beteiligt sein. Welcher Vertragspartner für dieses Betreiberkonto
+        tatsächlich gilt, richtet sich nach den dort vereinbarten Bedingungen.
       </p>
       <p>
-        <strong>Rechtsgrundlage:</strong> Bei eigenverantwortlichem privatem Betrieb
-        kommt für die technische Bereitstellung und Absicherung insbesondere Art.
-        6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an einem sicheren und funktionierenden
-        Webangebot) in Betracht. [Betreiberstatus und Rechtsgrundlage verbindlich
-        prüfen.]
+        <strong>Zweck und Rechtsgrundlage:</strong>
+        Die Verarbeitung dient der sicheren, zuverlässigen Auslieferung
+        der Website, der Abwehr technischer Angriffe und der Fehleranalyse.
+        Für den privaten Betreiber besteht daran ein berechtigtes Interesse
+        im Sinne von Art. 6 Abs. 1 lit. f DSGVO.
       </p>
       <p>
-        <strong>Speicherdauer:</strong>
-        [Konkrete Cloudflare-Protokollierungs- und Löschfristen anhand des genutzten
-        Tarifs und der aktivierten Funktionen prüfen und ergänzen.]
-      </p>
-      <p>
-        <strong>Auftragsverarbeitung und Drittlandübermittlungen:</strong>
-        Cloudflare betreibt eine international verteilte Infrastruktur; Übermittlungen
-        außerhalb des EWR können nicht pauschal ausgeschlossen werden. [Cloudflare-Vertrag,
-        Auftragsverarbeitungsvereinbarung, eingesetzte Empfänger und Übermittlungsgrundlagen
-        prüfen und konkret benennen.] Weitere Informationen bietet
+        <strong>Aufbewahrung:</strong>
+        Die FlüsterWelt-Anwendung betreibt keine eigene Datenbank
+        mit Besucherprotokollen. Cloudflare kann jedoch technische
+        Verbindungs- und Sicherheitsdaten verarbeiten und
+        abhängig von Datenart, Dienst und Konfiguration unterschiedlich
+        lange aufbewahren. Cloudflare nennt in seiner
         <a
           class={link}
           href="https://www.cloudflare.com/privacypolicy/"
           target="_blank"
-          rel="noopener noreferrer">Cloudflare</a
+          rel="noopener noreferrer">Datenschutzerklärung</a
+        >
+        insbesondere den jeweiligen Verarbeitungszweck und gesetzliche
+        Pflichten als Kriterien. Im DPA wird die für die
+        Leistungserbringung notwendige Dauer als Maßstab beschrieben.
+        Eine für sämtliche Besucherprotokolle einheitliche,
+        verlässlich bestätigte Löschfrist liegt für dieses
+        Pages-Projekt nicht vor. Aufbewahrungszeiten einzelner
+        Analytics-Datensätze sind damit nicht gleichzusetzen.
+      </p>
+      <p>
+        <strong>Auftragsverarbeitung:</strong>
+        Cloudflare veröffentlicht ein
+        <a
+          class={link}
+          href="https://www.cloudflare.com/cloudflare-customer-dpa/"
+          target="_blank"
+          rel="noopener noreferrer">Data Processing Addendum, Version 6.4
+          vom 3. April 2026</a
+        >, das unter anderem Pflichten von Cloudflare als
+        Auftragsverarbeiter beschreibt. [Vor endgültiger Freigabe
+        prüfen und dokumentieren, ob und seit wann diese Vereinbarung
+        für das konkret verwendete Cloudflare-Konto wirksam ist.]
+      </p>
+      <p>
+        <strong>Übermittlungen außerhalb des EWR:</strong>
+        Cloudflare betreibt eine international verteilte
+        Infrastruktur. Nach den
+        <a
+          class={link}
+          href="https://www.cloudflare.com/de-de/trust-hub/gdpr/"
+          target="_blank"
+          rel="noopener noreferrer">Datenschutzinformationen von Cloudflare</a
+        >
+        werden bestimmte technische Metadaten unter anderem in
+        den USA und Europa verarbeitet. Das DPA sieht für
+        Übermittlungen in die USA insbesondere das
+        EU-US Data Privacy Framework und für entsprechend
+        eingeschränkte Übermittlungen EU-Standardvertragsklauseln
+        als Schutzmechanismen vor. Die Geltung im konkreten
+        Vertragsverhältnis und die jeweils eingesetzten
+        Empfänger sind zu prüfen. Cloudflare veröffentlicht
+        eine
+        <a
+          class={link}
+          href="https://www.cloudflare.com/gdpr/subprocessors/cloudflare-services/"
+          target="_blank"
+          rel="noopener noreferrer">Liste seiner Unterauftragsverarbeiter</a
         >.
       </p>
     </div>
