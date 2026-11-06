@@ -9,12 +9,12 @@
   description="Anbieterkennzeichnung und Open-Source-Herkunft der FlüsterWelt-Website."
 />
 
-<DocPage title="Impressum" lede="Anbieterkennzeichnung für FlüsterWelt">
+<DocPage title="Impressum" lede="Anbieterkennzeichnung für das privat betriebene Projekt FlüsterWelt">
   <aside
     class="mb-6 rounded-xl border border-amber-400 bg-amber-100 p-4 text-amber-950"
   >
     <strong>Vor der Veröffentlichung vervollständigen:</strong>
-    Die Betreiberangaben fehlen noch. Ob die Informationspflichten nach § 5 DDG sowie
+    Die Betreiberangaben der privat verantwortlichen Person fehlen noch. Ob die Informationspflichten nach § 5 DDG sowie
     weitere Pflichten greifen, hängt von der konkreten Angebots- und Betreiberform
     ab. Bitte die Angaben vor der Freigabe prüfen.
   </aside>
@@ -44,7 +44,7 @@
       Projekt und Open-Source-Herkunft
     </h2>
     <p>
-      FlüsterWelt ist eine unabhängige deutschsprachige Weiterentwicklung von
+      FlüsterWelt ist ein privat betriebenes, unabhängiges deutschsprachiges Weiterentwicklung von
       <a
         class="font-semibold text-teal-700 underline"
         href="https://github.com/teacherdotdev/shy-safari"
