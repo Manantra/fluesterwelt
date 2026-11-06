@@ -23,8 +23,9 @@
     class="mb-6 rounded-xl border border-amber-400 bg-amber-100 p-4 text-amber-950"
   >
     <strong>Diese Erklärung ist noch nicht abschließend.</strong>
-    Vor der öffentlichen Freigabe fehlen die Betreiber- und Kontaktangaben sowie eine
-    Prüfung der Cloudflare-Vertragsbedingungen, Datenübermittlungen und Aufbewahrungsfristen.
+    Die Betreiber- und Kontaktangaben sind ergänzt. Vor der öffentlichen Freigabe
+    müssen die Cloudflare-Vertragsbedingungen, Datenübermittlungen und Aufbewahrungsfristen
+    noch geprüft und ergänzt werden.
     Bitte die noch offenen Angaben nicht durch Vermutungen ersetzen.
   </aside>
 
@@ -32,10 +33,10 @@
     <h2 class={heading}>1. Verantwortliche Person (privater Betrieb)</h2>
     <div class={text}>
       <p>
-        <strong>[Vollständiger Name der privat verantwortlichen Person]</strong>
+        <strong>Daniel Menges</strong>
       </p>
-      <p>[Straße und Hausnummer, PLZ und Ort]</p>
-      <p>E-Mail: <strong>[Datenschutz-Kontaktadresse]</strong></p>
+      <p>Wolzenstr. 21, 14712 Rathenow, Deutschland</p>
+      <p>E-Mail: <a class={link} href="mailto:duplex.klirrt.2d@icloud.com">duplex.klirrt.2d@icloud.com</a></p>
       <p>
         Weitere Angaben findest du im
         <a class={link} href={resolve("/impressum")}>Impressum</a>.
