@@ -1,6 +1,13 @@
 <script lang="ts" module>
   import type { MotionState } from "$lib/scenes/motion";
   import type { CreatureInstance } from "$lib/session/session.svelte";
+  import type { ForestBehaviorState } from "$lib/scenes/forest/behaviors";
+
+  /**
+   * Keep the interval across the Document PiP window move. The same
+   * CreatureInstance remains alive, even though its component is remounted.
+   */
+  const forestStates = new WeakMap<CreatureInstance, ForestBehaviorState>();
 
   /**
    * Where each Creature had got to, so one that is drawn afresh — when the
@@ -26,6 +33,12 @@
   import { onMount } from "svelte";
   import { fade } from "svelte/transition";
   import {
+    advanceForestBehavior,
+    behaviorForCreature,
+    createForestBehavior,
+    type ForestBehavior,
+  } from "$lib/scenes/forest/behaviors";
+  import {
     FADE_S,
     MOTION_PROFILES,
     bankAngle,
@@ -45,6 +58,7 @@
 
   let {
     creature,
+    sceneId,
     art,
     listeningArt,
     depthFade,
@@ -57,6 +71,7 @@
     ongone,
   }: {
     creature: CreatureInstance;
+    sceneId: string;
     art: string;
     /** The same Creature facing out of the screen, if it has been drawn. */
     listeningArt: string | undefined;
@@ -122,6 +137,8 @@
    * middle of the Scene first (`listenDelay`), so it ripples across the Scene.
    */
   let attending = $state(false);
+  /** Purely decorative forest behavior, never a collected new Creature. */
+  let forestMoment = $state<ForestBehavior | null>(null);
   /** The little perk-up as it turns, and the shake-off when talking ends. */
   let turning = $state(false);
   let shaking = $state(false);
@@ -180,6 +197,13 @@
       );
     motions.set(creature, state);
 
+    const forestKind = behaviorForCreature(sceneId, creature.def.slug);
+    let forestState = forestKind
+      ? (forestStates.get(creature) ??
+        createForestBehavior(forestKind, Math.random))
+      : null;
+    if (forestState) forestStates.set(creature, forestState);
+
     // Already Paused when drawn, as when the Scene floats out mid-announcement:
     // it was listening before, so it carries on without turning again.
     if (listening && !fleeing && whilePaused === "listen") {
@@ -205,6 +229,20 @@
       // holds its pose instead of snapping upright.
       // A Creature already running keeps running, even if the Scene freezes.
       if (frozen && !fleeing) dt = 0;
+
+      if (forestState && forestKind) {
+        forestState = advanceForestBehavior(
+          forestState,
+          forestKind,
+          elapsed,
+          !frozen && !listening && !fleeing && !reducedMotion.matches,
+          Math.random,
+        );
+        forestStates.set(creature, forestState);
+        if (forestMoment !== forestState.active) {
+          forestMoment = forestState.active;
+        }
+      }
 
       if (fading) {
         // Stays where it was when the signal broke up. Fading is not
@@ -243,6 +281,9 @@
             state.facing = listenFacing(state);
           }
         }
+      } else if (forestMoment) {
+        // Stops at the current spot without teleporting or changing depth.
+        stepSettle(state, style, creature.depth, footprint(), dt);
       } else {
         listenIn = null;
         if (attending) {
@@ -294,6 +335,8 @@
   class="swimmer pointer-events-none absolute top-0 left-0"
   class:fleeing
   class:fading
+  data-forest-behavior={forestMoment}
+  data-forest-species={sceneId === "forest" ? creature.def.slug : undefined}
   data-listening={attending}
   data-holding={listening && whilePaused === "hold" && !fleeing}
   style="

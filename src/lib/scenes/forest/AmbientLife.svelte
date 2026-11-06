@@ -107,6 +107,13 @@
   const LEAF_LAYER = groundLayer(0.8);
 </script>
 
+<!-- An occasional patch of warm sunlight on the clearing, not a new reward.
+     Fully decorative, behind the near animals and without any sound. -->
+<div
+  class="forest-clearing-sunlight pointer-events-none absolute"
+  aria-hidden="true"
+></div>
+
 <!-- A far-off flock: silhouette only, no eyes, no detail. Clearly not a Creature. -->
 {#each flocks as flock (flock.y)}
   <div

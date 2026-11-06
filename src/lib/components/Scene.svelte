@@ -60,6 +60,7 @@
   data-scene={scene.id}
   data-murky={murky}
   data-frozen={frozen}
+  data-listening={listening}
   data-scares={scares}
   data-welcome={welcome}
 >
@@ -83,6 +84,7 @@
   {#each creatures as creature (`${scene.id}:${creature.id}`)}
     <Creature
       {creature}
+      sceneId={scene.id}
       art={scene.creatureArt[creature.def.slug]}
       listeningArt={scene.listeningArt[creature.def.slug]}
       depthFade={scene.depthFade}

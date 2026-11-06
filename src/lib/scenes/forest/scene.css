@@ -187,3 +187,119 @@ html[data-scene="forest"]:not(:has(.scene-stage)) body {
     display: none;
   }
 }
+
+/* --- Living Forest pilot (branch-only experiment) ---------------------- */
+/* These moments do not count as animal arrivals and never alter collections. */
+
+/* The sun brushes the meadow every couple of minutes. It remains behind
+   creatures in the near half of the clearing and is not a warning effect. */
+@keyframes forest-sunlight-visit {
+  0%,
+  9%,
+  37%,
+  100% {
+    opacity: 0;
+  }
+  20%,
+  28% {
+    opacity: 0.15;
+  }
+}
+
+.scene-stage[data-scene="forest"] .forest-clearing-sunlight {
+  left: calc(var(--world-left) + 31 * var(--wu));
+  top: 42%;
+  width: calc(83 * var(--wu));
+  height: 45%;
+  z-index: 595;
+  border-radius: 50%;
+  background: radial-gradient(
+    ellipse at 46% 54%,
+    rgb(255 238 169 / 0.95) 0%,
+    rgb(255 238 169 / 0.35) 45%,
+    transparent 74%
+  );
+  opacity: 0;
+  animation: forest-sunlight-visit 140s ease-in-out infinite;
+}
+
+/* The new moment yields immediately when the room needs attention. */
+.scene-stage[data-scene="forest"][data-frozen="true"] .forest-clearing-sunlight,
+.scene-stage[data-scene="forest"][data-listening="true"]
+  .forest-clearing-sunlight {
+  visibility: hidden;
+  animation-play-state: paused;
+}
+
+/* A fox crouches at the spot where it finished walking; its tiny eyes close.
+   It keeps the same position and stacking order. No popups or loud effects.
+   Keep the transition in the default state too, so waking is gradual. */
+.scene-stage[data-scene="forest"]
+  .swimmer[data-forest-species="red-fox"]
+  .poser {
+  transition: transform 1.4s ease-in-out;
+}
+
+.scene-stage[data-scene="forest"]
+  .swimmer[data-forest-behavior="fox-nap"]
+  .poser {
+  transform: translateY(3%) scaleY(0.87) rotate(2deg);
+  transition: transform 1.4s ease-in-out;
+}
+
+.scene-stage[data-scene="forest"]
+  .swimmer[data-forest-behavior="fox-nap"]
+  .forest-fox-eye {
+  transform-box: fill-box;
+  transform-origin: center;
+  transform: scaleY(0.13);
+}
+
+.scene-stage[data-scene="forest"]
+  .swimmer[data-forest-behavior="fox-nap"]
+  .forest-fox-eye-glint {
+  opacity: 0;
+}
+
+/* The squirrel briefly stands taller and glances to either side. */
+@keyframes forest-squirrel-lookout {
+  0%,
+  100% {
+    transform: translateY(0) scaleY(1);
+  }
+  22%,
+  70% {
+    transform: translateY(-5%) scaleY(1.07) rotate(-3deg);
+  }
+  48% {
+    transform: translateY(-5%) scaleY(1.07) rotate(3deg);
+  }
+}
+
+.scene-stage[data-scene="forest"]
+  .swimmer[data-forest-behavior="squirrel-lookout"]
+  .poser {
+  animation: forest-squirrel-lookout 5s ease-in-out infinite;
+}
+
+/* The accessibility preference is a hard opt-out of the extra animations.
+   Creature.svelte also disables the extra timers while it is enabled. */
+@media (prefers-reduced-motion: reduce) {
+  .scene-stage[data-scene="forest"] .forest-clearing-sunlight {
+    animation: none;
+    opacity: 0;
+  }
+
+  .scene-stage[data-scene="forest"]
+    .swimmer[data-forest-behavior="squirrel-lookout"]
+    .poser {
+    animation: none;
+  }
+
+  .scene-stage[data-scene="forest"]
+    .swimmer[data-forest-behavior="fox-nap"]
+    .poser {
+    transform: none;
+    transition: none;
+  }
+}
