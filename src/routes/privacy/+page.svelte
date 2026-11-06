@@ -23,12 +23,11 @@
     class="mb-6 rounded-xl border border-amber-400 bg-amber-100 p-4 text-amber-950"
   >
     <strong>Diese Erklärung wird noch abschließend geprüft.</strong>
-    Die Angaben zum privaten Betreiber und die öffentlich dokumentierte
-    Cloudflare-Datenverarbeitung sind eingearbeitet. Offen sind noch der
-    konkrete Vertragsstatus der Cloudflare-Auftragsverarbeitung sowie
-    gegebenenfalls zusätzliche Sicherheitsfunktionen im Betreiberkonto.
-    Produktabhängige Speicherfristen dürfen nicht mit einer pauschalen
-    Löschfrist für alle Zugriffe verwechselt werden.
+    Die Angaben zum privaten Betreiber und die öffentlich dokumentierte Cloudflare-Datenverarbeitung
+    sind eingearbeitet. Offen sind noch der konkrete Vertragsstatus der Cloudflare-Auftragsverarbeitung
+    sowie gegebenenfalls zusätzliche Sicherheitsfunktionen im Betreiberkonto. Produktabhängige
+    Speicherfristen dürfen nicht mit einer pauschalen Löschfrist für alle Zugriffe
+    verwechselt werden.
   </aside>
 
   <section class={card}>
@@ -76,39 +75,36 @@
           target="_blank"
           rel="noopener noreferrer">Cloudflare Data Processing Addendum (DPA)</a
         >
-        ist Cloudflare, Inc., 101 Townsend Street, San Francisco, CA 94107,
-        USA, die dort bezeichnete Auftragsverarbeiterin. An der
-        Leistungserbringung können weitere Gesellschaften und Unterauftragnehmer
-        beteiligt sein. Welcher Vertragspartner für dieses Betreiberkonto
-        tatsächlich gilt, richtet sich nach den dort vereinbarten Bedingungen.
+        ist Cloudflare, Inc., 101 Townsend Street, San Francisco, CA 94107, USA, die
+        dort bezeichnete Auftragsverarbeiterin. An der Leistungserbringung können
+        weitere Gesellschaften und Unterauftragnehmer beteiligt sein. Welcher Vertragspartner
+        für dieses Betreiberkonto tatsächlich gilt, richtet sich nach den dort vereinbarten
+        Bedingungen.
       </p>
       <p>
         <strong>Zweck und Rechtsgrundlage:</strong>
-        Die Verarbeitung dient der sicheren, zuverlässigen Auslieferung
-        der Website, der Abwehr technischer Angriffe und der Fehleranalyse.
-        Für den privaten Betreiber besteht daran ein berechtigtes Interesse
-        im Sinne von Art. 6 Abs. 1 lit. f DSGVO.
+        Die Verarbeitung dient der sicheren, zuverlässigen Auslieferung der Website,
+        der Abwehr technischer Angriffe und der Fehleranalyse. Für den privaten Betreiber
+        besteht daran ein berechtigtes Interesse im Sinne von Art. 6 Abs. 1 lit. f
+        DSGVO.
       </p>
       <p>
         <strong>Aufbewahrung:</strong>
-        Die FlüsterWelt-Anwendung betreibt keine eigene Datenbank
-        mit Besucherprotokollen. Cloudflare kann jedoch technische
-        Verbindungs- und Sicherheitsdaten verarbeiten und
-        abhängig von Datenart, Dienst und Konfiguration unterschiedlich
-        lange aufbewahren. Cloudflare nennt in seiner
+        Die FlüsterWelt-Anwendung betreibt keine eigene Datenbank mit Besucherprotokollen.
+        Cloudflare kann jedoch technische Verbindungs- und Sicherheitsdaten verarbeiten
+        und abhängig von Datenart, Dienst und Konfiguration unterschiedlich lange
+        aufbewahren. Cloudflare nennt in seiner
         <a
           class={link}
           href="https://www.cloudflare.com/privacypolicy/"
           target="_blank"
           rel="noopener noreferrer">Datenschutzerklärung</a
         >
-        insbesondere den jeweiligen Verarbeitungszweck und gesetzliche
-        Pflichten als Kriterien. Im DPA wird die für die
-        Leistungserbringung notwendige Dauer als Maßstab beschrieben.
-        Eine für sämtliche Besucherprotokolle einheitliche,
-        verlässlich bestätigte Löschfrist liegt für dieses
-        Pages-Projekt nicht vor. Aufbewahrungszeiten einzelner
-        Analytics-Datensätze sind damit nicht gleichzusetzen.
+        insbesondere den jeweiligen Verarbeitungszweck und gesetzliche Pflichten als
+        Kriterien. Im DPA wird die für die Leistungserbringung notwendige Dauer als
+        Maßstab beschrieben. Eine für sämtliche Besucherprotokolle einheitliche, verlässlich
+        bestätigte Löschfrist liegt für dieses Pages-Projekt nicht vor. Aufbewahrungszeiten
+        einzelner Analytics-Datensätze sind damit nicht gleichzusetzen.
       </p>
       <p>
         <strong>Auftragsverarbeitung:</strong>
@@ -117,32 +113,28 @@
           class={link}
           href="https://www.cloudflare.com/cloudflare-customer-dpa/"
           target="_blank"
-          rel="noopener noreferrer">Data Processing Addendum, Version 6.4
-          vom 3. April 2026</a
-        >, das unter anderem Pflichten von Cloudflare als
-        Auftragsverarbeiter beschreibt. [Vor endgültiger Freigabe
-        prüfen und dokumentieren, ob und seit wann diese Vereinbarung
-        für das konkret verwendete Cloudflare-Konto wirksam ist.]
+          rel="noopener noreferrer"
+          >Data Processing Addendum, Version 6.4 vom 3. April 2026</a
+        >, das unter anderem Pflichten von Cloudflare als Auftragsverarbeiter
+        beschreibt. [Vor endgültiger Freigabe prüfen und dokumentieren, ob und
+        seit wann diese Vereinbarung für das konkret verwendete Cloudflare-Konto
+        wirksam ist.]
       </p>
       <p>
         <strong>Übermittlungen außerhalb des EWR:</strong>
-        Cloudflare betreibt eine international verteilte
-        Infrastruktur. Nach den
+        Cloudflare betreibt eine international verteilte Infrastruktur. Nach den
         <a
           class={link}
           href="https://www.cloudflare.com/de-de/trust-hub/gdpr/"
           target="_blank"
           rel="noopener noreferrer">Datenschutzinformationen von Cloudflare</a
         >
-        werden bestimmte technische Metadaten unter anderem in
-        den USA und Europa verarbeitet. Das DPA sieht für
-        Übermittlungen in die USA insbesondere das
-        EU-US Data Privacy Framework und für entsprechend
-        eingeschränkte Übermittlungen EU-Standardvertragsklauseln
-        als Schutzmechanismen vor. Die Geltung im konkreten
-        Vertragsverhältnis und die jeweils eingesetzten
-        Empfänger sind zu prüfen. Cloudflare veröffentlicht
-        eine
+        werden bestimmte technische Metadaten unter anderem in den USA und Europa
+        verarbeitet. Das DPA sieht für Übermittlungen in die USA insbesondere das
+        EU-US Data Privacy Framework und für entsprechend eingeschränkte Übermittlungen
+        EU-Standardvertragsklauseln als Schutzmechanismen vor. Die Geltung im konkreten
+        Vertragsverhältnis und die jeweils eingesetzten Empfänger sind zu prüfen.
+        Cloudflare veröffentlicht eine
         <a
           class={link}
           href="https://www.cloudflare.com/gdpr/subprocessors/cloudflare-services/"
@@ -230,11 +222,11 @@
         Hinweise dazu findest du in Abschnitt 2.
       </p>
       <p>
-        Für FlüsterWelt ist Cloudflare Web Analytics deaktiviert.
-        Cloudflare kann abhängig von den übrigen aktivierten
-        Sicherheitsfunktionen technisch erforderliche Mechanismen einsetzen.
-        [Etwaige zusätzliche Cloudflare-Sicherheitsfunktionen und Cookies
-        vor der abschließenden Freigabe prüfen.]
+        Für FlüsterWelt ist Cloudflare Web Analytics deaktiviert. Cloudflare
+        kann abhängig von den übrigen aktivierten Sicherheitsfunktionen
+        technisch erforderliche Mechanismen einsetzen. [Etwaige zusätzliche
+        Cloudflare-Sicherheitsfunktionen und Cookies vor der abschließenden
+        Freigabe prüfen.]
       </p>
     </div>
   </section>

@@ -12,7 +12,7 @@ Stand: 6. November 2026. **Interne Arbeitsnotiz / Review-Checkliste**, keine ver
 
 ## Belegte Informationen aus offiziellen Cloudflare-Quellen
 
-1. **AVV / DPA:** Cloudflare veröffentlicht das *Customer Data Processing Addendum*, Version 6.4 vom **3. April 2026**. Das DPA beschreibt Cloudflare als Auftragsverarbeiter bei einschlägigen Datenverarbeitungen im Auftrag des Kunden. Es wird erst wirksam, wenn die Parteien es in der vorgesehenen Weise vereinbart haben. Ob dies im konkreten Konto vorliegt, kann aus öffentlich zugänglichen Informationen **nicht festgestellt** werden.
+1. **AVV / DPA:** Cloudflare veröffentlicht das _Customer Data Processing Addendum_, Version 6.4 vom **3. April 2026**. Das DPA beschreibt Cloudflare als Auftragsverarbeiter bei einschlägigen Datenverarbeitungen im Auftrag des Kunden. Es wird erst wirksam, wenn die Parteien es in der vorgesehenen Weise vereinbart haben. Ob dies im konkreten Konto vorliegt, kann aus öffentlich zugänglichen Informationen **nicht festgestellt** werden.
    Quelle: https://www.cloudflare.com/cloudflare-customer-dpa/
 
 2. **Technische Metadaten:** Cloudflare erklärt, bestimmte Besucher- und Netzwerkmetadaten, häufig IP-Adressen, in den USA und Europa zu verarbeiten. Der Globale Netzwerkbetrieb ist nicht auf Deutschland beschränkt.
@@ -24,7 +24,7 @@ Stand: 6. November 2026. **Interne Arbeitsnotiz / Review-Checkliste**, keine ver
 4. **Aufbewahrung:** Cloudflares Privacy Policy beschreibt zweck- und rechtsgrundlagenbezogene Aufbewahrungskriterien, keine einheitliche feste Frist für sämtliche Besucherdaten bei Pages. Annex 1 des DPA nennt das Ende der erforderlichen Verarbeitung bzw. des Hauptvertrags als maßgeblichen Rahmen. **Nicht daraus ableiten:** eine allgemeine Löschfrist von z. B. 24 Stunden, 7 oder 30 Tagen für alle IP-Adressen.
    Quellen: https://www.cloudflare.com/privacypolicy/ · https://www.cloudflare.com/cloudflare-customer-dpa/
 
-5. **Analyse ≠ Logs:** Cloudflare dokumentiert inzwischen wenigstens 30 Tage Abrufbarkeit bestimmter Analytics-Daten auf allen Plänen (teilweise 31 Tage Aufbewahrung). Diese Angabe ist *nicht* mit der Speicherdauer individueller Besucherprotokolle gleichzusetzen. Die spezifischen Logpull- und Workers-Logs-Vorgaben sind nicht automatisch auf statische Pages-Assets anwendbar.
+5. **Analyse ≠ Logs:** Cloudflare dokumentiert inzwischen wenigstens 30 Tage Abrufbarkeit bestimmter Analytics-Daten auf allen Plänen (teilweise 31 Tage Aufbewahrung). Diese Angabe ist _nicht_ mit der Speicherdauer individueller Besucherprotokolle gleichzusetzen. Die spezifischen Logpull- und Workers-Logs-Vorgaben sind nicht automatisch auf statische Pages-Assets anwendbar.
    Quellen: https://developers.cloudflare.com/changelog/post/2026-10-02-30-days-analytics-on-every-plan/ · https://developers.cloudflare.com/logs/logpull/enabling-log-retention/ · https://developers.cloudflare.com/workers/platform/pricing/
 
 6. **Unterauftragsverarbeiter:** Cloudflare stellt eine Liste der Subprozessoren und ihrer Zwecke zur Verfügung; die tatsächliche Relevanz hängt vom genutzten Dienst ab.
