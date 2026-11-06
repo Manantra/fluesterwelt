@@ -168,11 +168,18 @@
         Fork entfernt.
       </p>
       <p>
+        Auch in den derzeit ausgelieferten HTML-Seiten wurde kein
+        Cloudflare-Web-Analytics-Skript festgestellt (Stand: November 2026).
+        Dies betrifft die Reichweitenmessung per Skript und bedeutet nicht,
+        dass beim Hosting keinerlei technische Verbindungsdaten verarbeitet
+        werden. Hinweise dazu findest du in Abschnitt 2.
+      </p>
+      <p>
         Cloudflare kann abhängig von der aktivierten Sicherheitskonfiguration
-        eigene technisch erforderliche Mechanismen einsetzen. [Im
-        Cloudflare-Dashboard prüfen, ob Web Analytics, weitere
-        Sicherheitsfunktionen oder zusätzliche Cookies aktiviert sind; diese
-        Erklärung gegebenenfalls anpassen.]
+        eigene technisch erforderliche Mechanismen einsetzen.
+        [Vor der abschließenden Freigabe im Cloudflare-Dashboard bestätigen,
+        dass Web Analytics deaktiviert ist, und mögliche zusätzliche
+        Sicherheitsfunktionen oder Cookies prüfen.]
       </p>
     </div>
   </section>
