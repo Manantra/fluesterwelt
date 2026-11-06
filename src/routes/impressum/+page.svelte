@@ -13,19 +13,12 @@
   title="Impressum"
   lede="Anbieterkennzeichnung für das privat betriebene Projekt FlüsterWelt"
 >
-  <aside
-    class="mb-6 rounded-xl border border-amber-400 bg-amber-100 p-4 text-amber-950"
-  >
-    <strong>Vor der Veröffentlichung rechtlich prüfen:</strong>
-    Die Angaben zur privat verantwortlichen Person sind eingetragen. Ob zusätzliche
-    Anbieterpflichten nach § 18 MStV oder § 5 DDG bestehen, muss anhand des konkreten
-    Angebots geprüft werden. Die Datenschutzerklärung ist ebenfalls noch nicht abschließend.
-  </aside>
-
   <section
     class="mb-6 space-y-4 rounded-2xl bg-white/95 p-6 leading-relaxed text-slate-700 shadow-lg"
   >
-    <h2 class="text-xl font-semibold text-slate-900">Angaben zum Anbieter</h2>
+    <h2 class="text-xl font-semibold text-slate-900">
+      Angaben gemäß § 18 Abs. 1 MStV
+    </h2>
     <p><strong>Daniel Menges</strong></p>
     <p>Wolzenstr. 21<br />14712 Rathenow<br />Deutschland</p>
     <p>
@@ -33,15 +26,6 @@
         class="font-semibold text-teal-700 underline"
         href="mailto:duplex.klirrt.2d@icloud.com">duplex.klirrt.2d@icloud.com</a
       >
-    </p>
-    <p>
-      [Falls einschlägig: Rechtsform, vertretungsberechtigte Person, Register
-      und Registernummer, Umsatzsteuer-ID, zuständige Aufsichtsbehörde und
-      weitere Pflichtangaben ergänzen.]
-    </p>
-    <p>
-      [Prüfen, ob bei journalistisch-redaktionellen Inhalten eine
-      verantwortliche Person gemäß § 18 Abs. 2 MStV anzugeben ist.]
     </p>
   </section>
 

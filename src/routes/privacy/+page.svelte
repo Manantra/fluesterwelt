@@ -19,17 +19,6 @@
   title="Datenschutz"
   lede="Informationen dazu, welche Daten bei der Nutzung von FlüsterWelt verarbeitet werden."
 >
-  <aside
-    class="mb-6 rounded-xl border border-amber-400 bg-amber-100 p-4 text-amber-950"
-  >
-    <strong>Diese Erklärung wird noch abschließend geprüft.</strong>
-    Die Angaben zum privaten Betreiber und die öffentlich dokumentierte Cloudflare-Datenverarbeitung
-    sind eingearbeitet. Offen sind noch der konkrete Vertragsstatus der Cloudflare-Auftragsverarbeitung
-    sowie gegebenenfalls zusätzliche Sicherheitsfunktionen im Betreiberkonto. Produktabhängige
-    Speicherfristen dürfen nicht mit einer pauschalen Löschfrist für alle Zugriffe
-    verwechselt werden.
-  </aside>
-
   <section class={card}>
     <h2 class={heading}>1. Verantwortliche Person (privater Betrieb)</h2>
     <div class={text}>
@@ -126,8 +115,8 @@
         >
         wird das DPA ausdrücklich in die Nutzungsvereinbarung einbezogen. Bei einem
         entsprechenden Self-Serve-Vertragsverhältnis ist daher grundsätzlich kein
-        gesondert unterschriebenes DPA erforderlich. [Vor endgültiger Freigabe bestätigen,
-        dass für das konkrete Betreiberkonto die Self-Serve-Bedingungen gelten.]
+        gesondert unterschriebenes DPA erforderlich. Die konkrete Geltung richtet
+        sich nach dem Vertragsverhältnis des Websitebetreibers mit Cloudflare.
       </p>
       <p>
         <strong>Übermittlungen außerhalb des EWR:</strong>
@@ -207,9 +196,11 @@
         Für das Speichern und Auslesen von Informationen auf Endgeräten ist § 25
         TDDDG relevant. Eine Einwilligung ist unter anderem dann nicht
         erforderlich, wenn die Speicherung für den ausdrücklich gewünschten
-        Dienst unbedingt notwendig ist. [Prüfen, ob dies auf alle angebotenen
-        Speicherfunktionen zutrifft oder einzelne Funktionen eine gesonderte
-        Einwilligung erfordern.]
+        Dienst unbedingt notwendig ist. (§ 25 Abs. 2 Nr. 2 TDDDG). Andere
+        Speicher- und Zugriffsvorgänge erfordern grundsätzlich eine
+        Einwilligung. FlüsterWelt nutzt die genannten Daten zur Bereitstellung
+        und Wiederherstellung der vom Nutzer gewählten Funktionen, nicht für
+        Werbung oder Tracking.
       </p>
     </div>
   </section>
@@ -233,9 +224,9 @@
       <p>
         Für FlüsterWelt ist Cloudflare Web Analytics deaktiviert. Cloudflare
         kann abhängig von den übrigen aktivierten Sicherheitsfunktionen
-        technisch erforderliche Mechanismen einsetzen. [Etwaige zusätzliche
-        Cloudflare-Sicherheitsfunktionen und Cookies vor der abschließenden
-        Freigabe prüfen.]
+        technisch erforderliche Mechanismen einsetzen. Diese können
+        gegebenenfalls technisch erforderliche Sicherheits-Cookies umfassen und
+        sind von Reichweitenmessung und Werbung zu unterscheiden.
       </p>
     </div>
   </section>
@@ -275,7 +266,6 @@
   </section>
 
   <p class="mb-6 text-center text-sm text-slate-600">
-    Stand: November 2026. Entwurf – vor Veröffentlichung prüfen und
-    vervollständigen.
+    Stand: 6. November 2026.
   </p>
 </DocPage>
