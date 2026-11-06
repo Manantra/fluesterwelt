@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="3.9 17 154.1 93">
+  <!-- Same curled silhouette with relaxed closed eye and lowered ears. -->
+  <path d="M33 94 C27 78 37 58 58 54 C88 47 112 58 126 74 C139 89 128 108 98 110 L54 110 C43 108 38 104 33 94 Z" fill="#d9733f"/>
+  <path d="M48 90 C53 74 70 68 92 75 C110 80 111 98 100 108 L56 109 C51 104 47 98 48 90 Z" fill="#bc5d30"/>
+  <path d="M63 103 C83 97 106 99 115 104 C102 109 82 110 63 109 Z" fill="#2b2b3a" opacity="0.14"/>
+  <path d="M44 68 C22 62 11 78 13 91 C16 111 38 112 56 106 C75 100 87 93 98 94 C91 84 77 84 66 87 C49 90 36 100 30 94 C26 91 28 80 44 68 Z" fill="#d9733f"/>
+  <path d="M26 77 C15 77 11 85 13 91 C15 99 23 105 35 106 C41 103 47 98 50 93 C35 96 27 95 26 89 C24 85 26 81 26 77 Z" fill="#f4f1de"/>
+  <path d="M15 94 C21 105 34 109 55 104 C43 112 21 114 15 100 Z" fill="#2b2b3a" opacity="0.15"/>
+  <path d="M104 99 C110 96 119 97 123 103 L122 109 L102 109 Z" fill="#f4f1de"/>
+  <path d="M111 105 L123 105 L125 109 L109 109 Z" fill="#2b2b3a" opacity="0.65"/>
+  <path d="M101 81 L103 60 C110 63 116 70 118 79 Z" fill="#2b2b3a"/>
+  <path d="M113 81 L127 64 C130 70 132 76 130 84 Z" fill="#d9733f"/>
+  <path d="M125 69 C128 74 129 78 127 80 L119 79 Z" fill="#2b2b3a"/>
+  <path d="M96 91 C100 78 116 75 128 79 C139 83 146 90 154 95 C157 98 156 101 151 102 C133 108 119 107 104 101 Z" fill="#d9733f"/>
+  <path d="M101 98 C115 103 134 106 152 100 C146 108 131 111 115 109 C108 108 103 105 101 98 Z" fill="#f4f1de"/>
+  <circle cx="153" cy="97.5" r="2.7" fill="#2b2b3a"/>
+  <!-- Closed eye is a curved line, not a squashed open-eye circle. -->
+  <path d="M123 90 C127 93 132 92 135 88" stroke="#2b2b3a" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+  <ellipse cx="121" cy="98" rx="3.5" ry="2" fill="#ff7a8a" opacity="0.4"/>
+</svg>

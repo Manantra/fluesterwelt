@@ -1,15 +1,17 @@
 /**
- * Small, optional moments of animal personality in the forest.
+ * Quiet, decorative animal behavior: no new arrivals, points or unlocks.
  *
- * The arrival/rarity system does not know about these moments: they do not
- * summon, remove, count, or unlock animals. The random input is injected so
- * the timing logic can be tested without rendering a Scene.
+ * The fox changes between genuinely different SVG poses. Each phase is timed
+ * separately so it visibly sits down, curls up, sleeps, and stands again.
+ * Motion remains the caller's responsibility; this is a pure state machine.
  */
 export type ForestBehavior = "fox-nap" | "squirrel-lookout";
+export type FoxPhase = "settle" | "sit" | "curl" | "sleep" | "wake";
 
 export interface ForestBehaviorState {
-  /** Null means ordinary movement; a non-null value means a short quiet pause. */
   active: ForestBehavior | null;
+  /** Non-null only while the fox is performing its short sequence. */
+  phase: FoxPhase | null;
   secondsUntilNext: number;
   secondsRemaining: number;
 }
@@ -21,10 +23,24 @@ interface Timing {
 }
 
 const TIMINGS: Record<ForestBehavior, Timing> = {
-  // An occasional low crouch and a few seconds of sleep.
-  "fox-nap": { first: [35, 60], repeat: [110, 170], duration: [9, 14] },
-  // Pauses on the clearing, stands taller and looks around.
+  // First appearance is early enough to discover in a classroom demo.
+  "fox-nap": { first: [16, 26], repeat: [85, 130], duration: [8, 12] },
   "squirrel-lookout": { first: [18, 35], repeat: [65, 110], duration: [4, 7] },
+};
+
+export const FOX_PHASE_DURATION: Record<Exclude<FoxPhase, "sleep">, number> = {
+  settle: 1.2,
+  sit: 2.5,
+  curl: 2.1,
+  wake: 2.5,
+};
+
+const FOX_NEXT_PHASE: Record<FoxPhase, FoxPhase | null> = {
+  settle: "sit",
+  sit: "curl",
+  curl: "sleep",
+  sleep: "wake",
+  wake: null,
 };
 
 export function behaviorForCreature(
@@ -47,15 +63,39 @@ export function createForestBehavior(
 ): ForestBehaviorState {
   return {
     active: null,
+    phase: null,
     secondsUntilNext: between(TIMINGS[kind].first, random),
     secondsRemaining: 0,
   };
 }
 
+function startNext(
+  state: ForestBehaviorState,
+  kind: ForestBehavior,
+  random: () => number,
+): ForestBehaviorState {
+  if (kind === "fox-nap") {
+    return {
+      ...state,
+      active: kind,
+      phase: "settle",
+      secondsUntilNext: 0,
+      secondsRemaining: FOX_PHASE_DURATION.settle,
+    };
+  }
+  return {
+    ...state,
+    active: kind,
+    phase: null,
+    secondsUntilNext: 0,
+    secondsRemaining: between(TIMINGS[kind].duration, random),
+  };
+}
+
 /**
- * Advance a moment only while the scene is free to animate.
- * A microphone alarm, teacher pause, a fleeing animal or reduced-motion mode
- * cancels the moment immediately. Nothing accumulates while suspended.
+ * When teacher pause, noise, flight, or reduced-motion intervenes, the active
+ * moment ends at once. The next one is scheduled normally, never immediately.
+ * Countdown waits while the scene cannot animate.
  */
 export function advanceForestBehavior(
   state: ForestBehaviorState,
@@ -68,29 +108,42 @@ export function advanceForestBehavior(
     return state.active
       ? {
           active: null,
-          secondsUntilNext: Math.max(8, state.secondsUntilNext),
+          phase: null,
+          secondsUntilNext: between(TIMINGS[kind].repeat, random),
           secondsRemaining: 0,
         }
       : state;
   }
   if (seconds <= 0) return state;
 
-  if (state.active) {
-    const remaining = state.secondsRemaining - seconds;
-    return remaining > 0
-      ? { ...state, secondsRemaining: remaining }
-      : {
-          active: null,
-          secondsUntilNext: between(TIMINGS[kind].repeat, random),
-          secondsRemaining: 0,
-        };
+  if (state.active === null) {
+    const until = state.secondsUntilNext - seconds;
+    return until > 0
+      ? { ...state, secondsUntilNext: until }
+      : startNext(state, kind, random);
   }
 
-  const until = state.secondsUntilNext - seconds;
-  if (until > 0) return { ...state, secondsUntilNext: until };
+  const remaining = state.secondsRemaining - seconds;
+  if (remaining > 0) return { ...state, secondsRemaining: remaining };
+
+  if (kind === "fox-nap" && state.phase) {
+    const next = FOX_NEXT_PHASE[state.phase];
+    if (next) {
+      return {
+        ...state,
+        phase: next,
+        secondsRemaining:
+          next === "sleep"
+            ? between(TIMINGS[kind].duration, random)
+            : FOX_PHASE_DURATION[next],
+      };
+    }
+  }
+
   return {
-    active: kind,
-    secondsUntilNext: 0,
-    secondsRemaining: between(TIMINGS[kind].duration, random),
+    active: null,
+    phase: null,
+    secondsUntilNext: between(TIMINGS[kind].repeat, random),
+    secondsRemaining: 0,
   };
 }

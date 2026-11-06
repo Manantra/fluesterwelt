@@ -195,32 +195,33 @@ html[data-scene="forest"]:not(:has(.scene-stage)) body {
    creatures in the near half of the clearing and is not a warning effect. */
 @keyframes forest-sunlight-visit {
   0%,
-  9%,
-  37%,
+  8%,
+  53%,
   100% {
     opacity: 0;
   }
-  20%,
-  28% {
-    opacity: 0.15;
+  23%,
+  38% {
+    opacity: 0.58;
   }
 }
 
 .scene-stage[data-scene="forest"] .forest-clearing-sunlight {
-  left: calc(var(--world-left) + 31 * var(--wu));
-  top: 42%;
-  width: calc(83 * var(--wu));
-  height: 45%;
+  left: calc(var(--world-left) + 40 * var(--wu));
+  top: 61%;
+  width: calc(50 * var(--wu));
+  height: 30%;
   z-index: 595;
   border-radius: 50%;
   background: radial-gradient(
-    ellipse at 46% 54%,
-    rgb(255 238 169 / 0.95) 0%,
-    rgb(255 238 169 / 0.35) 45%,
-    transparent 74%
+    ellipse at 48% 48%,
+    rgb(255 242 176 / 0.95) 0%,
+    rgb(255 233 147 / 0.7) 30%,
+    rgb(255 238 169 / 0.2) 65%,
+    transparent 82%
   );
   opacity: 0;
-  animation: forest-sunlight-visit 140s ease-in-out infinite;
+  animation: forest-sunlight-visit 95s ease-in-out infinite;
 }
 
 /* The new moment yields immediately when the room needs attention. */
@@ -231,34 +232,85 @@ html[data-scene="forest"]:not(:has(.scene-stage)) body {
   animation-play-state: paused;
 }
 
-/* A fox crouches at the spot where it finished walking; its tiny eyes close.
-   It keeps the same position and stacking order. No popups or loud effects.
-   Keep the transition in the default state too, so waking is gradual. */
+/* The fox has genuinely different silhouettes for sitting and sleeping.
+   All SVGs have the exact same viewBox and baseline as its walking artwork.
+   Fade between them while stepSettle brakes the existing motion in place. */
 .scene-stage[data-scene="forest"]
   .swimmer[data-forest-species="red-fox"]
-  .poser {
-  transition: transform 1.4s ease-in-out;
+  .creature
+  > svg {
+  transition: opacity 750ms ease-in-out;
 }
 
 .scene-stage[data-scene="forest"]
-  .swimmer[data-forest-behavior="fox-nap"]
-  .poser {
-  transform: translateY(3%) scaleY(0.87) rotate(2deg);
-  transition: transform 1.4s ease-in-out;
-}
-
-.scene-stage[data-scene="forest"]
-  .swimmer[data-forest-behavior="fox-nap"]
-  .forest-fox-eye {
-  transform-box: fill-box;
-  transform-origin: center;
-  transform: scaleY(0.13);
-}
-
-.scene-stage[data-scene="forest"]
-  .swimmer[data-forest-behavior="fox-nap"]
-  .forest-fox-eye-glint {
+  .swimmer[data-forest-species="red-fox"]
+  .forest-fox-pose {
+  position: absolute;
+  inset: 0;
   opacity: 0;
+  pointer-events: none;
+  transition: opacity 750ms ease-in-out;
+}
+
+.scene-stage[data-scene="forest"] .forest-fox-pose > svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.scene-stage[data-scene="forest"]
+  .swimmer[data-fox-phase="sit"]
+  .creature
+  > svg,
+.scene-stage[data-scene="forest"]
+  .swimmer[data-fox-phase="curl"]
+  .creature
+  > svg,
+.scene-stage[data-scene="forest"]
+  .swimmer[data-fox-phase="sleep"]
+  .creature
+  > svg,
+.scene-stage[data-scene="forest"]
+  .swimmer[data-fox-phase="wake"]
+  .creature
+  > svg {
+  opacity: 0;
+}
+
+/* Sit on the ground -> roll the tail round -> close eyes -> sit up to wake. */
+.scene-stage[data-scene="forest"]
+  .swimmer[data-fox-phase="sit"]
+  .forest-fox-pose-sit,
+.scene-stage[data-scene="forest"]
+  .swimmer[data-fox-phase="wake"]
+  .forest-fox-pose-sit,
+.scene-stage[data-scene="forest"]
+  .swimmer[data-fox-phase="curl"]
+  .forest-fox-pose-curl,
+.scene-stage[data-scene="forest"]
+  .swimmer[data-fox-phase="sleep"]
+  .forest-fox-pose-sleep {
+  opacity: 1;
+}
+
+/* The fox's resting chest moves a fraction of a pixel in a slow breath. */
+@keyframes forest-fox-breath {
+  0%,
+  100% {
+    transform: scaleY(1);
+  }
+  50% {
+    transform: scaleY(0.982);
+  }
+}
+
+.scene-stage[data-scene="forest"]
+  .swimmer[data-fox-phase="sleep"]
+  .forest-fox-pose-sleep
+  > svg {
+  transform-origin: 50% 100%;
+  animation: forest-fox-breath 4.6s ease-in-out infinite;
 }
 
 /* The squirrel briefly stands taller and glances to either side. */
@@ -297,9 +349,19 @@ html[data-scene="forest"]:not(:has(.scene-stage)) body {
   }
 
   .scene-stage[data-scene="forest"]
-    .swimmer[data-forest-behavior="fox-nap"]
-    .poser {
-    transform: none;
+    .swimmer[data-forest-species="red-fox"]
+    .creature
+    > svg {
+    opacity: 1 !important;
     transition: none;
+  }
+
+  .scene-stage[data-scene="forest"] .forest-fox-pose {
+    opacity: 0 !important;
+    transition: none;
+  }
+
+  .scene-stage[data-scene="forest"] .forest-fox-pose > svg {
+    animation: none;
   }
 }

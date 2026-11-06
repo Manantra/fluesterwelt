@@ -37,7 +37,9 @@
     behaviorForCreature,
     createForestBehavior,
     type ForestBehavior,
+    type FoxPhase,
   } from "$lib/scenes/forest/behaviors";
+  import { FOX_POSE_ART } from "$lib/scenes/forest/artwork";
   import {
     FADE_S,
     MOTION_PROFILES,
@@ -139,6 +141,7 @@
   let attending = $state(false);
   /** Purely decorative forest behavior, never a collected new Creature. */
   let forestMoment = $state<ForestBehavior | null>(null);
+  let foxPhase = $state<FoxPhase | null>(null);
   /** The little perk-up as it turns, and the shake-off when talking ends. */
   let turning = $state(false);
   let shaking = $state(false);
@@ -242,6 +245,9 @@
         if (forestMoment !== forestState.active) {
           forestMoment = forestState.active;
         }
+        if (foxPhase !== forestState.phase) {
+          foxPhase = forestState.phase;
+        }
       }
 
       if (fading) {
@@ -336,6 +342,7 @@
   class:fleeing
   class:fading
   data-forest-behavior={forestMoment}
+  data-fox-phase={foxPhase}
   data-forest-species={sceneId === "forest" ? creature.def.slug : undefined}
   data-listening={attending}
   data-holding={listening && whilePaused === "hold" && !fleeing}
@@ -379,7 +386,7 @@
       >
         <div bind:this={flipper} class="flipper">
           <div
-            class="creature"
+            class="creature relative"
             class:arriving={isNewest}
             class:settled={!glistening}
             data-tier={creature.def.tier}
@@ -392,6 +399,31 @@
             {/if}
             <!-- eslint-disable-next-line svelte/no-at-html-tags -->
             {@html attending && listeningArt ? listeningArt : art}
+            {#if sceneId === "forest" && creature.def.slug === "red-fox"}
+              <!-- All images have the original fox's viewBox and ground line.
+                   Crossfading them preserves the fox's position and facing. -->
+              <div
+                class="forest-fox-pose forest-fox-pose-sit"
+                aria-hidden="true"
+              >
+                <!-- eslint-disable-next-line svelte/no-at-html-tags -->
+                {@html FOX_POSE_ART.sit}
+              </div>
+              <div
+                class="forest-fox-pose forest-fox-pose-curl"
+                aria-hidden="true"
+              >
+                <!-- eslint-disable-next-line svelte/no-at-html-tags -->
+                {@html FOX_POSE_ART.curl}
+              </div>
+              <div
+                class="forest-fox-pose forest-fox-pose-sleep"
+                aria-hidden="true"
+              >
+                <!-- eslint-disable-next-line svelte/no-at-html-tags -->
+                {@html FOX_POSE_ART.sleep}
+              </div>
+            {/if}
           </div>
         </div>
       </div>

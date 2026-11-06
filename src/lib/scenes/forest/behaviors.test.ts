@@ -3,80 +3,81 @@ import {
   advanceForestBehavior,
   behaviorForCreature,
   createForestBehavior,
+  FOX_PHASE_DURATION,
+  type ForestBehaviorState,
+  type FoxPhase,
 } from "./behaviors";
 
 const zero = () => 0;
 const half = () => 0.5;
+const foxStep = (state: ForestBehaviorState, seconds: number) =>
+  advanceForestBehavior(state, "fox-nap", seconds, true, zero);
 
-test("only the two forest pilot animals receive extra behavior", () => {
+test("the fox and squirrel alone get the new forest behaviors", () => {
   expect(behaviorForCreature("forest", "red-fox")).toBe("fox-nap");
   expect(behaviorForCreature("forest", "gray-squirrel")).toBe(
     "squirrel-lookout",
   );
   expect(behaviorForCreature("savanna", "red-fox")).toBeNull();
-  expect(behaviorForCreature("forest", "black-bear")).toBeNull();
+  expect(behaviorForCreature("forest", "hedgehog")).toBeNull();
 });
 
-test("a fox pauses after its initial delay, then returns to normal wandering", () => {
-  const initial = createForestBehavior("fox-nap", zero);
-  expect(initial.secondsUntilNext).toBe(35);
-  const waiting = advanceForestBehavior(initial, "fox-nap", 34, true, zero);
-  expect(waiting.active).toBeNull();
-  const napping = advanceForestBehavior(waiting, "fox-nap", 1, true, zero);
-  expect(napping.active).toBe("fox-nap");
-  expect(napping.secondsRemaining).toBe(9);
-  const awake = advanceForestBehavior(napping, "fox-nap", 9, true, zero);
-  expect(awake.active).toBeNull();
-  expect(awake.secondsUntilNext).toBe(110);
+test("the fox has visible intermediate poses, not just a longer rest", () => {
+  let state = createForestBehavior("fox-nap", zero);
+  expect(state.secondsUntilNext).toBe(16);
+  state = foxStep(state, 15);
+  expect(state.active).toBeNull();
+
+  state = foxStep(state, 1);
+  expect(state.active).toBe("fox-nap");
+  expect(state.phase).toBe("settle");
+
+  const phases: { phase: FoxPhase; seconds: number }[] = [
+    { phase: "sit", seconds: FOX_PHASE_DURATION.settle },
+    { phase: "curl", seconds: FOX_PHASE_DURATION.sit },
+    { phase: "sleep", seconds: FOX_PHASE_DURATION.curl },
+    { phase: "wake", seconds: 8 },
+  ];
+
+  for (const next of phases) {
+    state = foxStep(state, next.seconds);
+    expect(state.phase).toBe(next.phase);
+    expect(state.active).toBe("fox-nap");
+  }
+  state = foxStep(state, FOX_PHASE_DURATION.wake);
+  expect(state.active).toBeNull();
+  expect(state.phase).toBeNull();
+  expect(state.secondsUntilNext).toBe(85);
 });
 
-test("squirrel takes shorter lookout pauses with randomized timing", () => {
-  const initial = createForestBehavior("squirrel-lookout", half);
-  expect(initial.secondsUntilNext).toBe(26.5);
-  const lookout = advanceForestBehavior(
-    initial,
-    "squirrel-lookout",
-    27,
-    true,
-    half,
-  );
-  expect(lookout.active).toBe("squirrel-lookout");
-  expect(lookout.secondsRemaining).toBe(5.5);
-  const done = advanceForestBehavior(
-    lookout,
-    "squirrel-lookout",
-    5.5,
-    true,
-    half,
-  );
-  expect(done.secondsUntilNext).toBe(87.5);
+test("squirrel retains the original short lookout moment", () => {
+  let state = createForestBehavior("squirrel-lookout", half);
+  expect(state.secondsUntilNext).toBe(26.5);
+  state = advanceForestBehavior(state, "squirrel-lookout", 27, true, half);
+  expect(state.active).toBe("squirrel-lookout");
+  expect(state.phase).toBeNull();
+  expect(state.secondsRemaining).toBe(5.5);
+  state = advanceForestBehavior(state, "squirrel-lookout", 5.5, true, half);
+  expect(state.active).toBeNull();
+  expect(state.secondsUntilNext).toBe(87.5);
 });
 
-test("teacher pause, noise and reduced motion interrupt a behavior", () => {
-  const started = advanceForestBehavior(
-    createForestBehavior("fox-nap", zero),
-    "fox-nap",
-    35,
-    true,
-    zero,
+test("teacher pause, too loud, flight and reduced motion cancel the fox sequence", () => {
+  let state = foxStep(createForestBehavior("fox-nap", zero), 16);
+  state = foxStep(state, FOX_PHASE_DURATION.settle);
+  expect(state.phase).toBe("sit");
+  state = advanceForestBehavior(state, "fox-nap", 1, false, zero);
+  expect(state.active).toBeNull();
+  expect(state.phase).toBeNull();
+  expect(state.secondsRemaining).toBe(0);
+  expect(state.secondsUntilNext).toBe(85);
+  expect(advanceForestBehavior(state, "fox-nap", 600, false, zero)).toEqual(
+    state,
   );
-  const stopped = advanceForestBehavior(started, "fox-nap", 1, false, zero);
-  expect(stopped.active).toBeNull();
-  expect(stopped.secondsRemaining).toBe(0);
-  expect(advanceForestBehavior(stopped, "fox-nap", 600, false, zero)).toEqual(
-    stopped,
-  );
-  expect(
-    advanceForestBehavior(stopped, "fox-nap", 7, true, zero).active,
-  ).toBeNull();
 });
 
-test("zero or negative elapsed time never starts another moment", () => {
-  const initial = createForestBehavior("squirrel-lookout", zero);
-  expect(
-    advanceForestBehavior(initial, "squirrel-lookout", 0, true, zero),
-  ).toEqual(initial);
-  expect(
-    advanceForestBehavior(initial, "squirrel-lookout", -3, true, zero),
-  ).toEqual(initial);
+test("zero and negative elapsed time are inert", () => {
+  const state = createForestBehavior("fox-nap", zero);
+  expect(foxStep(state, 0)).toEqual(state);
+  expect(foxStep(state, -3)).toEqual(state);
 });

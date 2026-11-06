@@ -27,7 +27,7 @@
   <path d="M130 37 C140 38, 148 43, 155 47 C157.5 48.5, 157 51.5, 154 52.5 C146 54.5, 138 55, 130 54 Z" fill="#d9733f"/>
   <path d="M121 48 C127 54, 140 54.5, 154.5 52.3 C148 56.5, 137 58.5, 128 58.5 C125 58.5, 122.5 58.3, 120.8 58 C121 55.5, 121 52.5, 121 48 Z" fill="#f4f1de"/>
   <circle cx="155" cy="49.7" r="3" fill="#2b2b3a"/>
-  <circle class="forest-fox-eye" cx="137" cy="42" r="3.2" fill="#2b2b3a"/>
-  <circle class="forest-fox-eye-glint" cx="135.9" cy="40.9" r="0.95" fill="#ffffff"/>
+  <circle cx="137" cy="42" r="3.2" fill="#2b2b3a"/>
+  <circle cx="135.9" cy="40.9" r="0.95" fill="#ffffff"/>
   <ellipse cx="131" cy="49" rx="3.6" ry="2.2" fill="#ff7a8a" opacity="0.55"/>
 </svg>

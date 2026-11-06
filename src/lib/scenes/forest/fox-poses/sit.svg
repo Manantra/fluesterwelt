@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="3.9 17 154.1 93">
+  <!-- Same palette, ground level and facing as the walking red fox. -->
+  <!-- A big, sweeping tail curled beside the sitting body. -->
+  <path d="M80 85 C67 68 47 61 31 68 C13 72 5 89 15 99 C25 109 44 107 62 100 C73 96 78 95 83 95 Z" fill="#d9733f"/>
+  <path d="M31 68 C18 70 8 78 7 88 C6 96 15 101 24 102 C30 98 38 94 43 86 C39 78 36 73 31 68 Z" fill="#f4f1de"/>
+  <path d="M11 94 C19 105 40 107 64 99 C47 106 25 111 16 102 Z" fill="#2b2b3a" opacity="0.17"/>
+  <!-- Haunches sit on the ground, rather than standing on four legs. -->
+  <ellipse cx="77" cy="94" rx="32" ry="16" fill="#bc5d30"/>
+  <path d="M64 103 C55 93 55 70 63 57 C72 41 90 41 103 53 C113 64 115 83 112 102 L108 109 L73 109 Z" fill="#d9733f"/>
+  <path d="M97 52 C90 54 89 70 92 81 C96 96 98 103 98 110 L117 110 C117 94 115 72 109 59 Z" fill="#f4f1de"/>
+  <path d="M57 94 C65 91 73 94 79 103 L82 110 L55 110 C54 105 55 99 57 94 Z" fill="#d9733f"/>
+  <path d="M54 105 L83 105 L84 110 L54 110 Z" fill="#2b2b3a"/>
+  <!-- Upright forelegs and little dark paws. -->
+  <path d="M105 74 C111 78 113 91 113 108 L107 110 L104 106 L101 85 Z" fill="#d9733f"/>
+  <path d="M117 77 C123 84 124 96 125 108 L119 110 L116 106 L114 86 Z" fill="#c96235"/>
+  <path d="M103 106 L114 106 L116 110 L103 110 Z M116 106 L128 106 L130 110 L116 110 Z" fill="#2b2b3a"/>
+  <!-- Long neck, bright cheek, two pointed ears. -->
+  <path d="M94 60 C101 50 105 37 112 34 L135 38 C139 47 133 61 124 72 L114 85 L100 78 Z" fill="#d9733f"/>
+  <path d="M112 38 L110 19 C118 23 125 31 127 41 Z" fill="#2b2b3a"/>
+  <path d="M125 39 L130 17 C137 25 141 34 141 44 Z" fill="#d9733f"/>
+  <path d="M131 23 C136 30 139 36 138 40 L129 38 Z" fill="#2b2b3a"/>
+  <path d="M102 58 C114 66 125 64 139 58 C140 63 129 74 115 77 C110 77 106 74 102 71 Z" fill="#f4f1de"/>
+  <path d="M126 42 C136 38 142 42 148 48 L157 56 C159 60 156 63 150 64 C142 64 137 61 132 58 L122 52 Z" fill="#d9733f"/>
+  <path d="M130 54 C141 62 151 62 156 60 C152 68 141 69 131 65 L121 61 Z" fill="#f4f1de"/>
+  <circle cx="155" cy="58.5" r="2.7" fill="#2b2b3a"/>
+  <circle cx="138" cy="47" r="3.1" fill="#2b2b3a"/>
+  <circle cx="137" cy="46" r="1" fill="#ffffff"/>
+  <ellipse cx="130" cy="55" rx="3.5" ry="2.2" fill="#ff7a8a" opacity="0.5"/>
+</svg>
