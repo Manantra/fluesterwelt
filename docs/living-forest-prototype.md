@@ -16,9 +16,18 @@ dem Belohnungssystem zu tun haben:
   Schlafpose bleibt erhalten (**8–12 Sekunden**). Das **Aufstehen dauert
   nur 1,05 Sekunden** und spielt die Bewegungen umgekehrt ab. Erst danach
   läuft er weiter. Wiederholung nach etwa 85–130 Sekunden.
-- **Grauhörnchen:** Es bleibt nach etwa 18–35 Sekunden kurz stehen, richtet
-  sich auf und schaut sich um. Die Pause dauert etwa 4–7 Sekunden und
-  wiederholt sich unregelmäßig nach etwa 65–110 Sekunden.
+- **Grauhörnchen:** Nach ungefähr 18–36 Sekunden kann es eine kleine
+  **Eichel am Boden entdecken**, sich ihr zuwenden, sie **in die Pfoten heben**,
+  einige Sekunden knabbern und sie schließlich aufessen. Der Ablauf hat
+  eigene Phasen (Suchen → Aufheben → Knabbern → letzter Bissen). Bei späteren
+  Gelegenheiten schaut es stattdessen auch einfach neugierig umher.
+  Nach einer Aktion vergehen normalerweise 55–110 Sekunden bis zur nächsten.
+- **Mehrere Tiere derselben Art:** Jedes Exemplar hat einen eigenen
+  Zufallstimer. Zusätzlich darf **immer nur ein Fuchs und ein Grauhörnchen**
+  pro Waldszene gleichzeitig eine besondere Aktion ausführen. Andere
+  Exemplare laufen normal weiter und versuchen es später erneut. Nach dem
+  ersten typischen Verhalten wechseln Füchse zwischen Schlafen und Schnüffeln,
+  Eichhörnchen zwischen Eichelsuche und Ausschauhalten.
 - **Waldlichtung:** Ein jetzt stärker erkennbarer warmer Sonnenfleck erscheint
   in einem kleinen Bereich der Lichtung und verschwindet langsam. Zyklus:
   etwa 95 Sekunden, sichtbare Phase etwa zwischen Sekunde 10 und 50.
@@ -37,9 +46,11 @@ die zusätzlichen Tiermomente und der Lichtwechsel.
 4. Zum gezielten Testen im Bereich **Einstellungen → Erweitert**
    die vorhandene Funktion „Alle Tiere erscheinen lassen“ verwenden.
    Diese Funktion ist bereits Teil der App und trägt nichts in die Sammlung ein.
-5. Fuchs und Grauhörnchen beobachten. Der Fuchs beginnt nach etwa
-   **16–26 Sekunden** mit dem neuen Ablauf: **kurz abbremsen →
-   fließend hinlegen → schlafen → fließend aufstehen**. Der Sonnenfleck sollte ebenfalls deutlicher sein.
+5. Fuchs und Grauhörnchen beobachten. Der erste Fuchs beginnt nach etwa
+   **16–30 Sekunden** mit **Abbremsen → Hinlegen → Schlafen → Aufstehen**.
+   Ein Grauhörnchen sollte nach **18–36 Sekunden** eine Eichel entdecken,
+   aufheben und knabbern. **Mehrere Füchse schlafen nicht gleichzeitig**.
+   Der Sonnenfleck sollte ebenfalls sichtbar sein.
 6. Mikrofon pausieren, „zu laut“ erzeugen und in den Betriebssystemeinstellungen
    „Bewegung reduzieren“ aktivieren: Die zusätzlichen Momente sollen dabei nicht
    ablenken.
@@ -57,7 +68,16 @@ die zusätzlichen Tiermomente und der Lichtwechsel.
 
 ## Technischer Aufbau
 
-Die Datei forest/behaviors.ts enthält die kurze Zustandsmaschine mit Tests.
+Die Datei forest/behaviors.ts enthält die individuelle Zustandsmaschine
+mit vier möglichen Tieraktionen und Tests. forest/coordination.ts sorgt dafür,
+dass mehrere Tiere derselben Art nicht gleichzeitig besondere Aktionen
+starten. Eigene Timer und gelegentlich wechselnde Handlungen sorgen für
+Abwechslung – auch beim gleichzeitigen Einblenden aller Tiere.
+
+Creature.svelte zeigt die kleine Eichel als SVG innerhalb der bestehenden
+Grauhörnchen-Zeichenfläche; die CSS-Animation hebt sie vom Boden in die
+Vorderpfoten und führt kleine Knabberbewegungen aus.
+
 Creature.svelte nutzt stepSettle zum sanften Anhalten und bewahrt den Zustand
 für das schwebende Fenster in einer WeakMap. Die originale red-fox.svg ist
 in **Körper, Vorder-/Hinterbeine, Kopf und Schwanz** gruppiert, die während

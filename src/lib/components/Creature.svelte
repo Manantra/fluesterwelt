@@ -2,12 +2,19 @@
   import type { MotionState } from "$lib/scenes/motion";
   import type { CreatureInstance } from "$lib/session/session.svelte";
   import type { ForestBehaviorState } from "$lib/scenes/forest/behaviors";
+  import { ForestMomentCoordinator } from "$lib/scenes/forest/coordination";
 
   /**
    * Keep the interval across the Document PiP window move. The same
    * CreatureInstance remains alive, even though its component is remounted.
    */
   const forestStates = new WeakMap<CreatureInstance, ForestBehaviorState>();
+
+  /** Nearby copies of the same species never perform special acts together. */
+  const forestCoordinator = new ForestMomentCoordinator<
+    HTMLElement,
+    CreatureInstance
+  >();
 
   /**
    * Where each Creature had got to, so one that is drawn afresh — when the
@@ -37,7 +44,7 @@
     behaviorForCreature,
     createForestBehavior,
     type ForestBehavior,
-    type FoxPhase,
+    type ForestPhase,
   } from "$lib/scenes/forest/behaviors";
   import { FOX_POSE_ART } from "$lib/scenes/forest/artwork";
   import {
@@ -141,7 +148,7 @@
   let attending = $state(false);
   /** Purely decorative forest behavior, never a collected new Creature. */
   let forestMoment = $state<ForestBehavior | null>(null);
-  let foxPhase = $state<FoxPhase | null>(null);
+  let forestPhase = $state<ForestPhase | null>(null);
   /** The little perk-up as it turns, and the shake-off when talking ends. */
   let turning = $state(false);
   let shaking = $state(false);
@@ -205,6 +212,22 @@
       ? (forestStates.get(creature) ??
         createForestBehavior(forestKind, Math.random))
       : null;
+    // The same individual can return when a floating window is closed.
+    // Reclaim the species slot in its new scene; a competing copy instead
+    // receives a fresh independent countdown.
+    if (
+      forestState?.active &&
+      forestKind &&
+      !forestCoordinator.acquire(scene, forestKind, creature)
+    ) {
+      forestState = advanceForestBehavior(
+        forestState,
+        forestKind,
+        0,
+        false,
+        Math.random,
+      );
+    }
     if (forestState) forestStates.set(creature, forestState);
 
     // Already Paused when drawn, as when the Scene floats out mid-announcement:
@@ -234,19 +257,35 @@
       if (frozen && !fleeing) dt = 0;
 
       if (forestState && forestKind) {
+        const wasActive = forestState.active !== null;
         forestState = advanceForestBehavior(
           forestState,
           forestKind,
           elapsed,
           !frozen && !listening && !fleeing && !reducedMotion.matches,
           Math.random,
+          forestCoordinator.available(scene, forestKind, creature),
         );
+        if (!wasActive && forestState.active) {
+          // Synchronously acquire: every other RAF callback now sees busy.
+          if (!forestCoordinator.acquire(scene, forestKind, creature)) {
+            forestState = advanceForestBehavior(
+              forestState,
+              forestKind,
+              0,
+              false,
+              Math.random,
+            );
+          }
+        } else if (wasActive && !forestState.active) {
+          forestCoordinator.release(scene, forestKind, creature);
+        }
         forestStates.set(creature, forestState);
         if (forestMoment !== forestState.active) {
           forestMoment = forestState.active;
         }
-        if (foxPhase !== forestState.phase) {
-          foxPhase = forestState.phase;
+        if (forestPhase !== forestState.phase) {
+          forestPhase = forestState.phase;
         }
       }
 
@@ -332,6 +371,9 @@
       cancelFrame(frame);
       resize.disconnect();
       clearTimeout(settle);
+      if (forestKind) {
+        forestCoordinator.release(scene, forestKind, creature);
+      }
     };
   });
 </script>
@@ -342,7 +384,13 @@
   class:fleeing
   class:fading
   data-forest-behavior={forestMoment}
-  data-fox-phase={foxPhase}
+  data-fox-phase={sceneId === "forest" && creature.def.slug === "red-fox"
+    ? forestPhase
+    : null}
+  data-squirrel-phase={sceneId === "forest" &&
+  creature.def.slug === "gray-squirrel"
+    ? forestPhase
+    : null}
   data-forest-species={sceneId === "forest" ? creature.def.slug : undefined}
   data-listening={attending}
   data-holding={listening && whilePaused === "hold" && !fleeing}
@@ -410,6 +458,46 @@
                 <!-- eslint-disable-next-line svelte/no-at-html-tags -->
                 {@html FOX_POSE_ART.sleep}
               </div>
+            {/if}
+            {#if sceneId === "forest" && creature.def.slug === "gray-squirrel"}
+              <!-- Tiny acorn: ground discovery, picked up into the paws,
+                   then nibbled. It is purely decorative and not collected. -->
+              <svg
+                class="forest-squirrel-acorn"
+                viewBox="1.9 0.9 86.6 99.1"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <g class="forest-squirrel-acorn-seed">
+                  <path
+                    d="M70 87 C70 81 73 77 77 77 C82 77 85 81 85 87 C85 91 80 96 77.5 97 C75 96 70 91 70 87 Z"
+                    fill="#a87a34"
+                    stroke="#5c4334"
+                    stroke-width="1.4"
+                  />
+                  <path
+                    d="M69.5 81 C70 77 74 74.5 78 74.5 C82 74.5 85.5 77 86 81 C81 83 74 83 69.5 81 Z"
+                    fill="#7a5a44"
+                    stroke="#5c4334"
+                    stroke-width="1.2"
+                  />
+                  <path
+                    d="M76 75 C77 72 79 70.5 81 71"
+                    stroke="#5c4334"
+                    stroke-width="1.6"
+                    stroke-linecap="round"
+                    fill="none"
+                  />
+                  <path
+                    d="M73 88 C73 84.5 75 82.5 77 82"
+                    stroke="#f4f1de"
+                    stroke-width="1.4"
+                    stroke-linecap="round"
+                    opacity="0.55"
+                    fill="none"
+                  />
+                </g>
+              </svg>
             {/if}
           </div>
         </div>

@@ -1,38 +1,50 @@
 /**
- * Quiet, decorative animal behavior: no new arrivals, points or unlocks.
+ * Quiet, individual animal moments. Each arriving creature owns its own
+ * countdown; the forest coordinator (outside this pure state machine) allows
+ * only one extra moment of each species at a time.
  *
- * The fox lowers itself in a single articulated animation, rests in a
- * hand-drawn sleeping pose, then gets back up in one continuous movement.
- * Motion remains the caller's responsibility; this is a pure state machine.
+ * No new animals, rewards, sightings or audio recordings are created.
  */
-export type ForestBehavior = "fox-nap" | "squirrel-lookout";
+export type ForestSpecies = "fox" | "squirrel";
+export type ForestBehavior =
+  "fox-nap" | "fox-sniff" | "squirrel-lookout" | "squirrel-acorn";
 export type FoxPhase = "settle" | "down" | "sleep" | "up";
+export type SquirrelPhase = "search" | "pick" | "nibble" | "finish";
+export type ForestPhase = FoxPhase | SquirrelPhase;
 
 export interface ForestBehaviorState {
   active: ForestBehavior | null;
-  /** Non-null only while the fox is performing its short sequence. */
-  phase: FoxPhase | null;
+  phase: ForestPhase | null;
   secondsUntilNext: number;
   secondsRemaining: number;
+  /** Used to show each species' signature act once before varying it. */
+  completedMoments: number;
 }
 
-interface Timing {
+interface SpeciesTiming {
   first: readonly [number, number];
   repeat: readonly [number, number];
-  duration: readonly [number, number];
+  blockedRetry: readonly [number, number];
 }
 
-const TIMINGS: Record<ForestBehavior, Timing> = {
-  // First appearance is early enough to discover in a classroom demo.
-  "fox-nap": { first: [16, 26], repeat: [85, 130], duration: [8, 12] },
-  "squirrel-lookout": { first: [18, 35], repeat: [65, 110], duration: [4, 7] },
+const TIMINGS: Record<ForestSpecies, SpeciesTiming> = {
+  fox: { first: [16, 30], repeat: [60, 120], blockedRetry: [7, 15] },
+  squirrel: { first: [18, 36], repeat: [55, 110], blockedRetry: [7, 15] },
 };
 
 export const FOX_PHASE_DURATION: Record<Exclude<FoxPhase, "sleep">, number> = {
-  // A short deceleration before the body folds down continuously.
   settle: 0.45,
   down: 1.2,
   up: 1.05,
+};
+
+export const SQUIRREL_PHASE_DURATION: Record<
+  Exclude<SquirrelPhase, "nibble">,
+  number
+> = {
+  search: 1.65,
+  pick: 0.9,
+  finish: 0.85,
 };
 
 const FOX_NEXT_PHASE: Record<FoxPhase, FoxPhase | null> = {
@@ -42,13 +54,25 @@ const FOX_NEXT_PHASE: Record<FoxPhase, FoxPhase | null> = {
   up: null,
 };
 
+const SQUIRREL_NEXT_PHASE: Record<SquirrelPhase, SquirrelPhase | null> = {
+  search: "pick",
+  pick: "nibble",
+  nibble: "finish",
+  finish: null,
+};
+
+const FOX_SLEEP_DURATION: readonly [number, number] = [8, 12];
+const FOX_SNIFF_DURATION: readonly [number, number] = [2.7, 4.6];
+const SQUIRREL_NIBBLE_DURATION: readonly [number, number] = [3.5, 5.5];
+const SQUIRREL_LOOKOUT_DURATION: readonly [number, number] = [3.5, 6];
+
 export function behaviorForCreature(
   sceneId: string,
   slug: string,
-): ForestBehavior | null {
+): ForestSpecies | null {
   if (sceneId !== "forest") return null;
-  if (slug === "red-fox") return "fox-nap";
-  if (slug === "gray-squirrel") return "squirrel-lookout";
+  if (slug === "red-fox") return "fox";
+  if (slug === "gray-squirrel") return "squirrel";
   return null;
 }
 
@@ -57,84 +81,130 @@ function between(range: readonly [number, number], random: () => number) {
 }
 
 export function createForestBehavior(
-  kind: ForestBehavior,
+  species: ForestSpecies,
   random: () => number,
 ): ForestBehaviorState {
   return {
     active: null,
     phase: null,
-    secondsUntilNext: between(TIMINGS[kind].first, random),
+    secondsUntilNext: between(TIMINGS[species].first, random),
     secondsRemaining: 0,
+    completedMoments: 0,
   };
 }
 
 function startNext(
   state: ForestBehaviorState,
-  kind: ForestBehavior,
+  species: ForestSpecies,
   random: () => number,
 ): ForestBehaviorState {
-  if (kind === "fox-nap") {
+  // Different individuals don't always perform the same act. No sequence is
+  // linked to a global clock, including the "summon all" testing shortcut.
+  if (species === "fox") {
+    if (state.completedMoments === 0 || random() < 0.65) {
+      return {
+        ...state,
+        active: "fox-nap",
+        phase: "settle",
+        secondsUntilNext: 0,
+        secondsRemaining: FOX_PHASE_DURATION.settle,
+      };
+    }
     return {
       ...state,
-      active: kind,
-      phase: "settle",
+      active: "fox-sniff",
+      phase: null,
       secondsUntilNext: 0,
-      secondsRemaining: FOX_PHASE_DURATION.settle,
+      secondsRemaining: between(FOX_SNIFF_DURATION, random),
+    };
+  }
+
+  if (state.completedMoments === 0 || random() < 0.7) {
+    return {
+      ...state,
+      active: "squirrel-acorn",
+      phase: "search",
+      secondsUntilNext: 0,
+      secondsRemaining: SQUIRREL_PHASE_DURATION.search,
     };
   }
   return {
     ...state,
-    active: kind,
+    active: "squirrel-lookout",
     phase: null,
     secondsUntilNext: 0,
-    secondsRemaining: between(TIMINGS[kind].duration, random),
+    secondsRemaining: between(SQUIRREL_LOOKOUT_DURATION, random),
   };
 }
 
 /**
- * When teacher pause, noise, flight, or reduced-motion intervenes, the active
- * moment ends at once. The next one is scheduled normally, never immediately.
- * Countdown waits while the scene cannot animate.
+ * Advance one individual. A busy species sets canStart=false: this animal
+ * continues walking and retries a little later, rather than joining a chorus
+ * of sleeping foxes. Teacher pause, noise, flight and reduced-motion cancel an
+ * ongoing moment and stop every countdown while the scene is suspended.
+ *
+ * Each completed phase receives the next phase's exact duration. The scene's
+ * frame loop clamps elapsed time to avoid jumps on tab restoration.
  */
 export function advanceForestBehavior(
   state: ForestBehaviorState,
-  kind: ForestBehavior,
+  species: ForestSpecies,
   seconds: number,
   enabled: boolean,
   random: () => number,
+  canStart = true,
 ): ForestBehaviorState {
   if (!enabled) {
     return state.active
       ? {
+          ...state,
           active: null,
           phase: null,
-          secondsUntilNext: between(TIMINGS[kind].repeat, random),
+          secondsUntilNext: between(TIMINGS[species].repeat, random),
           secondsRemaining: 0,
         }
       : state;
   }
   if (seconds <= 0) return state;
 
-  if (state.active === null) {
+  if (!state.active) {
     const until = state.secondsUntilNext - seconds;
-    return until > 0
-      ? { ...state, secondsUntilNext: until }
-      : startNext(state, kind, random);
+    if (until > 0) return { ...state, secondsUntilNext: until };
+    if (!canStart) {
+      return {
+        ...state,
+        secondsUntilNext: between(TIMINGS[species].blockedRetry, random),
+      };
+    }
+    return startNext(state, species, random);
   }
 
   const remaining = state.secondsRemaining - seconds;
   if (remaining > 0) return { ...state, secondsRemaining: remaining };
 
-  if (kind === "fox-nap" && state.phase) {
-    const next = FOX_NEXT_PHASE[state.phase];
+  if (state.active === "fox-nap" && state.phase) {
+    const next = FOX_NEXT_PHASE[state.phase as FoxPhase];
     if (next) {
       return {
         ...state,
         phase: next,
         secondsRemaining:
           next === "sleep"
-            ? between(TIMINGS[kind].duration, random)
+            ? between(FOX_SLEEP_DURATION, random)
             : FOX_PHASE_DURATION[next],
+      };
+    }
+  }
+  if (state.active === "squirrel-acorn" && state.phase) {
+    const next = SQUIRREL_NEXT_PHASE[state.phase as SquirrelPhase];
+    if (next) {
+      return {
+        ...state,
+        phase: next,
+        secondsRemaining:
+          next === "nibble"
+            ? between(SQUIRREL_NIBBLE_DURATION, random)
+            : SQUIRREL_PHASE_DURATION[next],
       };
     }
   }
@@ -142,7 +212,8 @@ export function advanceForestBehavior(
   return {
     active: null,
     phase: null,
-    secondsUntilNext: between(TIMINGS[kind].repeat, random),
+    secondsUntilNext: between(TIMINGS[species].repeat, random),
     secondsRemaining: 0,
+    completedMoments: state.completedMoments + 1,
   };
 }
