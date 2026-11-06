@@ -116,9 +116,20 @@
           rel="noopener noreferrer"
           >Data Processing Addendum, Version 6.4 vom 3. April 2026</a
         >, das unter anderem Pflichten von Cloudflare als Auftragsverarbeiter
-        beschreibt. [Vor endgültiger Freigabe prüfen und dokumentieren, ob und
-        seit wann diese Vereinbarung für das konkret verwendete Cloudflare-Konto
-        wirksam ist.]
+        beschreibt. Im
+        <a
+          class={link}
+          href="https://www.cloudflare.com/terms/"
+          target="_blank"
+          rel="noopener noreferrer"
+          >Cloudflare Self-Serve Subscription Agreement, Abschnitt 6.1</a
+        >
+        wird das DPA ausdrücklich in die Nutzungsvereinbarung
+        einbezogen. Bei einem entsprechenden Self-Serve-Vertragsverhältnis
+        ist daher grundsätzlich kein gesondert unterschriebenes
+        DPA erforderlich. [Vor endgültiger Freigabe bestätigen,
+        dass für das konkrete Betreiberkonto die Self-Serve-Bedingungen
+        gelten.]
       </p>
       <p>
         <strong>Übermittlungen außerhalb des EWR:</strong>
