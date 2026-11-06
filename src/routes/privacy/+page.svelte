@@ -31,7 +31,9 @@
   <section class={card}>
     <h2 class={heading}>1. Verantwortliche Person (privater Betrieb)</h2>
     <div class={text}>
-      <p><strong>[Vollständiger Name der privat verantwortlichen Person]</strong></p>
+      <p>
+        <strong>[Vollständiger Name der privat verantwortlichen Person]</strong>
+      </p>
       <p>[Straße und Hausnummer, PLZ und Ort]</p>
       <p>E-Mail: <strong>[Datenschutz-Kontaktadresse]</strong></p>
       <p>
