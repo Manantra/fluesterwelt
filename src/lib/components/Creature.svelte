@@ -459,46 +459,6 @@
                 {@html FOX_POSE_ART.sleep}
               </div>
             {/if}
-            {#if sceneId === "forest" && creature.def.slug === "gray-squirrel"}
-              <!-- Tiny acorn: ground discovery, picked up into the paws,
-                   then nibbled. It is purely decorative and not collected. -->
-              <svg
-                class="forest-squirrel-acorn"
-                viewBox="1.9 0.9 86.6 99.1"
-                aria-hidden="true"
-                focusable="false"
-              >
-                <g class="forest-squirrel-acorn-seed">
-                  <path
-                    d="M70 87 C70 81 73 77 77 77 C82 77 85 81 85 87 C85 91 80 96 77.5 97 C75 96 70 91 70 87 Z"
-                    fill="#a87a34"
-                    stroke="#5c4334"
-                    stroke-width="1.4"
-                  />
-                  <path
-                    d="M69.5 81 C70 77 74 74.5 78 74.5 C82 74.5 85.5 77 86 81 C81 83 74 83 69.5 81 Z"
-                    fill="#7a5a44"
-                    stroke="#5c4334"
-                    stroke-width="1.2"
-                  />
-                  <path
-                    d="M76 75 C77 72 79 70.5 81 71"
-                    stroke="#5c4334"
-                    stroke-width="1.6"
-                    stroke-linecap="round"
-                    fill="none"
-                  />
-                  <path
-                    d="M73 88 C73 84.5 75 82.5 77 82"
-                    stroke="#f4f1de"
-                    stroke-width="1.4"
-                    stroke-linecap="round"
-                    opacity="0.55"
-                    fill="none"
-                  />
-                </g>
-              </svg>
-            {/if}
           </div>
         </div>
       </div>
