@@ -28,3 +28,33 @@ test("the sleeping fox stays on the original ground line", () => {
   expect(sleeping).toContain(viewBox);
   expect(sleeping).toContain('stroke-linecap="round"');
 });
+
+const squirrelArtwork = readFileSync(
+  new URL("./creatures/gray-squirrel.svg", import.meta.url),
+  "utf8",
+);
+const creatureComponent = readFileSync(
+  new URL("../../components/Creature.svelte", import.meta.url),
+  "utf8",
+);
+const forestStyles = readFileSync(
+  new URL("./scene.css", import.meta.url),
+  "utf8",
+);
+
+test("the squirrel nibbles its single original acorn instead of drawing another", () => {
+  expect(squirrelArtwork.match(/class="forest-squirrel-held-acorn"/g)).toHaveLength(1);
+  expect(creatureComponent).not.toContain('class="forest-squirrel-acorn"');
+  expect(forestStyles).toContain(
+    '.swimmer[data-squirrel-phase="nibble"] .forest-squirrel-held-acorn',
+  );
+  expect(forestStyles).not.toContain("forest-squirrel-acorn-seed");
+  expect(forestStyles).not.toContain("forest-squirrel-last-bite");
+  expect(forestStyles).toContain("forest-squirrel-lower-held-acorn");
+});
+
+test("sunlight fades gradually instead of pulsing like a warning", () => {
+  expect(forestStyles).toContain("forest-sunlight-visit 160s ease-in-out infinite");
+  expect(forestStyles).toContain("width: calc(106 * var(--wu))");
+  expect(forestStyles).toContain("opacity: 0.44");
+});
