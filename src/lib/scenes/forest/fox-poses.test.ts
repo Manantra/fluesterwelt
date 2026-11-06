@@ -60,7 +60,7 @@ test("the squirrel nibbles its single original acorn instead of drawing another"
   // The animated nut/paws can nibble; the torso must not bounce like a dance.
   expect(forestStyles).not.toContain("forest-squirrel-nibble");
   expect(forestStyles).not.toMatch(
-    /\\.swimmer\\[data-squirrel-phase="nibble"\\]\\s+\\.poser/,
+    /\.swimmer\[data-squirrel-phase="nibble"\]\s+\.poser/,
   );
 });
 
