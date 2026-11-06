@@ -24,6 +24,12 @@ const listeningFiles = import.meta.glob("./listening/*.svg", {
   eager: true,
 }) as Record<string, string>;
 
+const foxPoseFiles = import.meta.glob("./fox-poses/*.svg", {
+  query: "?raw",
+  import: "default",
+  eager: true,
+}) as Record<string, string>;
+
 const ambientFiles = import.meta.glob("./ambient/*.svg", {
   query: "?raw",
   import: "default",
@@ -47,6 +53,9 @@ export const CREATURE_ART = bySlug(creatureFiles);
  * slug. Not every Creature has one yet; those without just stop and turn.
  */
 export const LISTENING_ART = bySlug(listeningFiles);
+
+/** Three hand-drawn poses of the same fox (identical viewBox and ground line). */
+export const FOX_POSE_ART = bySlug(foxPoseFiles);
 
 /** Ambient Life and backdrop artwork keyed by filename stem. */
 export const AMBIENT_ART = bySlug(ambientFiles);

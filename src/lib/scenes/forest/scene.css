@@ -187,3 +187,452 @@ html[data-scene="forest"]:not(:has(.scene-stage)) body {
     display: none;
   }
 }
+
+/* --- Living Forest pilot (branch-only experiment) ---------------------- */
+/* These moments do not count as animal arrivals and never alter collections. */
+
+/* The sun brushes the meadow every couple of minutes. It remains behind
+   creatures in the near half of the clearing and is not a warning effect. */
+@keyframes forest-sunlight-visit {
+  0%,
+  10%,
+  76%,
+  100% {
+    opacity: 0;
+  }
+  36%,
+  50% {
+    opacity: 0.44;
+  }
+}
+
+/* Broad, diffuse sunlight slowly drifts over the clearing instead of
+   briefly flashing at one point. No relationship to the noise warning. */
+.scene-stage[data-scene="forest"] .forest-clearing-sunlight {
+  left: calc(var(--world-left) - 3 * var(--wu));
+  top: 31%;
+  width: calc(106 * var(--wu));
+  height: 66%;
+  z-index: 595;
+  border-radius: 50%;
+  background: radial-gradient(
+    ellipse at 53% 59%,
+    rgb(255 242 176 / 0.58) 0%,
+    rgb(255 233 147 / 0.29) 36%,
+    rgb(255 238 169 / 0.1) 66%,
+    transparent 94%
+  );
+  opacity: 0;
+  animation: forest-sunlight-visit 160s ease-in-out infinite;
+}
+
+/* The new moment yields immediately when the room needs attention. */
+.scene-stage[data-scene="forest"][data-frozen="true"] .forest-clearing-sunlight,
+.scene-stage[data-scene="forest"][data-listening="true"]
+  .forest-clearing-sunlight {
+  visibility: hidden;
+  animation-play-state: paused;
+}
+
+/* One articulated movement, not a slideshow. The old intermediate "sit" pose
+   distorted the fox's anatomy. The walking SVG now contains separate head,
+   torso, front and back legs, and tail groups. These all bend together as it
+   lowers its body. Only near the end do we blend to the original cute
+   sleeping drawing, which has exactly the same viewBox and ground line. */
+
+@keyframes forest-fox-fade-walking {
+  0%,
+  35% {
+    opacity: 1;
+  }
+  82%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes forest-fox-sleep-enter {
+  0%,
+  33% {
+    opacity: 0;
+    transform: translateY(-17%) scale(0.83, 0.72) rotate(-7deg);
+  }
+  67% {
+    opacity: 0.75;
+    transform: translateY(-5%) scale(0.94, 0.9) rotate(-2deg);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes forest-fox-lower-torso {
+  0% {
+    transform: none;
+  }
+  45% {
+    transform: translateY(7%) rotate(1deg);
+  }
+  100% {
+    transform: translateY(20%) scaleY(0.8) rotate(3deg);
+  }
+}
+
+@keyframes forest-fox-fold-hindlegs {
+  0% {
+    transform: none;
+  }
+  45% {
+    transform: translateY(7%) scaleY(0.9);
+  }
+  100% {
+    transform: translateY(21%) scaleY(0.7) rotate(-7deg);
+  }
+}
+
+@keyframes forest-fox-fold-forelegs {
+  0% {
+    transform: none;
+  }
+  42% {
+    transform: translateY(7%) scaleY(0.9);
+  }
+  100% {
+    transform: translateY(20%) scaleY(0.65) rotate(7deg);
+  }
+}
+
+@keyframes forest-fox-lower-head {
+  0% {
+    transform: none;
+  }
+  40% {
+    transform: translateY(8%) rotate(2deg);
+  }
+  100% {
+    transform: translate(-5%, 28%) rotate(10deg);
+  }
+}
+
+@keyframes forest-fox-curl-tail {
+  0% {
+    transform: none;
+  }
+  46% {
+    transform: translate(5%, 5%) rotate(-4deg);
+  }
+  100% {
+    transform: translate(18%, 15%) rotate(14deg) scale(0.9);
+  }
+}
+
+.scene-stage[data-scene="forest"] .forest-fox-pose {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  transform-origin: 50% 100%;
+}
+
+.scene-stage[data-scene="forest"] .forest-fox-pose > svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.scene-stage[data-scene="forest"]
+  .swimmer[data-fox-phase="sleep"]
+  .creature
+  > svg {
+  opacity: 0;
+}
+
+.scene-stage[data-scene="forest"]
+  .swimmer[data-fox-phase="sleep"]
+  .forest-fox-pose-sleep {
+  opacity: 1;
+}
+
+/* Both directions use the same transform curve at the same speed; "up"
+   reverses it without letting the fox pause in awkward in-between postures. */
+.scene-stage[data-scene="forest"]
+  .swimmer[data-fox-phase="down"]
+  .creature
+  > svg,
+.scene-stage[data-scene="forest"]
+  .swimmer[data-fox-phase="up"]
+  .creature
+  > svg {
+  animation: forest-fox-fade-walking 1.2s ease-in-out both;
+}
+
+.scene-stage[data-scene="forest"]
+  .swimmer[data-fox-phase="down"]
+  .forest-fox-pose-sleep,
+.scene-stage[data-scene="forest"]
+  .swimmer[data-fox-phase="up"]
+  .forest-fox-pose-sleep {
+  animation: forest-fox-sleep-enter 1.2s ease-in-out both;
+}
+
+.scene-stage[data-scene="forest"] .swimmer[data-fox-phase="down"] .fox-body,
+.scene-stage[data-scene="forest"] .swimmer[data-fox-phase="up"] .fox-body {
+  transform-box: fill-box;
+  transform-origin: center bottom;
+  animation: forest-fox-lower-torso 1.2s ease-in-out both;
+}
+
+.scene-stage[data-scene="forest"] .swimmer[data-fox-phase="down"] .fox-hindlegs,
+.scene-stage[data-scene="forest"] .swimmer[data-fox-phase="up"] .fox-hindlegs {
+  transform-box: fill-box;
+  transform-origin: center bottom;
+  animation: forest-fox-fold-hindlegs 1.2s ease-in-out both;
+}
+
+.scene-stage[data-scene="forest"] .swimmer[data-fox-phase="down"] .fox-forelegs,
+.scene-stage[data-scene="forest"] .swimmer[data-fox-phase="up"] .fox-forelegs {
+  transform-box: fill-box;
+  transform-origin: center bottom;
+  animation: forest-fox-fold-forelegs 1.2s ease-in-out both;
+}
+
+.scene-stage[data-scene="forest"] .swimmer[data-fox-phase="down"] .fox-head,
+.scene-stage[data-scene="forest"] .swimmer[data-fox-phase="up"] .fox-head {
+  transform-box: fill-box;
+  transform-origin: 15% 85%;
+  animation: forest-fox-lower-head 1.2s ease-in-out both;
+}
+
+.scene-stage[data-scene="forest"] .swimmer[data-fox-phase="down"] .part-tail,
+.scene-stage[data-scene="forest"] .swimmer[data-fox-phase="up"] .part-tail {
+  animation: forest-fox-curl-tail 1.2s ease-in-out both;
+}
+
+.scene-stage[data-scene="forest"]
+  .swimmer[data-fox-phase="up"]
+  :is(
+    .creature > svg,
+    .forest-fox-pose-sleep,
+    .fox-body,
+    .fox-hindlegs,
+    .fox-forelegs,
+    .fox-head,
+    .part-tail
+  ) {
+  animation-direction: reverse;
+  animation-duration: 1.05s;
+}
+
+/* The existing sleeping picture remains unchanged and only breathes slightly.
+   No sounds, pings or new rewards: life stays a quiet detail. */
+@keyframes forest-fox-breath {
+  0%,
+  100% {
+    transform: scaleY(1);
+  }
+  50% {
+    transform: scaleY(0.985);
+  }
+}
+
+.scene-stage[data-scene="forest"]
+  .swimmer[data-fox-phase="sleep"]
+  .forest-fox-pose-sleep
+  > svg {
+  transform-origin: center bottom;
+  animation: forest-fox-breath 4.6s ease-in-out infinite;
+}
+
+/* The squirrel briefly stands taller and glances to either side. */
+@keyframes forest-squirrel-lookout {
+  0%,
+  100% {
+    transform: translateY(0) scaleY(1);
+  }
+  22%,
+  70% {
+    transform: translateY(-5%) scaleY(1.07) rotate(-3deg);
+  }
+  48% {
+    transform: translateY(-5%) scaleY(1.07) rotate(3deg);
+  }
+}
+
+.scene-stage[data-scene="forest"]
+  .swimmer[data-forest-behavior="squirrel-lookout"]
+  .poser {
+  animation: forest-squirrel-lookout 5s ease-in-out infinite;
+}
+
+/* The accessibility preference is a hard opt-out of the extra animations.
+   Creature.svelte also disables the extra timers while it is enabled. */
+@media (prefers-reduced-motion: reduce) {
+  .scene-stage[data-scene="forest"] .forest-clearing-sunlight {
+    animation: none;
+    opacity: 0;
+  }
+
+  .scene-stage[data-scene="forest"]
+    .swimmer[data-forest-behavior="squirrel-lookout"]
+    .poser {
+    animation: none;
+  }
+
+  .scene-stage[data-scene="forest"]
+    .swimmer[data-forest-species="red-fox"]
+    .creature
+    > svg,
+  .scene-stage[data-scene="forest"]
+    .swimmer[data-forest-species="red-fox"]
+    :is(.fox-body, .fox-forelegs, .fox-hindlegs, .fox-head, .part-tail) {
+    animation: none !important;
+    opacity: 1 !important;
+  }
+
+  .scene-stage[data-scene="forest"] .forest-fox-pose {
+    animation: none !important;
+    opacity: 0 !important;
+  }
+
+  .scene-stage[data-scene="forest"] .forest-fox-pose > svg {
+    animation: none !important;
+  }
+}
+
+/* --- Individual fox moments ----------------------------------------- */
+/* A fox can follow its nose instead of always going to sleep. This small
+   living detail also looks different from the standard waypoint pause. */
+@keyframes forest-fox-investigate {
+  0%,
+  100% {
+    transform: none;
+  }
+  20% {
+    transform: translate(-2%, 11%) rotate(8deg);
+  }
+  37% {
+    transform: translate(-2%, 16%) rotate(11deg);
+  }
+  53% {
+    transform: translate(-1%, 6%) rotate(1deg);
+  }
+  72% {
+    transform: translateY(11%) rotate(7deg);
+  }
+}
+
+.scene-stage[data-scene="forest"]
+  .swimmer[data-forest-behavior="fox-sniff"]
+  .fox-head {
+  transform-box: fill-box;
+  transform-origin: 15% 85%;
+  animation: forest-fox-investigate 3.1s ease-in-out infinite;
+}
+
+.scene-stage[data-scene="forest"]
+  .swimmer[data-forest-behavior="fox-sniff"]
+  .part-tail {
+  animation-duration: 1.9s;
+}
+
+/* --- The squirrel nibbles its *existing* acorn -------------------------- */
+/* All original acorn and paw shapes share one SVG group. Its hinge is the
+   left shoulder at approximately (61,52) in the original squirrel viewBox.
+   Bending that arm, rather than translating the whole animal, takes the
+   acorn center from about (78,63) to (81,44): right against the mouth. */
+.scene-stage[data-scene="forest"] .forest-squirrel-held-acorn {
+  transform-box: view-box;
+  transform-origin: 68% 52%;
+}
+
+/* Only the ears perk up while searching. The body does not sway or dance. */
+@keyframes forest-squirrel-search {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  32% {
+    transform: rotate(-5deg);
+  }
+  70% {
+    transform: rotate(3deg);
+  }
+}
+
+.scene-stage[data-scene="forest"]
+  .swimmer[data-squirrel-phase="search"]
+  .part-ears {
+  animation: forest-squirrel-search 1.65s ease-in-out both;
+}
+
+/* Pivot the existing forearms with their nut around the shoulder. Unlike the
+   former percentage translation, this move truly reaches the mouth. */
+@keyframes forest-squirrel-lift-held-acorn {
+  0% {
+    transform: rotate(0deg);
+  }
+  45% {
+    transform: rotate(-24deg);
+  }
+  100% {
+    transform: rotate(-52deg);
+  }
+}
+
+.scene-stage[data-scene="forest"]
+  .swimmer[data-squirrel-phase="pick"]
+  .forest-squirrel-held-acorn {
+  animation: forest-squirrel-lift-held-acorn 0.9s ease-in-out both;
+}
+
+/* The rest of the squirrel stays put. Only nut and paws make tiny bites. */
+@keyframes forest-squirrel-chew-held-acorn {
+  0%,
+  100% {
+    transform: rotate(-52deg);
+  }
+  33% {
+    transform: rotate(-49deg);
+  }
+  66% {
+    transform: rotate(-54deg);
+  }
+}
+
+.scene-stage[data-scene="forest"]
+  .swimmer[data-squirrel-phase="nibble"]
+  .forest-squirrel-held-acorn {
+  animation: forest-squirrel-chew-held-acorn 0.54s ease-in-out infinite;
+}
+
+/* Return smoothly to the unchanged original position, still holding the nut. */
+@keyframes forest-squirrel-lower-held-acorn {
+  0% {
+    transform: rotate(-52deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.scene-stage[data-scene="forest"]
+  .swimmer[data-squirrel-phase="finish"]
+  .forest-squirrel-held-acorn {
+  animation: forest-squirrel-lower-held-acorn 0.85s ease-in-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scene-stage[data-scene="forest"]
+    .swimmer[data-forest-behavior="fox-sniff"]
+    .fox-head,
+  .scene-stage[data-scene="forest"]
+    .swimmer[data-forest-behavior="squirrel-acorn"]
+    .part-ears,
+  .scene-stage[data-scene="forest"]
+    .swimmer[data-forest-behavior="squirrel-acorn"]
+    .forest-squirrel-held-acorn {
+    animation: none;
+  }
+}

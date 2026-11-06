@@ -1,6 +1,20 @@
 <script lang="ts" module>
   import type { MotionState } from "$lib/scenes/motion";
   import type { CreatureInstance } from "$lib/session/session.svelte";
+  import type { ForestBehaviorState } from "$lib/scenes/forest/behaviors";
+  import { ForestMomentCoordinator } from "$lib/scenes/forest/coordination";
+
+  /**
+   * Keep the interval across the Document PiP window move. The same
+   * CreatureInstance remains alive, even though its component is remounted.
+   */
+  const forestStates = new WeakMap<CreatureInstance, ForestBehaviorState>();
+
+  /** Nearby copies of the same species never perform special acts together. */
+  const forestCoordinator = new ForestMomentCoordinator<
+    HTMLElement,
+    CreatureInstance
+  >();
 
   /**
    * Where each Creature had got to, so one that is drawn afresh — when the
@@ -26,6 +40,14 @@
   import { onMount } from "svelte";
   import { fade } from "svelte/transition";
   import {
+    advanceForestBehavior,
+    behaviorForCreature,
+    createForestBehavior,
+    type ForestBehavior,
+    type ForestPhase,
+  } from "$lib/scenes/forest/behaviors";
+  import { FOX_POSE_ART } from "$lib/scenes/forest/artwork";
+  import {
     FADE_S,
     MOTION_PROFILES,
     bankAngle,
@@ -45,6 +67,7 @@
 
   let {
     creature,
+    sceneId,
     art,
     listeningArt,
     depthFade,
@@ -57,6 +80,7 @@
     ongone,
   }: {
     creature: CreatureInstance;
+    sceneId: string;
     art: string;
     /** The same Creature facing out of the screen, if it has been drawn. */
     listeningArt: string | undefined;
@@ -122,6 +146,9 @@
    * middle of the Scene first (`listenDelay`), so it ripples across the Scene.
    */
   let attending = $state(false);
+  /** Purely decorative forest behavior, never a collected new Creature. */
+  let forestMoment = $state<ForestBehavior | null>(null);
+  let forestPhase = $state<ForestPhase | null>(null);
   /** The little perk-up as it turns, and the shake-off when talking ends. */
   let turning = $state(false);
   let shaking = $state(false);
@@ -180,6 +207,29 @@
       );
     motions.set(creature, state);
 
+    const forestKind = behaviorForCreature(sceneId, creature.def.slug);
+    let forestState = forestKind
+      ? (forestStates.get(creature) ??
+        createForestBehavior(forestKind, Math.random))
+      : null;
+    // The same individual can return when a floating window is closed.
+    // Reclaim the species slot in its new scene; a competing copy instead
+    // receives a fresh independent countdown.
+    if (
+      forestState?.active &&
+      forestKind &&
+      !forestCoordinator.acquire(scene, forestKind, creature)
+    ) {
+      forestState = advanceForestBehavior(
+        forestState,
+        forestKind,
+        0,
+        false,
+        Math.random,
+      );
+    }
+    if (forestState) forestStates.set(creature, forestState);
+
     // Already Paused when drawn, as when the Scene floats out mid-announcement:
     // it was listening before, so it carries on without turning again.
     if (listening && !fleeing && whilePaused === "listen") {
@@ -205,6 +255,39 @@
       // holds its pose instead of snapping upright.
       // A Creature already running keeps running, even if the Scene freezes.
       if (frozen && !fleeing) dt = 0;
+
+      if (forestState && forestKind) {
+        const wasActive = forestState.active !== null;
+        forestState = advanceForestBehavior(
+          forestState,
+          forestKind,
+          elapsed,
+          !frozen && !listening && !fleeing && !reducedMotion.matches,
+          Math.random,
+          forestCoordinator.available(scene, forestKind, creature),
+        );
+        if (!wasActive && forestState.active) {
+          // Synchronously acquire: every other RAF callback now sees busy.
+          if (!forestCoordinator.acquire(scene, forestKind, creature)) {
+            forestState = advanceForestBehavior(
+              forestState,
+              forestKind,
+              0,
+              false,
+              Math.random,
+            );
+          }
+        } else if (wasActive && !forestState.active) {
+          forestCoordinator.release(scene, forestKind, creature);
+        }
+        forestStates.set(creature, forestState);
+        if (forestMoment !== forestState.active) {
+          forestMoment = forestState.active;
+        }
+        if (forestPhase !== forestState.phase) {
+          forestPhase = forestState.phase;
+        }
+      }
 
       if (fading) {
         // Stays where it was when the signal broke up. Fading is not
@@ -243,6 +326,9 @@
             state.facing = listenFacing(state);
           }
         }
+      } else if (forestMoment) {
+        // Stops at the current spot without teleporting or changing depth.
+        stepSettle(state, style, creature.depth, footprint(), dt);
       } else {
         listenIn = null;
         if (attending) {
@@ -285,6 +371,9 @@
       cancelFrame(frame);
       resize.disconnect();
       clearTimeout(settle);
+      if (forestKind) {
+        forestCoordinator.release(scene, forestKind, creature);
+      }
     };
   });
 </script>
@@ -294,6 +383,15 @@
   class="swimmer pointer-events-none absolute top-0 left-0"
   class:fleeing
   class:fading
+  data-forest-behavior={forestMoment}
+  data-fox-phase={sceneId === "forest" && creature.def.slug === "red-fox"
+    ? forestPhase
+    : null}
+  data-squirrel-phase={sceneId === "forest" &&
+  creature.def.slug === "gray-squirrel"
+    ? forestPhase
+    : null}
+  data-forest-species={sceneId === "forest" ? creature.def.slug : undefined}
   data-listening={attending}
   data-holding={listening && whilePaused === "hold" && !fleeing}
   style="
@@ -336,7 +434,7 @@
       >
         <div bind:this={flipper} class="flipper">
           <div
-            class="creature"
+            class="creature relative"
             class:arriving={isNewest}
             class:settled={!glistening}
             data-tier={creature.def.tier}
@@ -349,6 +447,18 @@
             {/if}
             <!-- eslint-disable-next-line svelte/no-at-html-tags -->
             {@html attending && listeningArt ? listeningArt : art}
+            {#if sceneId === "forest" && creature.def.slug === "red-fox"}
+              <!-- A single articulated movement folds the original SVG into
+                   this same-baseline sleeping artwork. No odd intermediate
+                   still image, and the animation reverses when waking. -->
+              <div
+                class="forest-fox-pose forest-fox-pose-sleep"
+                aria-hidden="true"
+              >
+                <!-- eslint-disable-next-line svelte/no-at-html-tags -->
+                {@html FOX_POSE_ART.sleep}
+              </div>
+            {/if}
           </div>
         </div>
       </div>
