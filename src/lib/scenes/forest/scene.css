@@ -195,33 +195,35 @@ html[data-scene="forest"]:not(:has(.scene-stage)) body {
    creatures in the near half of the clearing and is not a warning effect. */
 @keyframes forest-sunlight-visit {
   0%,
-  8%,
-  53%,
+  10%,
+  76%,
   100% {
     opacity: 0;
   }
-  23%,
-  38% {
-    opacity: 0.58;
+  36%,
+  50% {
+    opacity: 0.44;
   }
 }
 
+/* Broad, diffuse sunlight slowly drifts over the clearing instead of
+   briefly flashing at one point. No relationship to the noise warning. */
 .scene-stage[data-scene="forest"] .forest-clearing-sunlight {
-  left: calc(var(--world-left) + 40 * var(--wu));
-  top: 61%;
-  width: calc(50 * var(--wu));
-  height: 30%;
+  left: calc(var(--world-left) - 3 * var(--wu));
+  top: 31%;
+  width: calc(106 * var(--wu));
+  height: 66%;
   z-index: 595;
   border-radius: 50%;
   background: radial-gradient(
-    ellipse at 48% 48%,
-    rgb(255 242 176 / 0.95) 0%,
-    rgb(255 233 147 / 0.7) 30%,
-    rgb(255 238 169 / 0.2) 65%,
-    transparent 82%
+    ellipse at 53% 59%,
+    rgb(255 242 176 / 0.58) 0%,
+    rgb(255 233 147 / 0.29) 36%,
+    rgb(255 238 169 / 0.1) 66%,
+    transparent 94%
   );
   opacity: 0;
-  animation: forest-sunlight-visit 95s ease-in-out infinite;
+  animation: forest-sunlight-visit 160s ease-in-out infinite;
 }
 
 /* The new moment yields immediately when the room needs attention. */
@@ -535,29 +537,12 @@ html[data-scene="forest"]:not(:has(.scene-stage)) body {
   animation-duration: 1.9s;
 }
 
-/* --- The squirrel finds and nibbles an acorn ------------------------- */
-/* Drawn in the same SVG coordinate system as the existing squirrel.
-   Its initial location is on the ground; the pickup animation moves the
-   acorn into the forepaws (without spawning a separate animal). */
+/* --- The squirrel nibbles its *existing* acorn -------------------------- */
+/* The original creature artwork already contains one acorn held by both
+   paws. All of these elements share a single SVG group. No new objects,
+   seeds, collection entries or disappearing food are added. */
 
-.scene-stage[data-scene="forest"] .forest-squirrel-acorn {
-  position: absolute;
-  inset: 0;
-  display: block;
-  width: 100%;
-  height: auto;
-  overflow: visible;
-  opacity: 0;
-  pointer-events: none;
-}
-
-.scene-stage[data-scene="forest"]
-  .swimmer[data-forest-behavior="squirrel-acorn"]
-  .forest-squirrel-acorn {
-  opacity: 1;
-}
-
-.scene-stage[data-scene="forest"] .forest-squirrel-acorn-seed {
+.scene-stage[data-scene="forest"] .forest-squirrel-held-acorn {
   transform-box: fill-box;
   transform-origin: center;
 }
@@ -579,40 +564,39 @@ html[data-scene="forest"]:not(:has(.scene-stage)) body {
 }
 
 .scene-stage[data-scene="forest"]
-  .swimmer[data-squirrel-phase="search"]
-  .poser {
+  .swimmer[data-squirrel-phase="search"] .poser {
   animation: forest-squirrel-search 1.65s ease-in-out both;
 }
 
-@keyframes forest-squirrel-pick-acorn {
+/* Bring the already held acorn and the forepaws up to the mouth together. */
+@keyframes forest-squirrel-lift-held-acorn {
   0% {
-    transform: translateY(0) rotate(0);
+    transform: none;
   }
-  42% {
-    transform: translateY(-13px) rotate(-12deg);
+  45% {
+    transform: translate(-2%, -9%) rotate(-3deg);
   }
   100% {
-    transform: translateY(-31px) rotate(2deg);
+    transform: translate(-4%, -23%) rotate(-5deg);
   }
 }
 
 .scene-stage[data-scene="forest"]
-  .swimmer[data-squirrel-phase="pick"]
-  .forest-squirrel-acorn-seed {
-  animation: forest-squirrel-pick-acorn 0.9s ease-in-out both;
+  .swimmer[data-squirrel-phase="pick"] .forest-squirrel-held-acorn {
+  animation: forest-squirrel-lift-held-acorn 0.9s ease-in-out both;
 }
 
-/* The seed stays in the paws while the nose and body make tiny bites. */
-@keyframes forest-squirrel-chew-acorn {
+/* Very small alternating bites while the nut remains visibly in the paws. */
+@keyframes forest-squirrel-chew-held-acorn {
   0%,
   100% {
-    transform: translateY(-31px) rotate(0deg);
+    transform: translate(-4%, -23%) rotate(-5deg);
   }
   35% {
-    transform: translateY(-32px) rotate(-4deg);
+    transform: translate(-3%, -27%) rotate(-8deg);
   }
-  67% {
-    transform: translateY(-30px) rotate(3deg);
+  70% {
+    transform: translate(-5%, -20%) rotate(-2deg);
   }
 }
 
@@ -633,49 +617,41 @@ html[data-scene="forest"]:not(:has(.scene-stage)) body {
 }
 
 .scene-stage[data-scene="forest"]
-  .swimmer[data-squirrel-phase="nibble"]
-  .forest-squirrel-acorn-seed {
-  animation: forest-squirrel-chew-acorn 0.66s ease-in-out infinite;
+  .swimmer[data-squirrel-phase="nibble"] .forest-squirrel-held-acorn {
+  animation: forest-squirrel-chew-held-acorn 0.66s ease-in-out infinite;
 }
 
 .scene-stage[data-scene="forest"]
-  .swimmer[data-squirrel-phase="nibble"]
-  .poser {
+  .swimmer[data-squirrel-phase="nibble"] .poser {
   animation: forest-squirrel-nibble 0.66s ease-in-out infinite;
 }
 
-/* One last tiny bite, then the nut disappears; hands return to normal. */
-@keyframes forest-squirrel-last-bite {
+/* Lower paws and nut back to their original natural holding position. The
+   existing acorn stays there when the squirrel walks away. */
+@keyframes forest-squirrel-lower-held-acorn {
   0% {
-    opacity: 1;
-    transform: translateY(-31px) scale(1);
-  }
-  65% {
-    opacity: 1;
-    transform: translateY(-34px) scale(0.55);
+    transform: translate(-4%, -23%) rotate(-5deg);
   }
   100% {
-    opacity: 0;
-    transform: translateY(-35px) scale(0.15);
+    transform: none;
   }
 }
 
 .scene-stage[data-scene="forest"]
-  .swimmer[data-squirrel-phase="finish"]
-  .forest-squirrel-acorn-seed {
-  animation: forest-squirrel-last-bite 0.85s ease-in both;
+  .swimmer[data-squirrel-phase="finish"] .forest-squirrel-held-acorn {
+  animation: forest-squirrel-lower-held-acorn 0.85s ease-in-out both;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .scene-stage[data-scene="forest"] .forest-squirrel-acorn {
-    display: none;
-  }
   .scene-stage[data-scene="forest"]
     .swimmer[data-forest-behavior="fox-sniff"]
     .fox-head,
   .scene-stage[data-scene="forest"]
     .swimmer[data-forest-behavior="squirrel-acorn"]
-    .poser {
+    .poser,
+  .scene-stage[data-scene="forest"]
+    .swimmer[data-forest-behavior="squirrel-acorn"]
+    .forest-squirrel-held-acorn {
     animation: none;
   }
 }
