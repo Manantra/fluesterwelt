@@ -17,11 +17,12 @@ dem Belohnungssystem zu tun haben:
   nur 1,05 Sekunden** und spielt die Bewegungen umgekehrt ab. Erst danach
   läuft er weiter. Wiederholung nach etwa 85–130 Sekunden.
 - **Grauhörnchen:** Nach ungefähr 18–36 Sekunden untersucht es zunächst
-  neugierig seine **bereits in den Pfoten gehaltene Eichel**. Dann hebt es
-  Eichel und Vorderpfoten gemeinsam etwas zum Mund, **knabbert einige
-  Sekunden** und senkt die Pfoten danach wieder. Die Eichel bleibt die ganze
-  Zeit sichtbar und verschwindet nicht. Der Ablauf hat vier kurze Phasen
-  (Umschauen → Anheben → Knabbern → Absenken). Später hält das Eichhörnchen
+  neugierig seine **bereits in den Pfoten gehaltene Eichel**. Die Vorderpfoten
+  schwenken gemeinsam mit der Eichel **bis unmittelbar an die Schnauze**;
+  während des Knabberns gibt es nur kleine Bewegungen der Pfoten und Eichel,
+  **kein rhythmisches Wippen des ganzen Körpers**. Anschließend senkt es die
+  Eichel wieder. Sie bleibt die ganze Zeit sichtbar. Die vier Phasen sind
+  Umschauen → Anheben → Knabbern → Absenken. Später hält das Eichhörnchen
   gelegentlich nur Ausschau. Nach einer Aktion vergehen normalerweise
   55–110 Sekunden bis zur nächsten.
 - **Mehrere Tiere derselben Art:** Jedes Exemplar hat einen eigenen
@@ -81,7 +82,10 @@ Abwechslung – auch beim gleichzeitigen Einblenden aller Tiere.
 Die ursprüngliche Grauhörnchenzeichnung `gray-squirrel.svg` enthält bereits
 eine Eichel und zwei Vorderpfoten. Diese vorhandenen SVG-Elemente sind
 in der Gruppe `forest-squirrel-held-acorn` zusammengefasst und werden in
-`scene.css` gemeinsam angehoben, dezent bewegt und wieder abgesenkt.
+`scene.css` **um den Ansatz der Vorderpfote/Schulter gedreht**
+(etwa 52 Grad bis unmittelbar vor den Mund), dezent geknabbert und wieder
+abgesenkt. Dabei bleibt der Rumpf bewusst still; nur die Ohren zucken
+beim Umschauen kurz.
 `Creature.svelte` fügt **keine zusätzliche Eichel** mehr ein.
 
 Creature.svelte nutzt stepSettle zum sanften Anhalten und bewahrt den Zustand
