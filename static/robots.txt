@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.shysafari.com/sitemap.xml
+Sitemap: https://fluesterwelt.familiemenges.de/sitemap.xml
