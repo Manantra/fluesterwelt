@@ -68,9 +68,7 @@ test("the squirrel's muzzle hides the top of its raised original acorn", () => {
   const acorn = squirrelArtwork.indexOf(
     '<g class="forest-squirrel-held-acorn">',
   );
-  const head = squirrelArtwork.indexOf(
-    '<circle cx="68" cy="30" r="13"',
-  );
+  const head = squirrelArtwork.indexOf('<circle cx="68" cy="30" r="13"');
   const muzzle = squirrelArtwork.indexOf('<path d="M84 39.1');
   const eyes = squirrelArtwork.indexOf('<circle cx="72" cy="28"');
 
