@@ -53,6 +53,15 @@ test("the squirrel nibbles its single original acorn instead of drawing another"
   expect(forestStyles).not.toContain("forest-squirrel-acorn-seed");
   expect(forestStyles).not.toContain("forest-squirrel-last-bite");
   expect(forestStyles).toContain("forest-squirrel-lower-held-acorn");
+  // The existing arm hinges near the shoulder: the nut now reaches the muzzle.
+  expect(forestStyles).toContain("transform-box: view-box");
+  expect(forestStyles).toContain("transform-origin: 68% 52%");
+  expect(forestStyles).toContain("transform: rotate(-52deg)");
+  // The animated nut/paws can nibble; the torso must not bounce like a dance.
+  expect(forestStyles).not.toContain("forest-squirrel-nibble");
+  expect(forestStyles).not.toMatch(
+    /\\.swimmer\\[data-squirrel-phase="nibble"\\]\\s+\\.poser/,
+  );
 });
 
 test("sunlight fades gradually instead of pulsing like a warning", () => {
