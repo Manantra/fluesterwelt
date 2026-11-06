@@ -12,8 +12,8 @@ Stand: 6. November 2026. **Interne Arbeitsnotiz / Review-Checkliste**, keine ver
 
 ## Belegte Informationen aus offiziellen Cloudflare-Quellen
 
-1. **AVV / DPA:** Cloudflare veröffentlicht das _Customer Data Processing Addendum_, Version 6.4 vom **3. April 2026**. Das DPA beschreibt Cloudflare als Auftragsverarbeiter bei einschlägigen Datenverarbeitungen im Auftrag des Kunden. Es wird erst wirksam, wenn die Parteien es in der vorgesehenen Weise vereinbart haben. Ob dies im konkreten Konto vorliegt, kann aus öffentlich zugänglichen Informationen **nicht festgestellt** werden.
-   Quelle: https://www.cloudflare.com/cloudflare-customer-dpa/
+1. **AVV / DPA:** Cloudflare veröffentlicht das _Customer Data Processing Addendum_, Version 6.4 vom **3. April 2026**. Im **Self-Serve Subscription Agreement § 6.1** wird das DPA für einschlägige personenbezogene Kundendaten ausdrücklich **per Verweis einbezogen**. Die Self-Serve-Bedingungen erklären in der Einleitung die Nutzung der Dienste als Annahmemöglichkeit. Bei einem entsprechenden Self-Serve-Vertrag ist also grundsätzlich keine zusätzliche handschriftliche Unterschrift erforderlich. **Nicht öffentlich überprüfbar bleibt**, welcher Vertrag konkret für das Betreiberkonto gilt und seit wann.
+   Quellen: https://www.cloudflare.com/terms/ · https://www.cloudflare.com/cloudflare-customer-dpa/
 
 2. **Technische Metadaten:** Cloudflare erklärt, bestimmte Besucher- und Netzwerkmetadaten, häufig IP-Adressen, in den USA und Europa zu verarbeiten. Der Globale Netzwerkbetrieb ist nicht auf Deutschland beschränkt.
    Quelle: https://www.cloudflare.com/de-de/trust-hub/gdpr/
@@ -35,7 +35,8 @@ Stand: 6. November 2026. **Interne Arbeitsnotiz / Review-Checkliste**, keine ver
 
 ## Vor endgültiger Veröffentlichung noch zu prüfen
 
-- [ ] Unterlagen im Cloudflare-Konto prüfen und **Wirksamkeit des DPA/AVV** festhalten. Die öffentlich abrufbare DPA-Vorlage allein ist kein Nachweis über ein abgeschlossenes Abkommen.
+- [x] Vertragliche Einbeziehung für Cloudflare Self-Serve aus **§ 6.1** offiziell belegt – keine separat unterschriebene AVV als generelle Voraussetzung behaupten.
+- [ ] Kurz bestätigen, dass das verwendete Cloudflare-Konto dem **Self-Serve Subscription Agreement** unterliegt, und den Vertrags-/DPA-Stand dokumentieren. Eine öffentliche Vertragsseite beweist keine konkrete Kontohistorie.
 - [ ] Etwaige zusätzliche Produkte und Sicherheitsfunktionen in Cloudflare Pages / Account prüfen: Browser-Challenges, Bot-Schutz, Turnstile, Access, Worker/Pages Functions, Logpush, Web Analytics. Fehlende Funktionen nicht fälschlich als aktiv beschreiben.
 - [ ] Wenn präzise Rohlog-Löschfristen erforderlich sind: schriftliche Bestätigung für das genutzte Konto/Produkt bei Cloudflare erfragen. Ohne Nachweis nur **belegte Kriterien** statt erfundener Zeiträume angeben.
 - [ ] Rechtliche Einschätzung zur Speicherung nach § 25 TDDDG (notwendige / optionale `localStorage`-Funktionen).
