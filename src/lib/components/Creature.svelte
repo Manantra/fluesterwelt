@@ -400,22 +400,9 @@
             <!-- eslint-disable-next-line svelte/no-at-html-tags -->
             {@html attending && listeningArt ? listeningArt : art}
             {#if sceneId === "forest" && creature.def.slug === "red-fox"}
-              <!-- All images have the original fox's viewBox and ground line.
-                   Crossfading them preserves the fox's position and facing. -->
-              <div
-                class="forest-fox-pose forest-fox-pose-sit"
-                aria-hidden="true"
-              >
-                <!-- eslint-disable-next-line svelte/no-at-html-tags -->
-                {@html FOX_POSE_ART.sit}
-              </div>
-              <div
-                class="forest-fox-pose forest-fox-pose-curl"
-                aria-hidden="true"
-              >
-                <!-- eslint-disable-next-line svelte/no-at-html-tags -->
-                {@html FOX_POSE_ART.curl}
-              </div>
+              <!-- A single articulated movement folds the original SVG into
+                   this same-baseline sleeping artwork. No odd intermediate
+                   still image, and the animation reverses when waking. -->
               <div
                 class="forest-fox-pose forest-fox-pose-sleep"
                 aria-hidden="true"

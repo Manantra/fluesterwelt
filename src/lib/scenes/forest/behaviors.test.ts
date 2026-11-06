@@ -22,7 +22,14 @@ test("the fox and squirrel alone get the new forest behaviors", () => {
   expect(behaviorForCreature("forest", "hedgehog")).toBeNull();
 });
 
-test("the fox has visible intermediate poses, not just a longer rest", () => {
+test("the fox has one short continuous move down and one move up", () => {
+  // Intermediary positions are animated continuously by CSS, not held for seconds.
+  expect(
+    FOX_PHASE_DURATION.settle + FOX_PHASE_DURATION.down + FOX_PHASE_DURATION.up,
+  ).toBeLessThan(3);
+  expect(FOX_PHASE_DURATION.down).toBe(1.2);
+  expect(FOX_PHASE_DURATION.up).toBe(1.05);
+
   let state = createForestBehavior("fox-nap", zero);
   expect(state.secondsUntilNext).toBe(16);
   state = foxStep(state, 15);
@@ -33,10 +40,9 @@ test("the fox has visible intermediate poses, not just a longer rest", () => {
   expect(state.phase).toBe("settle");
 
   const phases: { phase: FoxPhase; seconds: number }[] = [
-    { phase: "sit", seconds: FOX_PHASE_DURATION.settle },
-    { phase: "curl", seconds: FOX_PHASE_DURATION.sit },
-    { phase: "sleep", seconds: FOX_PHASE_DURATION.curl },
-    { phase: "wake", seconds: 8 },
+    { phase: "down", seconds: FOX_PHASE_DURATION.settle },
+    { phase: "sleep", seconds: FOX_PHASE_DURATION.down },
+    { phase: "up", seconds: 8 },
   ];
 
   for (const next of phases) {
@@ -44,7 +50,7 @@ test("the fox has visible intermediate poses, not just a longer rest", () => {
     expect(state.phase).toBe(next.phase);
     expect(state.active).toBe("fox-nap");
   }
-  state = foxStep(state, FOX_PHASE_DURATION.wake);
+  state = foxStep(state, FOX_PHASE_DURATION.up);
   expect(state.active).toBeNull();
   expect(state.phase).toBeNull();
   expect(state.secondsUntilNext).toBe(85);
@@ -65,7 +71,7 @@ test("squirrel retains the original short lookout moment", () => {
 test("teacher pause, too loud, flight and reduced motion cancel the fox sequence", () => {
   let state = foxStep(createForestBehavior("fox-nap", zero), 16);
   state = foxStep(state, FOX_PHASE_DURATION.settle);
-  expect(state.phase).toBe("sit");
+  expect(state.phase).toBe("down");
   state = advanceForestBehavior(state, "fox-nap", 1, false, zero);
   expect(state.active).toBeNull();
   expect(state.phase).toBeNull();

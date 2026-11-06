@@ -9,12 +9,13 @@ Im Wald können Tiere ein paar kleine, unaufdringliche Dinge tun, die nichts mit
 dem Belohnungssystem zu tun haben:
 
 - **Rotfuchs:** Nach seiner Ankunft läuft er zunächst normal. Nach etwa
-  **16–26 Sekunden** wird er langsamer (1,2 Sekunden), **setzt sich sichtbar
-  hin** (2,5 Sekunden), **rollt sich ein** (2,1 Sekunden), **schließt die
-  Augen und schläft** (8–12 Sekunden). Anschließend **richtet er sich auf**
-  (2,5 Sekunden) und läuft weiter. Dafür besitzt er drei separat gezeichnete
-  SVG-Posen statt einer gestauchten Laufanimation. Wiederholung nach etwa
-  85–130 Sekunden.
+  **16–26 Sekunden** bremst er kurz ab (**0,45 Sekunden**). Direkt danach
+  senken sich Oberkörper und Kopf, die Beine knicken ein und der Schwanz
+  rollt sich herum: **ein zusammenhängender Bewegungsablauf von 1,2 Sekunden**
+  statt zweier lange gehaltener Zwischenbilder. Die süße eingerollte
+  Schlafpose bleibt erhalten (**8–12 Sekunden**). Das **Aufstehen dauert
+  nur 1,05 Sekunden** und spielt die Bewegungen umgekehrt ab. Erst danach
+  läuft er weiter. Wiederholung nach etwa 85–130 Sekunden.
 - **Grauhörnchen:** Es bleibt nach etwa 18–35 Sekunden kurz stehen, richtet
   sich auf und schaut sich um. Die Pause dauert etwa 4–7 Sekunden und
   wiederholt sich unregelmäßig nach etwa 65–110 Sekunden.
@@ -37,8 +38,8 @@ die zusätzlichen Tiermomente und der Lichtwechsel.
    die vorhandene Funktion „Alle Tiere erscheinen lassen“ verwenden.
    Diese Funktion ist bereits Teil der App und trägt nichts in die Sammlung ein.
 5. Fuchs und Grauhörnchen beobachten. Der Fuchs beginnt nach etwa
-   **16–26 Sekunden** mit dem neuen Ablauf: **Hinsetzen → Einrollen →
-   Schlafen → Aufstehen**. Der Sonnenfleck sollte ebenfalls deutlicher sein.
+   **16–26 Sekunden** mit dem neuen Ablauf: **kurz abbremsen →
+   fließend hinlegen → schlafen → fließend aufstehen**. Der Sonnenfleck sollte ebenfalls deutlicher sein.
 6. Mikrofon pausieren, „zu laut“ erzeugen und in den Betriebssystemeinstellungen
    „Bewegung reduzieren“ aktivieren: Die zusätzlichen Momente sollen dabei nicht
    ablenken.
@@ -56,11 +57,18 @@ die zusätzlichen Tiermomente und der Lichtwechsel.
 
 ## Technischer Aufbau
 
-Die Datei forest/behaviors.ts enthält eine pure Zustandsmaschine mit Tests.
+Die Datei forest/behaviors.ts enthält die kurze Zustandsmaschine mit Tests.
 Creature.svelte nutzt stepSettle zum sanften Anhalten und bewahrt den Zustand
-für das schwebende Fenster in einer WeakMap. Drei eigens gezeichnete
-Vektorillustrationen in forest/fox-poses/ (sit.svg, curl.svg und sleep.svg)
-haben dieselbe Zeichenfläche und den gleichen Bodenstand wie die Laufpose.
-Die überblendeten Bilder zeigen die Phasen ohne Positionssprung.
-AmbientLife.svelte und scene.css zeichnen den Sonnenfleck.
-Session, sightings, Tiergewichte und Lautstärkealgorithmus bleiben unverändert.
+für das schwebende Fenster in einer WeakMap. Die originale red-fox.svg ist
+in **Körper, Vorder-/Hinterbeine, Kopf und Schwanz** gruppiert, die während
+des Hinlegens gemeinsam verschoben und gedreht werden. Die anatomisch
+unglücklichen, statischen Zwischenbilder sit.svg und curl.svg sind entfernt.
+Das Originalbild forest/fox-poses/sleep.svg mit der eingerollten Schlafposition
+bleibt erhalten und wird am Ende der Bewegung sanft eingeblendet.
+Beim Aufstehen läuft dieselbe Bewegung rückwärts. AmbientLife.svelte und
+scene.css zeichnen den Sonnenfleck. Session, sightings, Tiergewichte und
+Lautstärkealgorithmus bleiben unverändert.
+
+**Visuelle Abnahme erforderlich:** Die Timing-Logik ist getestet, die
+Wahrnehmung der Übergänge muss weiterhin im Browser und auf dem
+Smartboard beurteilt werden.

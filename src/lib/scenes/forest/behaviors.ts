@@ -1,12 +1,12 @@
 /**
  * Quiet, decorative animal behavior: no new arrivals, points or unlocks.
  *
- * The fox changes between genuinely different SVG poses. Each phase is timed
- * separately so it visibly sits down, curls up, sleeps, and stands again.
+ * The fox lowers itself in a single articulated animation, rests in a
+ * hand-drawn sleeping pose, then gets back up in one continuous movement.
  * Motion remains the caller's responsibility; this is a pure state machine.
  */
 export type ForestBehavior = "fox-nap" | "squirrel-lookout";
-export type FoxPhase = "settle" | "sit" | "curl" | "sleep" | "wake";
+export type FoxPhase = "settle" | "down" | "sleep" | "up";
 
 export interface ForestBehaviorState {
   active: ForestBehavior | null;
@@ -29,18 +29,17 @@ const TIMINGS: Record<ForestBehavior, Timing> = {
 };
 
 export const FOX_PHASE_DURATION: Record<Exclude<FoxPhase, "sleep">, number> = {
-  settle: 1.2,
-  sit: 2.5,
-  curl: 2.1,
-  wake: 2.5,
+  // A short deceleration before the body folds down continuously.
+  settle: 0.45,
+  down: 1.2,
+  up: 1.05,
 };
 
 const FOX_NEXT_PHASE: Record<FoxPhase, FoxPhase | null> = {
-  settle: "sit",
-  sit: "curl",
-  curl: "sleep",
-  sleep: "wake",
-  wake: null,
+  settle: "down",
+  down: "sleep",
+  sleep: "up",
+  up: null,
 };
 
 export function behaviorForCreature(

@@ -232,24 +232,105 @@ html[data-scene="forest"]:not(:has(.scene-stage)) body {
   animation-play-state: paused;
 }
 
-/* The fox has genuinely different silhouettes for sitting and sleeping.
-   All SVGs have the exact same viewBox and baseline as its walking artwork.
-   Fade between them while stepSettle brakes the existing motion in place. */
-.scene-stage[data-scene="forest"]
-  .swimmer[data-forest-species="red-fox"]
-  .creature
-  > svg {
-  transition: opacity 750ms ease-in-out;
+/* One articulated movement, not a slideshow. The old intermediate "sit" pose
+   distorted the fox's anatomy. The walking SVG now contains separate head,
+   torso, front and back legs, and tail groups. These all bend together as it
+   lowers its body. Only near the end do we blend to the original cute
+   sleeping drawing, which has exactly the same viewBox and ground line. */
+
+@keyframes forest-fox-fade-walking {
+  0%,
+  35% {
+    opacity: 1;
+  }
+  82%,
+  100% {
+    opacity: 0;
+  }
 }
 
-.scene-stage[data-scene="forest"]
-  .swimmer[data-forest-species="red-fox"]
-  .forest-fox-pose {
+@keyframes forest-fox-sleep-enter {
+  0%,
+  33% {
+    opacity: 0;
+    transform: translateY(-17%) scale(0.83, 0.72) rotate(-7deg);
+  }
+  67% {
+    opacity: 0.75;
+    transform: translateY(-5%) scale(0.94, 0.9) rotate(-2deg);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes forest-fox-lower-torso {
+  0% {
+    transform: none;
+  }
+  45% {
+    transform: translateY(7%) rotate(1deg);
+  }
+  100% {
+    transform: translateY(20%) scaleY(0.8) rotate(3deg);
+  }
+}
+
+@keyframes forest-fox-fold-hindlegs {
+  0% {
+    transform: none;
+  }
+  45% {
+    transform: translateY(7%) scaleY(0.9);
+  }
+  100% {
+    transform: translateY(21%) scaleY(0.7) rotate(-7deg);
+  }
+}
+
+@keyframes forest-fox-fold-forelegs {
+  0% {
+    transform: none;
+  }
+  42% {
+    transform: translateY(7%) scaleY(0.9);
+  }
+  100% {
+    transform: translateY(20%) scaleY(0.65) rotate(7deg);
+  }
+}
+
+@keyframes forest-fox-lower-head {
+  0% {
+    transform: none;
+  }
+  40% {
+    transform: translateY(8%) rotate(2deg);
+  }
+  100% {
+    transform: translate(-5%, 28%) rotate(10deg);
+  }
+}
+
+@keyframes forest-fox-curl-tail {
+  0% {
+    transform: none;
+  }
+  46% {
+    transform: translate(5%, 5%) rotate(-4deg);
+  }
+  100% {
+    transform: translate(18%, 15%) rotate(14deg) scale(0.9);
+  }
+}
+
+.scene-stage[data-scene="forest"] .forest-fox-pose {
   position: absolute;
   inset: 0;
-  opacity: 0;
   pointer-events: none;
-  transition: opacity 750ms ease-in-out;
+  opacity: 0;
+  transform-origin: 50% 100%;
 }
 
 .scene-stage[data-scene="forest"] .forest-fox-pose > svg {
@@ -260,48 +341,97 @@ html[data-scene="forest"]:not(:has(.scene-stage)) body {
 }
 
 .scene-stage[data-scene="forest"]
-  .swimmer[data-fox-phase="sit"]
-  .creature
-  > svg,
-.scene-stage[data-scene="forest"]
-  .swimmer[data-fox-phase="curl"]
-  .creature
-  > svg,
-.scene-stage[data-scene="forest"]
   .swimmer[data-fox-phase="sleep"]
-  .creature
-  > svg,
-.scene-stage[data-scene="forest"]
-  .swimmer[data-fox-phase="wake"]
   .creature
   > svg {
   opacity: 0;
 }
 
-/* Sit on the ground -> roll the tail round -> close eyes -> sit up to wake. */
-.scene-stage[data-scene="forest"]
-  .swimmer[data-fox-phase="sit"]
-  .forest-fox-pose-sit,
-.scene-stage[data-scene="forest"]
-  .swimmer[data-fox-phase="wake"]
-  .forest-fox-pose-sit,
-.scene-stage[data-scene="forest"]
-  .swimmer[data-fox-phase="curl"]
-  .forest-fox-pose-curl,
 .scene-stage[data-scene="forest"]
   .swimmer[data-fox-phase="sleep"]
   .forest-fox-pose-sleep {
   opacity: 1;
 }
 
-/* The fox's resting chest moves a fraction of a pixel in a slow breath. */
+/* Both directions use the same transform curve at the same speed; "up"
+   reverses it without letting the fox pause in awkward in-between postures. */
+.scene-stage[data-scene="forest"]
+  .swimmer[data-fox-phase="down"]
+  .creature
+  > svg,
+.scene-stage[data-scene="forest"]
+  .swimmer[data-fox-phase="up"]
+  .creature
+  > svg {
+  animation: forest-fox-fade-walking 1.2s ease-in-out both;
+}
+
+.scene-stage[data-scene="forest"]
+  .swimmer[data-fox-phase="down"]
+  .forest-fox-pose-sleep,
+.scene-stage[data-scene="forest"]
+  .swimmer[data-fox-phase="up"]
+  .forest-fox-pose-sleep {
+  animation: forest-fox-sleep-enter 1.2s ease-in-out both;
+}
+
+.scene-stage[data-scene="forest"] .swimmer[data-fox-phase="down"] .fox-body,
+.scene-stage[data-scene="forest"] .swimmer[data-fox-phase="up"] .fox-body {
+  transform-box: fill-box;
+  transform-origin: center bottom;
+  animation: forest-fox-lower-torso 1.2s ease-in-out both;
+}
+
+.scene-stage[data-scene="forest"] .swimmer[data-fox-phase="down"] .fox-hindlegs,
+.scene-stage[data-scene="forest"] .swimmer[data-fox-phase="up"] .fox-hindlegs {
+  transform-box: fill-box;
+  transform-origin: center bottom;
+  animation: forest-fox-fold-hindlegs 1.2s ease-in-out both;
+}
+
+.scene-stage[data-scene="forest"] .swimmer[data-fox-phase="down"] .fox-forelegs,
+.scene-stage[data-scene="forest"] .swimmer[data-fox-phase="up"] .fox-forelegs {
+  transform-box: fill-box;
+  transform-origin: center bottom;
+  animation: forest-fox-fold-forelegs 1.2s ease-in-out both;
+}
+
+.scene-stage[data-scene="forest"] .swimmer[data-fox-phase="down"] .fox-head,
+.scene-stage[data-scene="forest"] .swimmer[data-fox-phase="up"] .fox-head {
+  transform-box: fill-box;
+  transform-origin: 15% 85%;
+  animation: forest-fox-lower-head 1.2s ease-in-out both;
+}
+
+.scene-stage[data-scene="forest"] .swimmer[data-fox-phase="down"] .part-tail,
+.scene-stage[data-scene="forest"] .swimmer[data-fox-phase="up"] .part-tail {
+  animation: forest-fox-curl-tail 1.2s ease-in-out both;
+}
+
+.scene-stage[data-scene="forest"]
+  .swimmer[data-fox-phase="up"]
+  :is(
+    .creature > svg,
+    .forest-fox-pose-sleep,
+    .fox-body,
+    .fox-hindlegs,
+    .fox-forelegs,
+    .fox-head,
+    .part-tail
+  ) {
+  animation-direction: reverse;
+  animation-duration: 1.05s;
+}
+
+/* The existing sleeping picture remains unchanged and only breathes slightly.
+   No sounds, pings or new rewards: life stays a quiet detail. */
 @keyframes forest-fox-breath {
   0%,
   100% {
     transform: scaleY(1);
   }
   50% {
-    transform: scaleY(0.982);
+    transform: scaleY(0.985);
   }
 }
 
@@ -309,7 +439,7 @@ html[data-scene="forest"]:not(:has(.scene-stage)) body {
   .swimmer[data-fox-phase="sleep"]
   .forest-fox-pose-sleep
   > svg {
-  transform-origin: 50% 100%;
+  transform-origin: center bottom;
   animation: forest-fox-breath 4.6s ease-in-out infinite;
 }
 
@@ -351,17 +481,20 @@ html[data-scene="forest"]:not(:has(.scene-stage)) body {
   .scene-stage[data-scene="forest"]
     .swimmer[data-forest-species="red-fox"]
     .creature
-    > svg {
+    > svg,
+  .scene-stage[data-scene="forest"]
+    .swimmer[data-forest-species="red-fox"]
+    :is(.fox-body, .fox-forelegs, .fox-hindlegs, .fox-head, .part-tail) {
+    animation: none !important;
     opacity: 1 !important;
-    transition: none;
   }
 
   .scene-stage[data-scene="forest"] .forest-fox-pose {
+    animation: none !important;
     opacity: 0 !important;
-    transition: none;
   }
 
   .scene-stage[data-scene="forest"] .forest-fox-pose > svg {
-    animation: none;
+    animation: none !important;
   }
 }
