@@ -124,12 +124,10 @@
           rel="noopener noreferrer"
           >Cloudflare Self-Serve Subscription Agreement, Abschnitt 6.1</a
         >
-        wird das DPA ausdrücklich in die Nutzungsvereinbarung
-        einbezogen. Bei einem entsprechenden Self-Serve-Vertragsverhältnis
-        ist daher grundsätzlich kein gesondert unterschriebenes
-        DPA erforderlich. [Vor endgültiger Freigabe bestätigen,
-        dass für das konkrete Betreiberkonto die Self-Serve-Bedingungen
-        gelten.]
+        wird das DPA ausdrücklich in die Nutzungsvereinbarung einbezogen. Bei einem
+        entsprechenden Self-Serve-Vertragsverhältnis ist daher grundsätzlich kein
+        gesondert unterschriebenes DPA erforderlich. [Vor endgültiger Freigabe bestätigen,
+        dass für das konkrete Betreiberkonto die Self-Serve-Bedingungen gelten.]
       </p>
       <p>
         <strong>Übermittlungen außerhalb des EWR:</strong>
