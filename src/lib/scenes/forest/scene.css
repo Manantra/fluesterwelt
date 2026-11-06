@@ -564,7 +564,8 @@ html[data-scene="forest"]:not(:has(.scene-stage)) body {
 }
 
 .scene-stage[data-scene="forest"]
-  .swimmer[data-squirrel-phase="search"] .poser {
+  .swimmer[data-squirrel-phase="search"]
+  .poser {
   animation: forest-squirrel-search 1.65s ease-in-out both;
 }
 
@@ -582,7 +583,8 @@ html[data-scene="forest"]:not(:has(.scene-stage)) body {
 }
 
 .scene-stage[data-scene="forest"]
-  .swimmer[data-squirrel-phase="pick"] .forest-squirrel-held-acorn {
+  .swimmer[data-squirrel-phase="pick"]
+  .forest-squirrel-held-acorn {
   animation: forest-squirrel-lift-held-acorn 0.9s ease-in-out both;
 }
 
@@ -617,12 +619,14 @@ html[data-scene="forest"]:not(:has(.scene-stage)) body {
 }
 
 .scene-stage[data-scene="forest"]
-  .swimmer[data-squirrel-phase="nibble"] .forest-squirrel-held-acorn {
+  .swimmer[data-squirrel-phase="nibble"]
+  .forest-squirrel-held-acorn {
   animation: forest-squirrel-chew-held-acorn 0.66s ease-in-out infinite;
 }
 
 .scene-stage[data-scene="forest"]
-  .swimmer[data-squirrel-phase="nibble"] .poser {
+  .swimmer[data-squirrel-phase="nibble"]
+  .poser {
   animation: forest-squirrel-nibble 0.66s ease-in-out infinite;
 }
 
@@ -638,7 +642,8 @@ html[data-scene="forest"]:not(:has(.scene-stage)) body {
 }
 
 .scene-stage[data-scene="forest"]
-  .swimmer[data-squirrel-phase="finish"] .forest-squirrel-held-acorn {
+  .swimmer[data-squirrel-phase="finish"]
+  .forest-squirrel-held-acorn {
   animation: forest-squirrel-lower-held-acorn 0.85s ease-in-out both;
 }
 

@@ -47,8 +47,8 @@ test("the squirrel nibbles its single original acorn instead of drawing another"
     squirrelArtwork.match(/class="forest-squirrel-held-acorn"/g),
   ).toHaveLength(1);
   expect(creatureComponent).not.toContain('class="forest-squirrel-acorn"');
-  expect(forestStyles).toContain(
-    '.swimmer[data-squirrel-phase="nibble"] .forest-squirrel-held-acorn',
+  expect(forestStyles).toMatch(
+    /\.swimmer\[data-squirrel-phase="nibble"\]\s+\.forest-squirrel-held-acorn/,
   );
   expect(forestStyles).not.toContain("forest-squirrel-acorn-seed");
   expect(forestStyles).not.toContain("forest-squirrel-last-bite");
