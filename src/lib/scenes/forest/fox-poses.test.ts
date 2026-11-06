@@ -64,6 +64,26 @@ test("the squirrel nibbles its single original acorn instead of drawing another"
   );
 });
 
+test("the squirrel's muzzle hides the top of its raised original acorn", () => {
+  const acorn = squirrelArtwork.indexOf(
+    '<g class="forest-squirrel-held-acorn">',
+  );
+  const head = squirrelArtwork.indexOf(
+    '<circle cx="68" cy="30" r="13"',
+  );
+  const muzzle = squirrelArtwork.indexOf('<path d="M84 39.1');
+  const eyes = squirrelArtwork.indexOf('<circle cx="72" cy="28"');
+
+  expect(acorn).toBeGreaterThan(0);
+  // SVG paints later shapes in front. The existing face/muzzle therefore
+  // covers the raised acorn's upper edge while it approaches the mouth.
+  expect(head).toBeGreaterThan(acorn);
+  expect(muzzle).toBeGreaterThan(acorn);
+  expect(eyes).toBeGreaterThan(acorn);
+  expect(forestStyles).toContain("transform: rotate(-52deg)");
+  expect(creatureComponent).not.toContain('class="forest-squirrel-acorn"');
+});
+
 test("sunlight fades gradually instead of pulsing like a warning", () => {
   expect(forestStyles).toContain(
     "forest-sunlight-visit 160s ease-in-out infinite",
