@@ -20,8 +20,9 @@ dem Belohnungssystem zu tun haben:
   neugierig seine **bereits in den Pfoten gehaltene Eichel**. Die Vorderpfoten
   schwenken gemeinsam mit der Eichel **bis unmittelbar an die Schnauze**;
   während des Knabberns gibt es nur kleine Bewegungen der Pfoten und Eichel,
-  **kein rhythmisches Wippen des ganzen Körpers**. Anschließend senkt es die
-  Eichel wieder. Sie bleibt die ganze Zeit sichtbar. Die vier Phasen sind
+  **kein rhythmisches Wippen des ganzen Körpers**. Die Eichel wird hinter
+  die Schnauze gezeichnet, sodass beim Knabbern **ein kleiner Teil davon im
+  Mund verschwindet**. Anschließend senkt es die Eichel wieder. Die vier Phasen sind
   Umschauen → Anheben → Knabbern → Absenken. Später hält das Eichhörnchen
   gelegentlich nur Ausschau. Nach einer Aktion vergehen normalerweise
   55–110 Sekunden bis zur nächsten.
@@ -84,7 +85,10 @@ eine Eichel und zwei Vorderpfoten. Diese vorhandenen SVG-Elemente sind
 in der Gruppe `forest-squirrel-held-acorn` zusammengefasst und werden in
 `scene.css` **um den Ansatz der Vorderpfote/Schulter gedreht**
 (etwa 52 Grad bis unmittelbar vor den Mund), dezent geknabbert und wieder
-abgesenkt. Dabei bleibt der Rumpf bewusst still; nur die Ohren zucken
+abgesenkt. Die ursprüngliche Eichel/Pfoten-Gruppe wird in der SVG-Zeichenreihenfolge
+**vor die Kopf- und Schnauzenformen** gesetzt. Dadurch überdecken diese beim
+Anheben die Oberkante der Eichel auf natürliche Weise, ohne zusätzliche Maske
+oder zweite Eichel. Dabei bleibt der Rumpf bewusst still; nur die Ohren zucken
 beim Umschauen kurz.
 `Creature.svelte` fügt **keine zusätzliche Eichel** mehr ein.
 
