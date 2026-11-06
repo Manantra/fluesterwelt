@@ -25,8 +25,8 @@
     <strong>Diese Erklärung ist noch nicht abschließend.</strong>
     Die Betreiber- und Kontaktangaben sind ergänzt. Vor der öffentlichen Freigabe
     müssen die Cloudflare-Vertragsbedingungen, Datenübermittlungen und Aufbewahrungsfristen
-    noch geprüft und ergänzt werden.
-    Bitte die noch offenen Angaben nicht durch Vermutungen ersetzen.
+    noch geprüft und ergänzt werden. Bitte die noch offenen Angaben nicht durch Vermutungen
+    ersetzen.
   </aside>
 
   <section class={card}>
@@ -36,7 +36,11 @@
         <strong>Daniel Menges</strong>
       </p>
       <p>Wolzenstr. 21, 14712 Rathenow, Deutschland</p>
-      <p>E-Mail: <a class={link} href="mailto:duplex.klirrt.2d@icloud.com">duplex.klirrt.2d@icloud.com</a></p>
+      <p>
+        E-Mail: <a class={link} href="mailto:duplex.klirrt.2d@icloud.com"
+          >duplex.klirrt.2d@icloud.com</a
+        >
+      </p>
       <p>
         Weitere Angaben findest du im
         <a class={link} href={resolve("/impressum")}>Impressum</a>.

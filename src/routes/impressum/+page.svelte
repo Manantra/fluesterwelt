@@ -18,9 +18,8 @@
   >
     <strong>Vor der Veröffentlichung rechtlich prüfen:</strong>
     Die Angaben zur privat verantwortlichen Person sind eingetragen. Ob zusätzliche
-    Anbieterpflichten nach § 18 MStV oder § 5 DDG bestehen, muss anhand des
-    konkreten Angebots geprüft werden. Die Datenschutzerklärung ist ebenfalls
-    noch nicht abschließend.
+    Anbieterpflichten nach § 18 MStV oder § 5 DDG bestehen, muss anhand des konkreten
+    Angebots geprüft werden. Die Datenschutzerklärung ist ebenfalls noch nicht abschließend.
   </aside>
 
   <section
@@ -29,7 +28,12 @@
     <h2 class="text-xl font-semibold text-slate-900">Angaben zum Anbieter</h2>
     <p><strong>Daniel Menges</strong></p>
     <p>Wolzenstr. 21<br />14712 Rathenow<br />Deutschland</p>
-    <p>E-Mail: <a class="font-semibold text-teal-700 underline" href="mailto:duplex.klirrt.2d@icloud.com">duplex.klirrt.2d@icloud.com</a></p>
+    <p>
+      E-Mail: <a
+        class="font-semibold text-teal-700 underline"
+        href="mailto:duplex.klirrt.2d@icloud.com">duplex.klirrt.2d@icloud.com</a
+      >
+    </p>
     <p>
       [Falls einschlägig: Rechtsform, vertretungsberechtigte Person, Register
       und Registernummer, Umsatzsteuer-ID, zuständige Aufsichtsbehörde und
