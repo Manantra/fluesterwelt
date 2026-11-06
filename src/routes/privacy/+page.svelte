@@ -175,11 +175,11 @@
         Hinweise dazu findest du in Abschnitt 2.
       </p>
       <p>
-        Cloudflare kann abhängig von der aktivierten Sicherheitskonfiguration
-        eigene technisch erforderliche Mechanismen einsetzen. [Vor der
-        abschließenden Freigabe im Cloudflare-Dashboard bestätigen, dass Web
-        Analytics deaktiviert ist, und mögliche zusätzliche
-        Sicherheitsfunktionen oder Cookies prüfen.]
+        Für FlüsterWelt ist Cloudflare Web Analytics deaktiviert.
+        Cloudflare kann abhängig von den übrigen aktivierten
+        Sicherheitsfunktionen technisch erforderliche Mechanismen einsetzen.
+        [Etwaige zusätzliche Cloudflare-Sicherheitsfunktionen und Cookies
+        vor der abschließenden Freigabe prüfen.]
       </p>
     </div>
   </section>
