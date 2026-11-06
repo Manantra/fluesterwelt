@@ -43,7 +43,9 @@ const forestStyles = readFileSync(
 );
 
 test("the squirrel nibbles its single original acorn instead of drawing another", () => {
-  expect(squirrelArtwork.match(/class="forest-squirrel-held-acorn"/g)).toHaveLength(1);
+  expect(
+    squirrelArtwork.match(/class="forest-squirrel-held-acorn"/g),
+  ).toHaveLength(1);
   expect(creatureComponent).not.toContain('class="forest-squirrel-acorn"');
   expect(forestStyles).toContain(
     '.swimmer[data-squirrel-phase="nibble"] .forest-squirrel-held-acorn',
@@ -54,7 +56,9 @@ test("the squirrel nibbles its single original acorn instead of drawing another"
 });
 
 test("sunlight fades gradually instead of pulsing like a warning", () => {
-  expect(forestStyles).toContain("forest-sunlight-visit 160s ease-in-out infinite");
+  expect(forestStyles).toContain(
+    "forest-sunlight-visit 160s ease-in-out infinite",
+  );
   expect(forestStyles).toContain("width: calc(106 * var(--wu))");
   expect(forestStyles).toContain("opacity: 0.44");
 });
