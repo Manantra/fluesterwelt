@@ -16,21 +16,23 @@ dem Belohnungssystem zu tun haben:
   Schlafpose bleibt erhalten (**8–12 Sekunden**). Das **Aufstehen dauert
   nur 1,05 Sekunden** und spielt die Bewegungen umgekehrt ab. Erst danach
   läuft er weiter. Wiederholung nach etwa 85–130 Sekunden.
-- **Grauhörnchen:** Nach ungefähr 18–36 Sekunden kann es eine kleine
-  **Eichel am Boden entdecken**, sich ihr zuwenden, sie **in die Pfoten heben**,
-  einige Sekunden knabbern und sie schließlich aufessen. Der Ablauf hat
-  eigene Phasen (Suchen → Aufheben → Knabbern → letzter Bissen). Bei späteren
-  Gelegenheiten schaut es stattdessen auch einfach neugierig umher.
-  Nach einer Aktion vergehen normalerweise 55–110 Sekunden bis zur nächsten.
+- **Grauhörnchen:** Nach ungefähr 18–36 Sekunden untersucht es zunächst
+  neugierig seine **bereits in den Pfoten gehaltene Eichel**. Dann hebt es
+  Eichel und Vorderpfoten gemeinsam etwas zum Mund, **knabbert einige
+  Sekunden** und senkt die Pfoten danach wieder. Die Eichel bleibt die ganze
+  Zeit sichtbar und verschwindet nicht. Der Ablauf hat vier kurze Phasen
+  (Umschauen → Anheben → Knabbern → Absenken). Später hält das Eichhörnchen
+  gelegentlich nur Ausschau. Nach einer Aktion vergehen normalerweise
+  55–110 Sekunden bis zur nächsten.
 - **Mehrere Tiere derselben Art:** Jedes Exemplar hat einen eigenen
   Zufallstimer. Zusätzlich darf **immer nur ein Fuchs und ein Grauhörnchen**
   pro Waldszene gleichzeitig eine besondere Aktion ausführen. Andere
   Exemplare laufen normal weiter und versuchen es später erneut. Nach dem
   ersten typischen Verhalten wechseln Füchse zwischen Schlafen und Schnüffeln,
-  Eichhörnchen zwischen Eichelsuche und Ausschauhalten.
-- **Waldlichtung:** Ein jetzt stärker erkennbarer warmer Sonnenfleck erscheint
-  in einem kleinen Bereich der Lichtung und verschwindet langsam. Zyklus:
-  etwa 95 Sekunden, sichtbare Phase etwa zwischen Sekunde 10 und 50.
+  Eichhörnchen zwischen Knabbern an ihrer Eichel und Ausschauhalten.
+- **Waldlichtung:** Ein **breiter, diffuser Sonnenlichtschimmer** wird ganz
+  langsam heller und wieder dunkler, ohne wie ein plötzliches Lichtsignal
+  aufzuleuchten. Der vollständige Zyklus dauert etwa **160 Sekunden**.
 
 Alle Zeiten beziehen sich auf die Zeit, in der die Szene animiert werden darf;
 beim Pausieren des Unterrichts, bei „zu laut“ oder beim Fliehen werden
@@ -48,9 +50,11 @@ die zusätzlichen Tiermomente und der Lichtwechsel.
    Diese Funktion ist bereits Teil der App und trägt nichts in die Sammlung ein.
 5. Fuchs und Grauhörnchen beobachten. Der erste Fuchs beginnt nach etwa
    **16–30 Sekunden** mit **Abbremsen → Hinlegen → Schlafen → Aufstehen**.
-   Ein Grauhörnchen sollte nach **18–36 Sekunden** eine Eichel entdecken,
-   aufheben und knabbern. **Mehrere Füchse schlafen nicht gleichzeitig**.
-   Der Sonnenfleck sollte ebenfalls sichtbar sein.
+   Ein Grauhörnchen sollte nach **18–36 Sekunden** seine **eine vorhandene
+   Eichel** zum Mund heben, daran knabbern und die Pfoten wieder senken.
+   **Es darf keine zweite Eichel erscheinen.** Mehrere Füchse schlafen nicht
+   gleichzeitig. Der diffuse Sonnenlichtschimmer braucht länger zum
+   Ein- und Ausblenden; er darf nicht blitzen.
 6. Mikrofon pausieren, „zu laut“ erzeugen und in den Betriebssystemeinstellungen
    „Bewegung reduzieren“ aktivieren: Die zusätzlichen Momente sollen dabei nicht
    ablenken.
@@ -74,9 +78,11 @@ dass mehrere Tiere derselben Art nicht gleichzeitig besondere Aktionen
 starten. Eigene Timer und gelegentlich wechselnde Handlungen sorgen für
 Abwechslung – auch beim gleichzeitigen Einblenden aller Tiere.
 
-Creature.svelte zeigt die kleine Eichel als SVG innerhalb der bestehenden
-Grauhörnchen-Zeichenfläche; die CSS-Animation hebt sie vom Boden in die
-Vorderpfoten und führt kleine Knabberbewegungen aus.
+Die ursprüngliche Grauhörnchenzeichnung `gray-squirrel.svg` enthält bereits
+eine Eichel und zwei Vorderpfoten. Diese vorhandenen SVG-Elemente sind
+in der Gruppe `forest-squirrel-held-acorn` zusammengefasst und werden in
+`scene.css` gemeinsam angehoben, dezent bewegt und wieder abgesenkt.
+`Creature.svelte` fügt **keine zusätzliche Eichel** mehr ein.
 
 Creature.svelte nutzt stepSettle zum sanften Anhalten und bewahrt den Zustand
 für das schwebende Fenster in einer WeakMap. Die originale red-fox.svg ist
