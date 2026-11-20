@@ -1,53 +1,18 @@
-/* Living Reef prototype: only the common clownfish has a special moment.
-   It eases to a halt in script; these accents don't change the swimming model. */
+/* Living Reef pilot: the clownfish sometimes takes a small exploratory loop.
+   Normal waypoint rests, direction changes and all other animals are intact. */
 
-@keyframes reef-clownfish-glance {
-  0%,
-  12%,
-  94%,
-  100% {
-    transform: translateX(0);
-  }
-  29%,
-  43% {
-    transform: translateX(-2.6px);
-  }
-  64%,
-  78% {
-    transform: translateX(1.8px);
-  }
-}
-
+/* The original tail and fin keep their shared animations. On the exploratory
+   curve, the tail swishes just a little more actively without body shaking. */
 .scene-stage[data-scene="reef"]
-  .swimmer[data-reef-curiosity="peek"]
-  .reef-clownfish-eye {
-  animation: reef-clownfish-glance 4.6s ease-in-out both;
-}
-
-/* Once it slows down, the tail swishes slowly and the pectoral fin gently
-   keeps it in place; this is a rest, not a second swimming loop. */
-.scene-stage[data-scene="reef"]
-  .swimmer[data-reef-curiosity="brake"]
-  .creature
-  .part-tail,
-.scene-stage[data-scene="reef"]
-  .swimmer[data-reef-curiosity="peek"]
+  .swimmer[data-reef-curiosity="explore"]
   .creature
   .part-tail {
-  animation-duration: 2200ms;
+  animation-duration: 760ms;
 }
 
 .scene-stage[data-scene="reef"]
-  .swimmer[data-reef-curiosity="peek"]
+  .swimmer[data-reef-curiosity="explore"]
   .creature
   .part-fin {
-  animation-duration: 1050ms;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .scene-stage[data-scene="reef"]
-    .swimmer[data-reef-curiosity="peek"]
-    .reef-clownfish-eye {
-    animation: none;
-  }
+  animation-duration: 1100ms;
 }

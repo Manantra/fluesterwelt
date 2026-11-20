@@ -1,8 +1,8 @@
 /**
- * An occasional quiet moment for individual clownfish in the reef.
+ * An occasional exploratory loop for individual clownfish in the reef.
  * This never creates creatures, changes rewards, or affects the session clock.
  */
-export type ClownfishPhase = "brake" | "peek" | "resume";
+export type ClownfishPhase = "explore" | "rejoin";
 
 export interface ClownfishCuriosityState {
   phase: ClownfishPhase | null;
@@ -11,13 +11,12 @@ export interface ClownfishCuriosityState {
 }
 
 export const CLOWNFISH_PHASE_SECONDS = {
-  brake: 1.2,
-  peek: 4.6,
-  resume: 0.9,
+  explore: 8.2,
+  rejoin: 0.9,
 } as const;
 
-const FIRST_WAIT: readonly [number, number] = [18, 36];
-const REPEAT_WAIT: readonly [number, number] = [60, 115];
+const FIRST_WAIT: readonly [number, number] = [22, 40];
+const REPEAT_WAIT: readonly [number, number] = [85, 145];
 const BLOCKED_WAIT: readonly [number, number] = [7, 15];
 const INTERRUPTED_WAIT: readonly [number, number] = [25, 45];
 
@@ -38,7 +37,8 @@ export function createClownfishCuriosity(
 /**
  * The real scene drives this with frame-clamped seconds. An interrupted moment
  * yields immediately to teacher pauses, Too Loud, flight or reduced motion.
- * A blocked fish keeps swimming and tries later instead of joining a chorus.
+ * A blocked fish follows its usual swim path and tries later instead of
+ * starting an identical loop with the others.
  */
 export function advanceClownfishCuriosity(
   state: ClownfishCuriosityState,
@@ -68,9 +68,9 @@ export function advanceClownfishCuriosity(
       };
     }
     return {
-      phase: "brake",
+      phase: "explore",
       secondsUntilNext: 0,
-      secondsRemaining: CLOWNFISH_PHASE_SECONDS.brake,
+      secondsRemaining: CLOWNFISH_PHASE_SECONDS.explore,
     };
   }
 
@@ -79,19 +79,13 @@ export function advanceClownfishCuriosity(
   }
 
   switch (state.phase) {
-    case "brake":
+    case "explore":
       return {
         ...state,
-        phase: "peek",
-        secondsRemaining: CLOWNFISH_PHASE_SECONDS.peek,
+        phase: "rejoin",
+        secondsRemaining: CLOWNFISH_PHASE_SECONDS.rejoin,
       };
-    case "peek":
-      return {
-        ...state,
-        phase: "resume",
-        secondsRemaining: CLOWNFISH_PHASE_SECONDS.resume,
-      };
-    case "resume":
+    case "rejoin":
       return {
         phase: null,
         secondsUntilNext: between(REPEAT_WAIT, random),
