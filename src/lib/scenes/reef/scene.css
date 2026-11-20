@@ -1,0 +1,18 @@
+/* Living Reef pilot: the clownfish sometimes takes a small exploratory loop.
+   Normal waypoint rests, direction changes and all other animals are intact. */
+
+/* The original tail and fin keep their shared animations. On the exploratory
+   curve, the tail swishes just a little more actively without body shaking. */
+.scene-stage[data-scene="reef"]
+  .swimmer[data-reef-curiosity="explore"]
+  .creature
+  .part-tail {
+  animation-duration: 760ms;
+}
+
+.scene-stage[data-scene="reef"]
+  .swimmer[data-reef-curiosity="explore"]
+  .creature
+  .part-fin {
+  animation-duration: 1100ms;
+}
