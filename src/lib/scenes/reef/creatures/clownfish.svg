@@ -19,7 +19,9 @@
     <path d="M97 55 C 101 67, 97 78, 89 84.5 C 86.5 86.5, 84 86, 83.8 83 C 83 72, 87.5 61, 97 55 Z" fill="#ff9f5a"/>
     <path d="M97 55 C 101 67, 97 78, 89 84.5 C 86.5 86.5, 84 86, 83.8 83 C 83 72, 87.5 61, 97 55 Z" fill="#2b2b3a" opacity="0.2"/>
   </g>
+  <g class="reef-clownfish-eye">
   <circle cx="114" cy="42" r="6" fill="#2b2b3a"/>
   <circle cx="112" cy="40" r="1.8" fill="#ffffff"/>
+  </g>
   <path d="M108 56 C 111 61 116 62 119 57 C 116 60 111 59 108 56 Z" fill="#2b2b3a" opacity="0.5"/>
 </svg>

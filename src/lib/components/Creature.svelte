@@ -1,6 +1,10 @@
 <script lang="ts" module>
   import type { MotionState } from "$lib/scenes/motion";
   import type { CreatureInstance } from "$lib/session/session.svelte";
+  import {
+    type ClownfishCuriosityState,
+    ClownfishCuriosityCoordinator,
+  } from "$lib/scenes/reef/curiosity";
 
   /**
    * Where each Creature had got to, so one that is drawn afresh — when the
@@ -8,6 +12,11 @@
    * spot rather than jumping back to where it arrived.
    */
   const motions = new WeakMap<CreatureInstance, MotionState>();
+  const reefMoments = new WeakMap<CreatureInstance, ClownfishCuriosityState>();
+  const reefCoordinator = new ClownfishCuriosityCoordinator<
+    HTMLElement,
+    CreatureInstance
+  >();
 </script>
 
 <script lang="ts">
@@ -42,6 +51,11 @@
     type Footprint,
   } from "$lib/scenes/motion";
   import { cancelFrame, requestFrame } from "$lib/frames";
+  import {
+    advanceClownfishCuriosity,
+    createClownfishCuriosity,
+    type ClownfishPhase,
+  } from "$lib/scenes/reef/curiosity";
 
   let {
     creature,
@@ -126,6 +140,9 @@
   let turning = $state(false);
   let shaking = $state(false);
 
+  /** Decorative only: one clownfish quietly stops to look around. */
+  let reefCuriosity = $state<ClownfishPhase | null>(null);
+
   let swimmer: HTMLDivElement;
   let banker: HTMLDivElement;
   let flipper: HTMLDivElement;
@@ -140,6 +157,11 @@
   onMount(() => {
     const scene = swimmer.parentElement!;
     const style = creature.def.motion;
+    const curiousClownfish =
+      scene.dataset.scene === "reef" && creature.def.slug === "clownfish";
+    let reefState = curiousClownfish
+      ? (reefMoments.get(creature) ?? createClownfishCuriosity(Math.random))
+      : null;
     // The window the Scene is drawn in, which is not this one while it floats:
     // an observer belongs to the window that made it, and a hidden tab's
     // observers never report.
@@ -179,6 +201,13 @@
         creature.def.flips,
       );
     motions.set(creature, state);
+    if (reefState?.phase && !reefCoordinator.acquire(scene, creature)) {
+      // If a floating view remounts while another instance owns the scene,
+      // drop this moment rather than letting two fish look around together.
+      reefState = advanceClownfishCuriosity(reefState, 0, false, Math.random);
+    }
+    if (reefState) reefMoments.set(creature, reefState);
+    if (reefState?.phase) reefCuriosity = reefState.phase;
 
     // Already Paused when drawn, as when the Scene floats out mid-announcement:
     // it was listening before, so it carries on without turning again.
@@ -205,6 +234,34 @@
       // holds its pose instead of snapping upright.
       // A Creature already running keeps running, even if the Scene freezes.
       if (frozen && !fleeing) dt = 0;
+
+      // Each fish owns its own schedule; a scene-wide coordinator keeps
+      // summoned duplicates from entering the same moment together.
+      if (reefState) {
+        const wasActive = reefState.phase !== null;
+        const canStart = reefCoordinator.available(scene, creature);
+        reefState = advanceClownfishCuriosity(
+          reefState,
+          dt,
+          !frozen && !listening && !fleeing && !reducedMotion.matches,
+          Math.random,
+          canStart,
+        );
+        if (!wasActive && reefState.phase) {
+          if (!reefCoordinator.acquire(scene, creature)) {
+            reefState = advanceClownfishCuriosity(
+              reefState,
+              0,
+              false,
+              Math.random,
+            );
+          }
+        } else if (wasActive && !reefState.phase) {
+          reefCoordinator.release(scene, creature);
+        }
+        reefMoments.set(creature, reefState);
+        if (reefCuriosity !== reefState.phase) reefCuriosity = reefState.phase;
+      }
 
       if (fading) {
         // Stays where it was when the signal broke up. Fading is not
@@ -252,7 +309,20 @@
           shaking = true;
           state.resting = 0.4 + Math.random() * 1.4;
         }
-        stepMotion(state, style, creature.depth, footprint(), dt, Math.random);
+        // During the brief watch the fish brakes to a quiet hover, rather
+        // than repeating its normal wandering and just wiggling its eyes.
+        if (reefState?.phase === "brake" || reefState?.phase === "peek") {
+          stepSettle(state, style, creature.depth, footprint(), dt);
+        } else {
+          stepMotion(
+            state,
+            style,
+            creature.depth,
+            footprint(),
+            dt,
+            Math.random,
+          );
+        }
       }
 
       const left = state.x * sceneW - selfW / 2;
@@ -285,6 +355,10 @@
       cancelFrame(frame);
       resize.disconnect();
       clearTimeout(settle);
+      if (reefState) {
+        reefCoordinator.release(scene, creature);
+        reefMoments.set(creature, reefState);
+      }
     };
   });
 </script>
@@ -294,6 +368,7 @@
   class="swimmer pointer-events-none absolute top-0 left-0"
   class:fleeing
   class:fading
+  data-reef-curiosity={reefCuriosity}
   data-listening={attending}
   data-holding={listening && whilePaused === "hold" && !fleeing}
   style="
